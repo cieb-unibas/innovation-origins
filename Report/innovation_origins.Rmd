@@ -1,0 +1,35 @@
+---
+output: 
+   html_document:
+      css: style.css
+runtime: shiny
+fig_caption: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("shiny")
+library("ggplot2")
+library("viridis")
+library("RColorBrewer")
+library("knitr")
+library("png")
+library("cowplot")
+library("plotly")
+library("shinyWidgets")
+library("dplyr")
+library("data.table")
+```
+
+<!-- <head> -->
+<!-- <!-- Global site tag (gtag.js) - Google Analytics --> -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script> -->
+<!-- <script> -->
+<!--   window.dataLayer = window.dataLayer || []; -->
+<!--   function gtag(){dataLayer.push(arguments);} -->
+<!--   gtag('js', new Date()); -->
+<!--   gtag('config', 'UA-71167447-1'); -->
+<!-- </script> -->
+<!-- </head> -->
+
+
