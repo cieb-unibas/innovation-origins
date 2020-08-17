@@ -176,10 +176,9 @@ return(inv_firm)
 }
 
 ## apply previous created function to different technology fields. The tech_fields are determined by the first input of the lapply function
-inv_firm_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "CH")))) ##cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
-## Description of variables: ctry_firm: Country of the firm as written in the patent; ctry_inv: country of the place of resindece of the inventor as written in the patent; ctry_pat: Our derived country where the innovation has happened
-## apply previous created function to different technology fields. ------------- 
-# The tech_fields are determined by the first input of the lapply function
+inv_firm_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "CH")))) 
+## The tech_fields are determined by the first input of the lapply function
+## cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
 ## Description of variables: 
 # ctry_firm: Country of the firm as written in the patent; 
 # ctry_inv: country of the place of resindece of the inventor as written in the patent; 
