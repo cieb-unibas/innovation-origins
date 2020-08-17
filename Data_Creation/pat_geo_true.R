@@ -1,56 +1,100 @@
 #######################################################################
 print("Calculate true place of  where innovations happen/ CR 11.8.2020")
 #######################################################################
-require(data.table)
-require(ggplot2)
-require(dplyr)
-require(geosphere)
-require(fuzzyjoin)
-require(plyr)
-require(stringr)
-require(stringdist)
-require(RecordLinkage)
-require(fuzzyjoin)
-require(tm)
+
+require("data.table")
+require("ggplot2")
+require("dplyr")
+require("geosphere")
+require("fuzzyjoin")
+require("plyr")
+require("stringr")
+require("stringdist")
+require("RecordLinkage")
+require("tm")
 
 mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 tech_field_start <- 20
 
+## Background: -------------------------------
+# Load data created in Scripts No. 20 (regional of inventors) and 21 (region of firms): 
+# We only use USPTO patents, because for EPO patents we do not have longitudes or latitudes. 
+# So the results can only be seen as a representative sample. 
+# => WE COULD DISCUSS AN EXTENSION TO EPO PATENTS however
+
 cross_bord_func <- function(tech_field_start, ctry_firm, inv_ctry){
-## Load data created in 20 and 21: We only use USPTO patents, because for EPO patents we do not have longitudes or latitudes. So the results can only be seen as a representative sample. WE COULD DISCUSS AN EXTENSION TO EPO PATENTS 
-inv_reg_us <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_us_", tech_field_start, ".rds")) %>% dplyr::select(p_key, name, inventor_id, lat, lng, ctry_code, Up_reg_label, patent_id)
+
+# Load inventor data, determine number of inventors per p_key 
+# and drop inventors that are listed more than once per p_key
+inv_reg_us <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_us_", tech_field_start, ".rds")) %>%
+  dplyr::select(p_key, name, inventor_id, lat, lng, ctry_code, Up_reg_label, patent_id)
 inv_reg_us <- setDT(inv_reg_us)[, num_inv := .N, .(p_key)]
 inv_reg_us <- distinct(inv_reg_us, p_key, name, .keep_all =  T)
 
-firm_reg_us <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_us_", tech_field_start, ".rds")) %>% dplyr::select(p_key, organization, lat, lng, country, Up_reg_label)
+# Load firm data and drop firms that are listed more than once per p_key
+firm_reg_us <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_us_", tech_field_start, ".rds")) %>% 
+  dplyr::select(p_key, organization, lat, lng, country, Up_reg_label)
 firm_reg_us <- distinct(firm_reg_us, p_key, organization, lat, lng, .keep_all = T)
 
-## Find crossborder-commuters directly: Crossborder-commuter if inventor life not in the same country as location of firm AND both geographic locations are not too far away
-inv_firm <- inner_join(inv_reg_us, firm_reg_us, by = c("p_key"))
-inv_firm <- mutate(inv_firm, lat_diff = abs(lat.x -lat.y), lng_diff = abs(lng.x - lng.y)) %>%  filter(is.na(lat_diff) != T) %>% mutate(dist = lat_diff^2 + lng_diff^2, max_dist = ifelse(lat_diff < 1.2 & lng_diff < 1.2, 0, 1))
-inv_firm <- setDT(inv_firm)[order(dist), .SD[1], .(p_key, inventor_id)] ## Use firm location having the lowest distance to the inventor location
-inv_firm <- mutate(inv_firm, cross_bord = ifelse(ctry_code != country & max_dist == 0, "yes", ifelse(ctry_code == country, "no", "maybe"))) ## Clear indication of crossborder-commuter if inventor life not in the same country as location of firm AND both geographic locations are not too far away
+## Find crossborder-commuters directly: ----------------------------------------
+# Crossborder-commuter status is assigned if 
+# (a) An inventor does not live in the same country as the firm is located,
+# AND 
+# (b) the geographic location of the inventor and the firm are not too far away.
+
+# 1) match firms and inventors, calculate location distance between them and 
+#    only consider the closest match.
+inv_firm <- inner_join(inv_reg_us, firm_reg_us, by = c("p_key")) 
+inv_firm <- mutate(inv_firm, lat_diff = abs(lat.x -lat.y), lng_diff = abs(lng.x - lng.y)) %>%
+  filter(is.na(lat_diff) != T) %>% mutate(dist = lat_diff^2 + lng_diff^2, 
+                                          max_dist = ifelse(lat_diff < 1.2 & lng_diff < 1.2, 0, 1))
+inv_firm <- setDT(inv_firm)[order(dist), .SD[1], .(p_key, inventor_id)] 
+
+# 2) If country of inventor and firm is not identical AND distance is small,
+# assign crossborder-commuter status to the inventor/patent
+inv_firm <- mutate(inv_firm, 
+                   cross_bord = ifelse(ctry_code != country & max_dist == 0, "yes",
+                                       ifelse(ctry_code == country, "no", "maybe"))) 
 inv_firm <- dplyr::rename(inv_firm, lat = lat.x, lng = lng.x)
 inv_firm <- distinct(inv_firm, p_key, organization, inventor_id, lat, lng, .keep_all = T)
+# @CR: at this stage there seem to be a view weird observations. Either region or coordinates must be wrong
+# e.g. Germans apparently cross-commuting to the US or UK
 
-## Create function to derive crossborder-commuters for those patents for which we have ambiguous information. This is the case for eg Swiss firms that apply for US patents via US affiliations. 
-## As a result, firm and inventor(s) are officially from two different countries but geographically too far away to meet the previous criteria. However, the true invention location would nevertheless in Switzerland
-derive_cross_bord_func <- function(ctry_firm, inv_ctry){##first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
-  ## Get list of firms of a country/region and tech_field
-  firm_list <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds"))  %>% dplyr::select(p_key, organization, lat, lng, country, Up_reg_label, pub_nbr)
-  firm_list <- filter(firm_list, country %in% ctry_firm) %>% mutate(organization = tolower(organization))
+## Create function to derive crossborder-commuters for patents with ambiguous information. -------------------
+# This is the case for eg Swiss firms that apply for US patents via US affiliations. 
+# As a result, firm and inventor(s) are from two different countries but geographically too far away to meet the previous criteria. 
+# However, the true invention location (= where R&D took place) would nevertheless be in Switzerland
+
+derive_cross_bord_func <- function(ctry_firm, inv_ctry){
+  # first input parameter is for the country where the patent has been invented,
+  # the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
+  
+  # Get list of firms of a country/region and tech_field
+  firm_list <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds")) %>% 
+    dplyr::select(p_key, organization, lat, lng, country, Up_reg_label, pub_nbr)
+  firm_list <- filter(firm_list, country %in% ctry_firm) %>% 
+    mutate(organization = tolower(organization))
   firm_list$organization <- gsub('[[:punct:] ]+',' ', firm_list$organization)
   firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
                                                                             "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
                                                                             "usa", "engineering", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", "corp", "div", 
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
                                                                             "kommanditgesellschaft", "pourrecherchemicrotechnique", "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "research")), which = "both")) 
-  firm_list <- setDT(firm_list)[, num := .N, .(organization, Up_reg_label)]## use only firms for which we know that they have at least some patents in the country of firm (eg Switzerland)
+  
+  # use only firms for which we know that they have at least some patents in the country of firm (eg Switzerland)
+  firm_list <- setDT(firm_list)[, num := .N, .(organization, Up_reg_label)]
   firm_list <- filter(firm_list, num > 5)
   firm_list <- aggregate(cbind(lat, lng) ~ organization + Up_reg_label, FUN = function(x)mean(x, na.rm = T, na.action = NULL), data = firm_list)
   firm_list <- distinct(firm_list, organization, lat, lng, Up_reg_label)
   
-  inv_firm_maybe <- filter(inv_firm, cross_bord == "maybe" & ctry_code %in% inv_ctry & !(country %in% c(ctry_firm, inv_ctry))) %>% dplyr::select(organization, ctry_code, p_key, inventor_id, lat, lng) 
+  # @CR: description here? My understanding:
+  # subset to those patents where inventor and firm location are not identical (= "maybe"),
+  # subset again to inventors with an address in chosen inv_countries (e.g. CH, DE, FR)
+  # and subset again to firms that are not in these countries (e.g. US-affiliates)
+  inv_firm_maybe <- filter(inv_firm, 
+                           cross_bord == "maybe" & ctry_code %in% inv_ctry & 
+                             !(country %in% c(ctry_firm, inv_ctry))) %>% 
+    dplyr::select(organization, ctry_code, p_key, inventor_id, lat, lng) 
   
 if(nrow(inv_firm_maybe) != 0){
   inv_firm_maybe$organization <- gsub('[[:punct:] ]+',' ', inv_firm_maybe$organization)
@@ -60,16 +104,25 @@ if(nrow(inv_firm_maybe) != 0){
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
                                                                             "kommanditgesellschaft", "pourrecherchemicrotechnique", "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "research")), which = "both")) 
   
-  ## crossborder-commuter if (i) inventor life not in the same country as location of firm AND both geographic locations (firm and inventor) are not too far away. Moreover, using distance among names of firm of inventor and list of Swiss firms as a second criteria. 
-  ## These two criteria determine the degree of accuracy
+  # assign crossborder-commuter status to "maybe" observations if: 
+  # (i) inventor lives not in the same country as location of firm AND 
+  # (ii) both geographic locations (firm and inventor) are not too far away. 
+  
+  # Moreover, using distance among names of firm of inventor and list of Swiss firms as a second criteria. 
+  # These two criteria determine the degree of accuracy
   close_firm <- difference_left_join(inv_firm_maybe, firm_list, by = c("lat", "lng"), max_dist = 2)
   close_firm <- filter(close_firm, is.na(organization.y) != T)
   close_firm <- mutate(close_firm, name_diff = stringdist(organization.x, organization.y)) 
-  close_firm <- mutate(close_firm, lat_diff = abs(lat.x -lat.y), lng_diff = abs(lng.x - lng.y), dist = lat_diff^2 + lng_diff^2) %>% filter(lat_diff < 1.3 & lng_diff < 1.3 & name_diff < 3)
+  close_firm <- mutate(close_firm, lat_diff = abs(lat.x -lat.y), 
+                       lng_diff = abs(lng.x - lng.y), 
+                       dist = lat_diff^2 + lng_diff^2) %>% 
+    filter(lat_diff < 1.3 & lng_diff < 1.3 & name_diff < 3)
   close_firm <- setDT(close_firm)[order(dist, name_diff), .SD[1], .(p_key, inventor_id)]
   
   if(nrow(close_firm) != 0){
-  close_firm <- filter(close_firm, is.na(organization.y) != T) %>% mutate(cross_bord = "yes", ctry_pat = ctry_firm) %>% select(inventor_id, organization.x, organization.y, p_key, cross_bord, ctry_pat, Up_reg_label)
+  close_firm <- filter(close_firm, is.na(organization.y) != T) %>% 
+    mutate(cross_bord = "yes", ctry_pat = ctry_firm) %>% 
+    select(inventor_id, organization.x, organization.y, p_key, cross_bord, ctry_pat, Up_reg_label)
   print(paste0("A total of ", nrow(close_firm), " maybes can be attributed as crossborder commuters"))
   return(close_firm)
   } else {
@@ -84,29 +137,43 @@ if(nrow(inv_firm_maybe) != 0){
 } 
 
 derive_cross_bord <- derive_cross_bord_func(ctry_firm, inv_ctry) 
-derive_cross_bord <- mutate(derive_cross_bord, p_key = as.character(p_key), inventor_id = as.character(inventor_id))
+derive_cross_bord <- mutate(derive_cross_bord, p_key = as.character(p_key), 
+                            inventor_id = as.character(inventor_id))
 
-## Adjustment of maybe-crossborder commuter. Problem: Region not possible, because then we have to find for each region of inventor the corresponding closest foreign firm region. This might be possible, would however require some effort. 
+## Adjustment of maybe-crossborder commuter ------------------------------------ 
+# Problem: Region not possible, because then we have to find for each region of inventor the corresponding closest foreign firm region. 
+# This might be possible, would however require some effort. 
 inv_firm <- left_join(inv_firm, derive_cross_bord, by = c("p_key", "inventor_id"))
 
 ## Derive the "true" country and region of a patent based on the previously derive
-inv_firm <- mutate(inv_firm, cross_bord = ifelse(cross_bord.y == "yes" & is.na(cross_bord.y) != T, "yes", cross_bord.x),
-                   regio_firm = ifelse(is.na(Up_reg_label), Up_reg_label.y, Up_reg_label), regio_inv = Up_reg_label.x) %>% 
-            mutate(ctry_pat = ifelse(ctry_code == country, ctry_code, ifelse(ctry_code != country & cross_bord.x == "yes", country, ifelse(ctry_code != country & is.na(cross_bord.y) != T, ctry_pat, ctry_code)))) %>%
+# @CR lost me here somewhat.. these are a bit too many ifelse()-things for me :) but seems to work hehe
+inv_firm <- mutate(inv_firm, 
+                   cross_bord = ifelse(cross_bord.y == "yes" & is.na(cross_bord.y) != T, "yes", cross_bord.x),
+                   regio_firm = ifelse(is.na(Up_reg_label), Up_reg_label.y, Up_reg_label), 
+                   regio_inv = Up_reg_label.x) %>% 
+            mutate(ctry_pat = ifelse(ctry_code == country, ctry_code, 
+                                     ifelse(ctry_code != country & cross_bord.x == "yes", country, 
+                                            ifelse(ctry_code != country & is.na(cross_bord.y) != T, ctry_pat, ctry_code)))) %>%
             mutate(inv_firm, regio_pat = ifelse(regio_firm == regio_inv, regio_firm,
                                                 ifelse(regio_firm != regio_inv & cross_bord == "yes", regio_firm, NA)))
-                     
+
 inv_firm <- distinct(inv_firm, p_key, inventor_id, .keep_all = T)
-inv_firm <- mutate(inv_firm, tech_field = tech_field_start) %>% dplyr::rename(ctry_inv = ctry_code, ctry_firm = country) %>% 
-            dplyr::select(p_key, organization, inventor_id, name, lat, lng, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
+inv_firm <- mutate(inv_firm, tech_field = tech_field_start) %>% 
+  dplyr::rename(ctry_inv = ctry_code, ctry_firm = country) %>%
+  dplyr::select(p_key, organization, inventor_id, name, lat, lng, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
 
 print(paste0("Calculation for tech_field ", tech_field_start, " done"))
 return(inv_firm)
 }
 
-## apply previous created function to different technology fields. The tech_fields are determined by the first input of the lapply function
-inv_firm_adj <- do.call(rbind.fill, lapply(seq(16, 16), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "CH")))) ##cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
-## Description of variables: ctry_firm: Country of the firm as written in the patent; ctry_inv: country of the place of resindece of the inventor as written in the patent; ctry_pat: Our derived country where the innovation has happened
+## apply previous created function to different technology fields. ------------- 
+# The tech_fields are determined by the first input of the lapply function
+inv_firm_adj <- do.call(rbind.fill, 
+                        lapply(seq(16, 16), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "CH")))) ##cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
+## Description of variables: 
+# ctry_firm: Country of the firm as written in the patent; 
+# ctry_inv: country of the place of resindece of the inventor as written in the patent; 
+# ctry_pat: Our derived country where the innovation has happened
 
 ## Add p_year
 dat_p_year <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/dat_p_year.rds")  %>% mutate(p_key = as.character(p_key)) %>% dplyr::select(p_key, p_year)
