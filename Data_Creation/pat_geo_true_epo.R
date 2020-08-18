@@ -45,7 +45,6 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg_", tech_field_start, ".rds"))
         
         # Load USPTO patents and remove those inventors from the sample
-        # who are already considered there:
         us_inv <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_us_", tech_field_start, ".rds"))
         drop_keys <- which(inv_reg$p_key %in% unique(us_inv$p_key))
         inv_reg <- inv_reg[-drop_keys, ]
@@ -99,22 +98,52 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         return(inv_firm)
 }
 
+
+##########################################
+############ RUN THE FUNCTION ############
+##########################################
+
 ## TEST:
-df <- cross_bord_EPO_func(tech_field_start = 16)        
+df <- cross_bord_EPO_func(tech_field_start = 16)
+
+##########################################
+######### REGIONS TO CHOOSE FROM #########
+##########################################
+
+## GERMANY ---------------------------------------------------------------------
+# [1] "Germany - not regionalised" "Oberbayern"                 "Freiburg"                   "Weser-Ems"                 
+# [5] "Karlsruhe"                  "Oberfranken"                "Darmstadt"                  "Hannover"                  
+# [9] "Düsseldorf"                 "Thüringen"                  "Rheinhessen-Pfalz"          "Köln"                      
+# [13] "Berlin"                     "Leipzig"                    "Gießen"                     "Unterfranken"              
+# [17] "Saarland"                   "Brandenburg"                "Niederbayern"               "Tübingen"                  
+# [21] "Sachsen-Anhalt"             "Mittelfranken"              "Arnsberg"                   "Koblenz"                   
+# [25] "Detmold"                    "Oberpfalz"                  "Stuttgart"                  "Bremen"                    
+# [29] "Hamburg"                    "Braunschweig"               "Schleswig-Holstein"         "Schwaben"                  
+# [33] "Dresden"                    "Münster"                    "Lüneburg"                   "Kassel"            
         
-        
+## FRANCE ----------------------------------------------------------------------
+# [1] "Alsace "                    "Rhône-Alpes"                "Auvergne"                   "Île-de-France"             
+# [5] "Champagne-Ardenne"          "Centre-Val de Loire"        "Provence-Alpes-Côte d'Azur" "France - not regionalised" 
+# [9] "Burgundy"                   "Nord-Pas-de-Calais"         "Picardy"                    "Pays de la Loire"          
+# [13] "Aquitaine"                  "Lorraine"                   "Midi-Pyrénées"              "Languedoc-Roussillon "     
+# [17] "Lower Normandy "            "Upper Normandy"             "Brittany"                   "Guadeloupe"                
+# [21] "Franche-Comté"              "Poitou-Charentes"
 
-        
-        
-        
-        
+## AUSTRIA ---------------------------------------------------------------------
+# [1] "Lower Austria"              "Vienna"                     "Tyrol"                      "Vorarlberg"                
+# [5] "Upper Austria"              "Styria"                     "Austria - not regionalised" "Carinthia"  
+
+## ITALY  ----------------------------------------------------------------------
+# [1] "Friuli-Venezia Giulia"     "Lombardy"                  "Tuscany"                   "Campania"                 
+# [5] "Umbria"                    "Veneto"                    "Piedmont"                  "Italy - not regionalised" 
+# [9] "Emilia-Romagna"            "Marche"                    "Lazio"                     "Liguria"                  
+# [13] "Apulia"                    "Sicily"                    "Province of Bolzano-Bozen" "Abruzzo"                  
+# [17] "Calabria"
 
 
-
-
-
-
-
+##########################################
+############ SAVE THE DATASET ############
+##########################################
 
 
 
