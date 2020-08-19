@@ -21,9 +21,6 @@ print("Packages loaded and directories set.")
 ####### SPECIFY TECHNOLOGY FIELD ##########
 ###########################################
 
-# manually specify single tech_field
-tech_field_start <- c(16)
-
 # # calculation from first tech_field (input one) to last tech_field (input two) 
 tech_field_start_index <- c(1, 35)
 
@@ -36,13 +33,13 @@ tech_field_start_index <- c(1, 35)
 ############ DEFINE FUNCTION ##############
 ###########################################
 
-cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH", 
+cross_bord_EPO_func <- function(tech_field_start, 
                                 DE_regions = c("Freiburg", "Schwaben"),
                                 FR_regions = c("Alsace", "Rhône-Alpes", "Lorraine", "Franche-Comté"),
                                 IT_regions = c("Lombardy", "Piedmont"),
                                 AT_regions = c("Vorarlberg")){
         
-        # Load inventor data, 
+        # Load inventor data 
         inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg_", tech_field_start, ".rds"))
         
         # Load USPTO patents and remove those inventors from the sample
@@ -60,6 +57,7 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg_", tech_field_start, ".rds")) 
         firm_reg <- firm_reg %>% dplyr::select(p_key, organization, country, Up_reg_label)
         firm_reg <- mutate(firm_reg, Up_reg_label = trimws(Up_reg_label))
+        
         # Keep only patents for which all firms are from CH
         firm_reg <- setDT(firm_reg)[, firm_ctry := paste0(unique(country), collapse = ";"), .(p_key)]
         firm_reg <- filter(firm_reg, firm_ctry == "CH")
@@ -69,7 +67,7 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         inv_firm <- inner_join(inv_reg, firm_reg, by = c("p_key"))
         
         # subset to Swiss-based firms
-        inv_firm <- inv_firm %>% filter(country == ctry_firm)
+        inv_firm <- inv_firm %>% filter(country == "CH")
         
         ## identify commuters ---------------------------------------------------
         
@@ -91,10 +89,10 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         IT_commuters <- inv_firm %>% filter(Up_reg_label.y %in% c("Ticino"),
                                             Up_reg_label.x %in% IT_regions)
         
-        # combine identified commuter
+        # combine identified commuters
         inv_firm <- rbind(DE_commuters, FR_commuters, AT_commuters, IT_commuters)
         
-        # add crossbord information & assign CH and CH-region to patent
+        # add cross-bord information & assign CH and CH-region to patent
         inv_firm <- mutate(inv_firm,
                            cross_bord = "yes",
                            ctry_pat  = country,
@@ -105,7 +103,11 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
                            ctry_inv  = Ctry_code,   
                            tech_field = tech_field_start)
         
-        inv_firm <- dplyr::select(inv_firm, p_key, organization, name, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
+        inv_firm <- dplyr::select(inv_firm, 
+                                  p_key, organization, name, ctry_inv, ctry_firm, 
+                                  ctry_pat, regio_firm, regio_inv, regio_pat, 
+                                  cross_bord, tech_field)
+        
         # return the data
         return(inv_firm)
 }
@@ -116,12 +118,18 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
 ##########################################
 
 ## TEST:
-df <- cross_bord_EPO_func(tech_field_start = 16)
+# df <- cross_bord_EPO_func(tech_field_start = 16)
 
 ## Create data for all tech-fields
 inv_EPO_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_EPO_func(x))) 
-inv_EPO_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_ep.rds")
+print("Cross-border commuters identified for all tech-fields")
 
+##########################################
+############ SAVE THE DATASET ############
+##########################################
+
+inv_EPO_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_ep.rds")
+print("Dataset saved as 'inv_reg_adj_commuters_ep.rds'")
 
 
 ##########################################
@@ -157,13 +165,3 @@ inv_EPO_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/cre
 # [9] "Emilia-Romagna"            "Marche"                    "Lazio"                     "Liguria"                  
 # [13] "Apulia"                    "Sicily"                    "Province of Bolzano-Bozen" "Abruzzo"                  
 # [17] "Calabria"
-
-
-##########################################
-############ SAVE THE DATASET ############
-##########################################
-
-
-
-
-
