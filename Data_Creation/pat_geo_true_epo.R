@@ -25,18 +25,19 @@ print("Packages loaded and directories set.")
 tech_field_start <- c(16)
 
 # # calculation from first tech_field (input one) to last tech_field (input two) 
-# tech_field_start_index <- c(1, 35)
+tech_field_start_index <- c(1, 35)
 
 # Determine the tech_field using slurm
 # args <- commandArgs(TRUE)
 # tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
+
 
 ###########################################
 ############ DEFINE FUNCTION ##############
 ###########################################
 
 cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH", 
-                                DE_regions = c("Freiburg", "Karlsruhe", "Stuttgart", "Schwaben"),
+                                DE_regions = c("Freiburg", "Schwaben"),
                                 FR_regions = c("Alsace", "Rhône-Alpes", "Lorraine", "Franche-Comté"),
                                 IT_regions = c("Lombardy", "Piedmont"),
                                 AT_regions = c("Vorarlberg")){
@@ -52,12 +53,17 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         # determine number of inventors per p_key and drop all inventors that are listed more than once per p_key
         inv_reg <- inv_reg %>% dplyr::select(p_key, name, Ctry_code, Up_reg_label, patent_id)
         inv_reg <- setDT(inv_reg)[, num_inv := .N, .(p_key)]
+        inv_reg <- mutate(inv_reg, Up_reg_label = trimws(Up_reg_label))
         inv_reg <- distinct(inv_reg, p_key, name, .keep_all =  TRUE)
         
         # Load firm data and drop firms that are listed more than once per p_key
         firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg_", tech_field_start, ".rds")) 
         firm_reg <- firm_reg %>% dplyr::select(p_key, organization, country, Up_reg_label)
-        firm_reg <- distinct(firm_reg, p_key, organization, .keep_all = TRUE)
+        firm_reg <- mutate(firm_reg, Up_reg_label = trimws(Up_reg_label))
+        # Keep only patents for which all firms are from CH
+        firm_reg <- setDT(firm_reg)[, firm_ctry := paste0(unique(country), collapse = ";"), .(p_key)]
+        firm_reg <- filter(firm_reg, firm_ctry == "CH")
+        firm_reg <- distinct(firm_reg, p_key, organization, Up_reg_label, .keep_all = TRUE)
         
         # match firms and inventors
         inv_firm <- inner_join(inv_reg, firm_reg, by = c("p_key"))
@@ -68,12 +74,12 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         ## identify commuters ---------------------------------------------------
         
         # identify German commuters (lower bound)
-        DE_commuters <- inv_firm %>% filter(Up_reg_label.y %in% c("Northwestern Switzerland ",
+        DE_commuters <- inv_firm %>% filter(Up_reg_label.y %in% c("Northwestern Switzerland",
                                                               "Zürich", "Eastern Switzerland"),
                                         Up_reg_label.x %in% DE_regions)
         
         # identify French commuters (lower bound)
-        FR_commuters <- inv_firm %>% filter(Up_reg_label.y %in% c("Northwestern Switzerland ",
+        FR_commuters <- inv_firm %>% filter(Up_reg_label.y %in% c("Northwestern Switzerland",
                                                                   "Lake Geneva Region"),
                                             Up_reg_label.x %in% FR_regions)
         
@@ -91,9 +97,15 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
         # add crossbord information & assign CH and CH-region to patent
         inv_firm <- mutate(inv_firm,
                            cross_bord = "yes",
-                           ctry_pat = country,
-                           regio_pat = Up_reg_label.y)
+                           ctry_pat  = country,
+                           regio_pat = Up_reg_label.y, 
+                           regio_firm  = Up_reg_label.y, 
+                           ctry_firm = "CH",
+                           regio_inv   = Up_reg_label.x,
+                           ctry_inv  = Ctry_code,   
+                           tech_field = tech_field_start)
         
+        inv_firm <- dplyr::select(inv_firm, p_key, organization, name, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
         # return the data
         return(inv_firm)
 }
@@ -105,6 +117,12 @@ cross_bord_EPO_func <- function(tech_field_start, ctry_firm = "CH",
 
 ## TEST:
 df <- cross_bord_EPO_func(tech_field_start = 16)
+
+## Create data for all tech-fields
+inv_EPO_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_EPO_func(x))) 
+inv_EPO_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_ep.rds")
+
+
 
 ##########################################
 ######### REGIONS TO CHOOSE FROM #########
@@ -122,7 +140,7 @@ df <- cross_bord_EPO_func(tech_field_start = 16)
 # [33] "Dresden"                    "Münster"                    "Lüneburg"                   "Kassel"            
         
 ## FRANCE ----------------------------------------------------------------------
-# [1] "Alsace "                    "Rhône-Alpes"                "Auvergne"                   "Île-de-France"             
+# [1] "Alsace"                    "Rhône-Alpes"                "Auvergne"                   "Île-de-France"             
 # [5] "Champagne-Ardenne"          "Centre-Val de Loire"        "Provence-Alpes-Côte d'Azur" "France - not regionalised" 
 # [9] "Burgundy"                   "Nord-Pas-de-Calais"         "Picardy"                    "Pays de la Loire"          
 # [13] "Aquitaine"                  "Lorraine"                   "Midi-Pyrénées"              "Languedoc-Roussillon "     
