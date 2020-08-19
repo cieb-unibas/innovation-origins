@@ -25,8 +25,8 @@ print("Packages loaded and directories set.")
 tech_field_start_index <- c(1, 35)
 
 # Determine the tech_field using slurm
-# args <- commandArgs(TRUE)
-# tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
+args <- commandArgs(TRUE)
+tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
 
 
 ###########################################
@@ -40,7 +40,7 @@ cross_bord_EPO_func <- function(tech_field_start,
                                 AT_regions = c("Vorarlberg")){
         
         # Load inventor data 
-        inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg_", tech_field_start, ".rds"))
+        inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_", tech_field_start, ".rds"))
         
         # Load USPTO patents and remove those inventors from the sample
         us_inv <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_us_", tech_field_start, ".rds"))
@@ -54,7 +54,7 @@ cross_bord_EPO_func <- function(tech_field_start,
         inv_reg <- distinct(inv_reg, p_key, name, .keep_all =  TRUE)
         
         # Load firm data and drop firms that are listed more than once per p_key
-        firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg_", tech_field_start, ".rds")) 
+        firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds")) 
         firm_reg <- firm_reg %>% dplyr::select(p_key, organization, country, Up_reg_label)
         firm_reg <- mutate(firm_reg, Up_reg_label = trimws(Up_reg_label))
         
