@@ -20,7 +20,7 @@ mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 # Determine the tech_field manually 
 tech_field_start_index <- c(1, 35) ## calculation is done from first tech_field (input one) to last tech_field (input two) 
 
-tech_field_start <- 20
+tech_field_start <- 1
 # Determine the tech_field using slurm
 # args <- commandArgs(TRUE)
 # tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
@@ -48,6 +48,25 @@ firm_reg_us <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_us_", t
   dplyr::select(p_key, organization, lat, lng, country, Up_reg_label)
 firm_reg_us <- distinct(firm_reg_us, p_key, organization, lat, lng, .keep_all = T)
 
+## Since some firms have unknown country in US data, we use EPO data to get country for patents applied at the US and EPO
+firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds")) %>% 
+  dplyr::select(p_key, organization, lat, lng, country, Up_reg_label)
+firm_reg <- filter(firm_reg, is.na(lat) == T & is.na(lng) == T) %>% dplyr::select(-lat, -lng)
+
+## Do the following calculation only for US patents with country unknown or not existent
+firm_reg_us_temp <- filter(firm_reg_us, country == "un" | is.na(country) == T)
+firm_reg_us_temp <- setDT(firm_reg_us_temp)[, num_firm := .N, .(p_key)]
+firm_reg_us_temp <- left_join(firm_reg_us_temp, firm_reg, by = c("p_key"))
+firm_reg_us_temp <- mutate(firm_reg_us_temp, name_dist = stringdist(organization.x, organization.y)) %>% mutate(name_dist = ifelse(is.na(name_dist), 0, name_dist))
+firm_reg_us_temp <- setDT(firm_reg_us_temp)[order(name_dist), .SD[1:num_firm], p_key]
+firm_reg_us_temp <- mutate(firm_reg_us_temp, country = country.y, Up_reg_label = Up_reg_label.y, organization = organization.x, p_key_org = paste0(p_key, organization.x))
+
+## Combine adjusted and not-adjusted data together
+firm_reg_us <- mutate(firm_reg_us, p_key_org = paste0(p_key, organization))
+firm_reg_us <- filter(firm_reg_us, !(p_key_org %in% firm_reg_us_temp$p_key_org)) %>% dplyr::select(-p_key_org)
+firm_reg_us_temp <- dplyr::select(firm_reg_us_temp, p_key, organization, country, Up_reg_label, lat, lng)
+firm_reg_us <- rbind(firm_reg_us, firm_reg_us_temp)
+
 ## Find crossborder-commuters directly: ----------------------------------------
 # Crossborder-commuter status is assigned if 
 # (a) An inventor does not live in the same country as the firm is located,
@@ -69,8 +88,6 @@ inv_firm <- mutate(inv_firm,
                                        ifelse(ctry_code == country, "no", "maybe"))) 
 inv_firm <- dplyr::rename(inv_firm, lat = lat.x, lng = lng.x)
 inv_firm <- distinct(inv_firm, p_key, organization, inventor_id, lat, lng, .keep_all = T)
-# @CR: at this stage there seem to be a view weird observations. Either region or coordinates must be wrong
-# e.g. Germans apparently cross-commuting to the US or UK
 
 ## Create function to derive crossborder-commuters for patents with ambiguous information. -------------------
 # This is the case for eg Swiss firms that apply for US patents via US affiliations. 
@@ -197,6 +214,9 @@ inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/cr
 ## Some analysis ##
 ###################
 ## Detect patents which are developed only by crossborder-commuters and thus cannot be attributed to the true country of invention (even if each country with at leat one inventor gets a share of one for a patent)
+inv_firm_adj <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
+
+
 inv_firm_adj <- setDT(inv_firm_adj)[, cbind("num_inv", "num_cross") := list(.N, sum(cross_bord == "yes", na.action = NULL)), .(p_key)]
 inv_firm_adj <- mutate(inv_firm_adj, pat_only_crossbord = ifelse(num_inv == num_cross, "yes", "no"))
 
