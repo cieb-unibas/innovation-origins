@@ -13,6 +13,7 @@
 
 library("tidyverse")
 library("data.table")
+library("plyr")
 mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 
 print("Packages loaded and directories set.")
