@@ -174,7 +174,6 @@ derive_cross_bord <- mutate(derive_cross_bord, p_key = as.character(p_key),
 inv_firm <- left_join(inv_firm, derive_cross_bord, by = c("p_key", "inventor_id"))
 
 ## Derive the "true" country and region of a patent based on the previously derive
-# @CR lost me here somewhat.. these are a bit too many ifelse()-things for me :) but seems to work hehe
 inv_firm <- mutate(inv_firm, 
                    cross_bord = ifelse(cross_bord.y == "yes" & is.na(cross_bord.y) != T, "yes", cross_bord.x),
                    regio_firm = ifelse(is.na(Up_reg_label), Up_reg_label.y, Up_reg_label), 
@@ -184,6 +183,9 @@ inv_firm <- mutate(inv_firm,
                                             ifelse(ctry_code != country & is.na(cross_bord.y) != T, ctry_pat, ctry_code)))) %>%
             mutate(inv_firm, regio_pat = ifelse(regio_firm == regio_inv, regio_firm,
                                                 ifelse(regio_firm != regio_inv & cross_bord == "yes", regio_firm, NA)))
+
+## Keep only commuters to the country determined by ctry_firm
+inv_firm <- filter(inv_firm, cross_bord == "yes" & ctry_pat == ctry_firm & ctry_inv != ctry_firm)
 
 inv_firm <- distinct(inv_firm, p_key, inventor_id, .keep_all = T)
 inv_firm <- mutate(inv_firm, tech_field = tech_field_start) %>% 
