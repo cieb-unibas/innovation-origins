@@ -184,13 +184,13 @@ inv_firm <- mutate(inv_firm,
             mutate(inv_firm, regio_pat = ifelse(regio_firm == regio_inv, regio_firm,
                                                 ifelse(regio_firm != regio_inv & cross_bord == "yes", regio_firm, NA)))
 
-## Keep only commuters to the country determined by ctry_firm
-inv_firm <- filter(inv_firm, cross_bord == "yes" & ctry_pat == ctry_firm & ctry_inv != ctry_firm)
-
 inv_firm <- distinct(inv_firm, p_key, inventor_id, .keep_all = T)
 inv_firm <- mutate(inv_firm, tech_field = tech_field_start) %>% 
   dplyr::rename(ctry_inv = ctry_code, ctry_firm = country) %>%
   dplyr::select(p_key, organization, inventor_id, name, lat, lng, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
+
+## Keep only commuters to the country determined by ctry_firm
+inv_firm <- filter(inv_firm, cross_bord == "yes" & ctry_pat == ctry_firm & ctry_inv != ctry_firm)
 
 print(paste0("Calculation for tech_field ", tech_field_start, " done"))
 return(inv_firm)
