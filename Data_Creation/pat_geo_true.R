@@ -24,7 +24,6 @@ tech_field_start_index <- c(1, 35) ## calculation is done from first tech_field 
 # args <- commandArgs(TRUE)
 # tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
 
-
 ## Background: -------------------------------
 # Load data created in Scripts No. 20 (regional of inventors) and 21 (region of firms): 
 # We only use USPTO patents, because for EPO patents we do not have longitudes or latitudes. 
