@@ -32,7 +32,7 @@ tech_field_start <- 1
 # So the results can only be seen as a representative sample. 
 # => WE COULD DISCUSS AN EXTENSION TO EPO PATENTS however
 
-cross_bord_func <- function(tech_field_start, ctry_firm, inv_ctry){
+cross_bord_func <- function(tech_field_start, ctry_firm_start, inv_ctry){
 
 # Load inventor data, determine number of inventors per p_key 
 # and drop inventors that are listed more than once per p_key
@@ -94,14 +94,14 @@ inv_firm <- distinct(inv_firm, p_key, organization, inventor_id, lat, lng, .keep
 # As a result, firm and inventor(s) are from two different countries but geographically too far away to meet the previous criteria. 
 # However, the true invention location (= where R&D took place) would nevertheless be in Switzerland
 
-derive_cross_bord_func <- function(ctry_firm, inv_ctry){
+derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   # first input parameter is for the country where the patent has been invented,
   # the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
   
   # Get list of firms of a country/region and tech_field
   firm_list <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds")) %>% 
     dplyr::select(p_key, organization, lat, lng, country, Up_reg_label, pub_nbr)
-  firm_list <- filter(firm_list, country %in% ctry_firm) %>% 
+  firm_list <- filter(firm_list, country %in% ctry_firm_start) %>% 
     mutate(organization = tolower(organization))
   firm_list$organization <- gsub('[[:punct:] ]+',' ', firm_list$organization)
   firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
@@ -122,7 +122,7 @@ derive_cross_bord_func <- function(ctry_firm, inv_ctry){
   # and subset again to firms that are not in these countries (e.g. US-affiliates)
   inv_firm_maybe <- filter(inv_firm, 
                            cross_bord == "maybe" & ctry_code %in% inv_ctry & 
-                             !(country %in% c(ctry_firm, inv_ctry))) %>% 
+                             !(country %in% c(ctry_firm_start, inv_ctry))) %>% 
     dplyr::select(organization, ctry_code, p_key, inventor_id, lat, lng) 
   
 if(nrow(inv_firm_maybe) != 0){
@@ -150,7 +150,7 @@ if(nrow(inv_firm_maybe) != 0){
   
   if(nrow(close_firm) != 0){
   close_firm <- filter(close_firm, is.na(organization.y) != T) %>% 
-    mutate(cross_bord = "yes", ctry_pat = ctry_firm) %>% 
+    mutate(cross_bord = "yes", ctry_pat = ctry_firm_start) %>% 
     select(inventor_id, organization.x, organization.y, p_key, cross_bord, ctry_pat, Up_reg_label)
   print(paste0("A total of ", nrow(close_firm), " maybes can be attributed as crossborder commuters"))
   return(close_firm)
@@ -165,7 +165,7 @@ if(nrow(inv_firm_maybe) != 0){
 }
 } 
 
-derive_cross_bord <- derive_cross_bord_func(ctry_firm, inv_ctry) 
+derive_cross_bord <- derive_cross_bord_func(ctry_firm_start, inv_ctry) 
 derive_cross_bord <- mutate(derive_cross_bord, p_key = as.character(p_key), 
                             inventor_id = as.character(inventor_id))
 
@@ -190,14 +190,14 @@ inv_firm <- mutate(inv_firm, tech_field = tech_field_start) %>%
   dplyr::select(p_key, organization, inventor_id, name, lat, lng, ctry_inv, ctry_firm, ctry_pat, regio_firm, regio_inv, regio_pat, cross_bord, tech_field)
 
 ## Keep only commuters to the country determined by ctry_firm
-inv_firm <- filter(inv_firm, cross_bord == "yes" & ctry_pat == ctry_firm & ctry_inv != ctry_firm)
-
+inv_firm <- filter(inv_firm, cross_bord == "yes" & ctry_pat == ctry_firm_start & ctry_inv != ctry_firm)
+inv_firm <- distinct(inv_firm, p_key, inventor_id, name, .keep_all = T)
 print(paste0("Calculation for tech_field ", tech_field_start, " done"))
 return(inv_firm)
 }
 
 ## apply previous created function to different technology fields. The tech_fields are determined by the first input of the lapply function
-inv_firm_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "CH")))) 
+inv_firm_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "LI")))) 
 ## The tech_fields are determined by the first input of the lapply function
 ## cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
 ## Description of variables: 
@@ -216,38 +216,38 @@ inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/cr
 ## Some analysis ##
 ###################
 ## Detect patents which are developed only by crossborder-commuters and thus cannot be attributed to the true country of invention (even if each country with at leat one inventor gets a share of one for a patent)
-inv_firm_adj <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
-
-
-inv_firm_adj <- setDT(inv_firm_adj)[, cbind("num_inv", "num_cross") := list(.N, sum(cross_bord == "yes", na.action = NULL)), .(p_key)]
-inv_firm_adj <- mutate(inv_firm_adj, pat_only_crossbord = ifelse(num_inv == num_cross, "yes", "no"))
-
-## Create variable to see whether using inventors' or firms' location lead to correct results regarding the "true" location of an invention
-inv_firm_adj <- mutate(inv_firm_adj, correct_ctry_firm = ifelse(ctry_firm == ctry_pat, "yes", "no"), correct_ctry_inv = ifelse(ctry_inv == ctry_pat, "yes", "no"))
-inv_firm_adj <- setDT(inv_firm_adj)[, inv_share := 1/.N, .(p_key)]
-
-## Set share = 1 per country and patent
-inv_ctry <- distinct(inv_firm_adj, p_key, ctry_inv, .keep_all = T)
-inv_ctry <- aggregate(inv_share ~ ctry_inv + p_year, FUN = length, data = inv_ctry)
-
-pat_ctry <- distinct(inv_firm_adj, p_key, ctry_pat, .keep_all = T)
-pat_ctry <- aggregate(inv_share ~ ctry_pat + p_year, FUN = length, data = pat_ctry)
-
-inv_pat_ctry <- left_join(pat_ctry, inv_ctry, by = c("ctry_pat" = "ctry_inv", "p_year"))
-inv_pat_ctry  <- mutate(inv_pat_ctry, pat_inv_ctry = inv_share.x/(inv_share.y))
-
-## Set share equal to the number of inventors per country 
-inv_share_correct <- aggregate(inv_share ~ ctry_pat + correct_ctry_inv + p_year + tech_field, FUN = sum, data = inv_firm_adj)
-inv_share_correct <- dcast(inv_share_correct, ctry_pat + p_year + tech_field ~ correct_ctry_inv, value.var = "inv_share")
-inv_share_correct <- mutate(inv_share_correct, share_correct = (ifelse(is.na(no), 0, no) + yes)/yes)
-
-table(inv_firm_adj$correct_ctry_inv, inv_firm_adj$ctry_pat)
-table(inv_firm_adj$correct_ctry_firm, inv_firm_adj$ctry_pat)
-
-ggplot(filter(inv_share_correct, ctry_pat %in% c("CH")  & p_year < 2016), aes(x = p_year, y = share_correct, color = tech_field, shape = as.factor(tech_field))) +
-  geom_line() +
-  geom_point() +
-  xlab("Priority Year") +
-  ylab("True location / inventor location")
+# inv_firm_adj <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
+# 
+# 
+# inv_firm_adj <- setDT(inv_firm_adj)[, cbind("num_inv", "num_cross") := list(.N, sum(cross_bord == "yes", na.action = NULL)), .(p_key)]
+# inv_firm_adj <- mutate(inv_firm_adj, pat_only_crossbord = ifelse(num_inv == num_cross, "yes", "no"))
+# 
+# ## Create variable to see whether using inventors' or firms' location lead to correct results regarding the "true" location of an invention
+# inv_firm_adj <- mutate(inv_firm_adj, correct_ctry_firm = ifelse(ctry_firm == ctry_pat, "yes", "no"), correct_ctry_inv = ifelse(ctry_inv == ctry_pat, "yes", "no"))
+# inv_firm_adj <- setDT(inv_firm_adj)[, inv_share := 1/.N, .(p_key)]
+# 
+# ## Set share = 1 per country and patent
+# inv_ctry <- distinct(inv_firm_adj, p_key, ctry_inv, .keep_all = T)
+# inv_ctry <- aggregate(inv_share ~ ctry_inv + p_year, FUN = length, data = inv_ctry)
+# 
+# pat_ctry <- distinct(inv_firm_adj, p_key, ctry_pat, .keep_all = T)
+# pat_ctry <- aggregate(inv_share ~ ctry_pat + p_year, FUN = length, data = pat_ctry)
+# 
+# inv_pat_ctry <- left_join(pat_ctry, inv_ctry, by = c("ctry_pat" = "ctry_inv", "p_year"))
+# inv_pat_ctry  <- mutate(inv_pat_ctry, pat_inv_ctry = inv_share.x/(inv_share.y))
+# 
+# ## Set share equal to the number of inventors per country 
+# inv_share_correct <- aggregate(inv_share ~ ctry_pat + correct_ctry_inv + p_year + tech_field, FUN = sum, data = inv_firm_adj)
+# inv_share_correct <- dcast(inv_share_correct, ctry_pat + p_year + tech_field ~ correct_ctry_inv, value.var = "inv_share")
+# inv_share_correct <- mutate(inv_share_correct, share_correct = (ifelse(is.na(no), 0, no) + yes)/yes)
+# 
+# table(inv_firm_adj$correct_ctry_inv, inv_firm_adj$ctry_pat)
+# table(inv_firm_adj$correct_ctry_firm, inv_firm_adj$ctry_pat)
+# 
+# ggplot(filter(inv_share_correct, ctry_pat %in% c("CH")  & p_year < 2016), aes(x = p_year, y = share_correct, color = tech_field, shape = as.factor(tech_field))) +
+#   geom_line() +
+#   geom_point() +
+#   xlab("Priority Year") +
+#   ylab("True location / inventor location")
 
 
