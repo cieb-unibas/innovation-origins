@@ -28,12 +28,12 @@ inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg.rds"))
 
 ## USPTO patents with adjusted origin:
 adj_commuters_us <- readRDS(paste0(mainDir1, "/created data/inv_reg_adj_commuters_us.rds"))
-adj_commuters_us <- adj_commuters_us %>% filter(cross_bord == "yes")# & ctry_pat == "CH")
-adj_commuters_us <- adj_commuters_us %>% select(p_key, name, ctry_pat, regio_pat)
+adj_commuters_us <- adj_commuters_us %>% filter(cross_bord == "yes")
+adj_commuters_us <- adj_commuters_us %>% select(p_key, name, ctry_pat, regio_pat, cross_bord)
 
 ## EPO patents with adjusted origin:
 adj_commuters_epo <- readRDS(paste0(mainDir1, "/created data/inv_reg_adj_commuters_ep.rds"))
-adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_pat)
+adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_pat, cross_bord)
 
 ## combine EPO and USPTO patents with adjusted origin
 adj_commuters_all <- rbind(adj_commuters_us, adj_commuters_epo)
@@ -47,10 +47,17 @@ print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
 
 inv_reg_CHcommute_adj <- left_join(inv_reg, adj_commuters_all,
                                 by = c("p_key", "name"))
+if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
+        warning("Number of observations in original and adjusted dataset do not match.")}else{
+                print("Origin for patents with cross-border commuters in Switzerland successfully added.")}
 
-# if(pat_reg == NA, dann pat_reg <- inv_reg, pat_ctry <- inv_ctry)
 
-print("Patents filed by cross-border commuters in Switzerland reassigned.")
+inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
+                                regio_pat = ifelse(is.na(regio_pat), Up_reg_code, regio_pat),
+                                ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
+                                cross_bord = ifelse(is.na(cross_bord), "no", cross_bord))
+
+print("Origin of patents filed by cross-border commuters in Switzerland successfully re-assigned.")
 
 ######################################################
 ###### SAVE THE ORIGIN-CORRECTED DATASET #############
