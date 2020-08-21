@@ -1,5 +1,5 @@
 #######################################################################
-print("Calculate true place of  where innovations happen/ CR 11.8.2020")
+print("Calculate true place of  where innovations happen/ CR 21.8.2020")
 #######################################################################
 
 require("data.table")
@@ -116,7 +116,6 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   firm_list <- aggregate(cbind(lat, lng) ~ organization + Up_reg_label, FUN = function(x)mean(x, na.rm = T, na.action = NULL), data = firm_list)
   firm_list <- distinct(firm_list, organization, lat, lng, Up_reg_label)
   
-  # @CR: description here? My understanding:
   # subset to those patents where inventor and firm location are not identical (= "maybe"),
   # subset again to inventors with an address in chosen inv_countries (e.g. CH, DE, FR)
   # and subset again to firms that are not in these countries (e.g. US-affiliates)
@@ -198,19 +197,14 @@ return(inv_firm)
 
 ## apply previous created function to different technology fields. The tech_fields are determined by the first input of the lapply function
 inv_firm_adj <- do.call(rbind.fill, lapply(seq(tech_field_start_index[1], tech_field_start_index[2], 1), function(x) cross_bord_func(x, "CH", c("DE", "FR", "IT", "AT", "LI")))) 
+inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
+
 ## The tech_fields are determined by the first input of the lapply function
 ## cross_bord_func: first input parameter is for the country where the patent has been invented and the second for the countries where the inventors may come from (crossborder-commuters and domestic residence). 
 ## Description of variables: 
 # ctry_firm: Country of the firm as written in the patent; 
 # ctry_inv: country of the place of resindece of the inventor as written in the patent; 
 # ctry_pat: Our derived country where the innovation has happened
-
-## Add p_year
-dat_p_year <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/dat_p_year.rds")  %>% mutate(p_key = as.character(p_key)) %>% dplyr::select(p_key, p_year)
-inv_firm_adj <- left_join(inv_firm_adj, dat_p_year, by = c("p_key"))
-inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
-
-
 
 ###################
 ## Some analysis ##
