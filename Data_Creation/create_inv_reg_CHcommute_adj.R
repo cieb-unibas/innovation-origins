@@ -18,7 +18,6 @@ mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 
 print("Packages loaded and directories set.")
 
-
 ###########################################
 ############ LOAD THE DATA ################
 ###########################################
@@ -28,7 +27,6 @@ inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg.rds"))
 
 ## USPTO patents with adjusted origin:
 adj_commuters_us <- readRDS(paste0(mainDir1, "/created data/inv_reg_adj_commuters_us.rds"))
-adj_commuters_us <- adj_commuters_us %>% filter(cross_bord == "yes")
 adj_commuters_us <- adj_commuters_us %>% select(p_key, name, ctry_pat, regio_pat, cross_bord)
 
 ## EPO patents with adjusted origin:
@@ -37,21 +35,22 @@ adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_p
 
 ## combine EPO and USPTO patents with adjusted origin
 adj_commuters_all <- rbind(adj_commuters_us, adj_commuters_epo)
+adj_commuters_all <- adj_commuters_all %>% distinct(p_key, name, .keep_all = TRUE)
 
 print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
             "is going to be adjusted"))
 
-######################################################
-###### ADD RE-ASSIGNED ORIGIN OF PATENTS #############
-######################################################
+###################################################################
+###### ADD INFORMATION ON PATENTS THAT ARE REASSIGNED #############
+###################################################################
 
-inv_reg_CHcommute_adj <- left_join(inv_reg, adj_commuters_all,
-                                by = c("p_key", "name"))
+## merge cross-border commuter information to original sample
+inv_reg_CHcommute_adj <- left_join(inv_reg, adj_commuters_all, by = c("p_key", "name"))
 if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
         warning("Number of observations in original and adjusted dataset do not match.")}else{
                 print("Origin for patents with cross-border commuters in Switzerland successfully added.")}
 
-
+## adopt original region and country for non cross-boder commuters
 inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
                                 regio_pat = ifelse(is.na(regio_pat), Up_reg_code, regio_pat),
                                 ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
@@ -63,6 +62,6 @@ print("Origin of patents filed by cross-border commuters in Switzerland successf
 ###### SAVE THE ORIGIN-CORRECTED DATASET #############
 ######################################################
 
-#saveRDS(inv_reg_CHcommute_adj, paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
+saveRDS(inv_reg_CHcommute_adj, paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
 print("Datset saved as 'inv_reg_CHcommute_adj.rds'")
 
