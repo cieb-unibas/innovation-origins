@@ -55,7 +55,7 @@ if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
 
 ## adopt original region and country for non cross-border commuters
 inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
-                                regio_pat = ifelse(is.na(regio_pat), Up_reg_code, regio_pat),
+                                regio_pat = ifelse(is.na(regio_pat), Up_reg_label, regio_pat),
                                 ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
                                 cross_bord = ifelse(is.na(cross_bord), "no", cross_bord))
 

@@ -20,7 +20,7 @@ mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 # Determine the tech_field manually 
 tech_field_start_index <- c(1, 35) ## calculation is done from first tech_field (input one) to last tech_field (input two) 
 
-tech_field_start <- 1
+tech_field_start <- 16
 # Determine the tech_field using slurm
 # args <- commandArgs(TRUE)
 # tech_field_start_index <- c(as.numeric(as.character(args[1])), as.numeric(as.character(args[2])))
@@ -32,7 +32,7 @@ tech_field_start <- 1
 # So the results can only be seen as a representative sample. 
 # => WE COULD DISCUSS AN EXTENSION TO EPO PATENTS however
 
-cross_bord_func <- function(tech_field_start, ctry_firm_start, inv_ctry){
+cross_bord_func <- function(tech_field_start, ctry_firm_start = c("CH"), inv_ctry = c("DE", "FR", "IT", "AT", "LI")){
 
 # Load inventor data, determine number of inventors per p_key 
 # and drop inventors that are listed more than once per p_key
@@ -41,7 +41,6 @@ inv_reg_us <- readRDS(paste0(mainDir1, "/created data/inv_reg/inv_reg_us_", tech
 inv_reg_us <- filter(inv_reg_us, ctry_code %in% inv_ctry)
 inv_reg_us <- setDT(inv_reg_us)[, num_inv := .N, .(p_key)]
 inv_reg_us <- distinct(inv_reg_us, p_key, name, .keep_all =  T)
-
 
 # Load firm data and drop firms that are listed more than once per p_key
 firm_reg_us <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_us_", tech_field_start, ".rds")) %>% 
@@ -58,7 +57,8 @@ firm_reg_us_temp <- filter(firm_reg_us, country == "un" | is.na(country) == T)
 firm_reg_us_temp <- setDT(firm_reg_us_temp)[, num_firm := .N, .(p_key)]
 firm_reg_us_temp <- left_join(firm_reg_us_temp, firm_reg, by = c("p_key"))
 firm_reg_us_temp <- mutate(firm_reg_us_temp, name_dist = stringdist(organization.x, organization.y)) %>% mutate(name_dist = ifelse(is.na(name_dist), 0, name_dist))
-firm_reg_us_temp <- setDT(firm_reg_us_temp)[order(name_dist), .SD[1:num_firm], p_key]
+firm_reg_us_temp <- setDT(firm_reg_us_temp)[order(name_dist), .SD, p_key]
+firm_reg_us_temp <- setDT(firm_reg_us_temp)[, .SD[1:num_firm], p_key]
 firm_reg_us_temp <- mutate(firm_reg_us_temp, country = country.y, Up_reg_label = Up_reg_label.y, organization = organization.x, p_key_org = paste0(p_key, organization.x))
 
 ## Combine adjusted and not-adjusted data together
@@ -212,13 +212,16 @@ inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/cr
 ## Detect patents which are developed only by crossborder-commuters and thus cannot be attributed to the true country of invention (even if each country with at leat one inventor gets a share of one for a patent)
 # inv_firm_adj <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/inv_reg_adj_commuters_us.rds")
 # 
-# 
 # inv_firm_adj <- setDT(inv_firm_adj)[, cbind("num_inv", "num_cross") := list(.N, sum(cross_bord == "yes", na.action = NULL)), .(p_key)]
 # inv_firm_adj <- mutate(inv_firm_adj, pat_only_crossbord = ifelse(num_inv == num_cross, "yes", "no"))
 # 
 # ## Create variable to see whether using inventors' or firms' location lead to correct results regarding the "true" location of an invention
 # inv_firm_adj <- mutate(inv_firm_adj, correct_ctry_firm = ifelse(ctry_firm == ctry_pat, "yes", "no"), correct_ctry_inv = ifelse(ctry_inv == ctry_pat, "yes", "no"))
 # inv_firm_adj <- setDT(inv_firm_adj)[, inv_share := 1/.N, .(p_key)]
+# 
+# ## Add p_year
+# dat_p_year <- readRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/created data/dat_p_year.rds")  %>% mutate(p_key = as.character(p_key)) %>% dplyr::select(p_key, pub_nbr, p_year)
+# inv_firm_adj <- left_join(inv_firm_adj, dat_p_year, by = c("p_key"))
 # 
 # ## Set share = 1 per country and patent
 # inv_ctry <- distinct(inv_firm_adj, p_key, ctry_inv, .keep_all = T)
@@ -230,7 +233,7 @@ inv_firm_adj %>% saveRDS("/scicore/home/weder/GROUP/Innovation/01_patent_data/cr
 # inv_pat_ctry <- left_join(pat_ctry, inv_ctry, by = c("ctry_pat" = "ctry_inv", "p_year"))
 # inv_pat_ctry  <- mutate(inv_pat_ctry, pat_inv_ctry = inv_share.x/(inv_share.y))
 # 
-# ## Set share equal to the number of inventors per country 
+# ## Set share equal to the number of inventors per country
 # inv_share_correct <- aggregate(inv_share ~ ctry_pat + correct_ctry_inv + p_year + tech_field, FUN = sum, data = inv_firm_adj)
 # inv_share_correct <- dcast(inv_share_correct, ctry_pat + p_year + tech_field ~ correct_ctry_inv, value.var = "inv_share")
 # inv_share_correct <- mutate(inv_share_correct, share_correct = (ifelse(is.na(no), 0, no) + yes)/yes)
