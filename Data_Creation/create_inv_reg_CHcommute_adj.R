@@ -27,18 +27,21 @@ inv_reg <- readRDS(paste0(mainDir1, "/created data/inv_reg.rds"))
 
 ## USPTO patents with adjusted origin:
 adj_commuters_us <- readRDS(paste0(mainDir1, "/created data/inv_reg_adj_commuters_us.rds"))
-adj_commuters_us <- adj_commuters_us %>% select(p_key, name, ctry_pat, regio_pat, cross_bord)
+adj_commuters_us <- adj_commuters_us %>% select(p_key, name, ctry_pat, regio_pat, cross_bord) %>% mutate(pat_off = 0)
 
 ## EPO patents with adjusted origin:
 adj_commuters_epo <- readRDS(paste0(mainDir1, "/created data/inv_reg_adj_commuters_ep.rds"))
-adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_pat, cross_bord)
+adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_pat, cross_bord) %>% mutate(pat_off = 1)
 
 ## combine EPO and USPTO patents with adjusted origin
 adj_commuters_all <- rbind(adj_commuters_us, adj_commuters_epo)
+
+## Keep only one p_key/name combination. Since the US-data should be better matched, we keep the US-data for equivalent patents
+adj_commuters_all <- setDT(adj_commuters_all)[order(pat_off), .SD, .(p_key)]
 adj_commuters_all <- adj_commuters_all %>% distinct(p_key, name, .keep_all = TRUE)
 
 print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
-            "is going to be adjusted"))
+            "observations is going to be adjusted"))
 
 ###################################################################
 ###### ADD INFORMATION ON PATENTS THAT ARE REASSIGNED #############
@@ -50,12 +53,14 @@ if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
         warning("Number of observations in original and adjusted dataset do not match.")}else{
                 print("Origin for patents with cross-border commuters in Switzerland successfully added.")}
 
-## adopt original region and country for non cross-boder commuters
+## adopt original region and country for non cross-border commuters
 inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
                                 regio_pat = ifelse(is.na(regio_pat), Up_reg_code, regio_pat),
                                 ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
                                 cross_bord = ifelse(is.na(cross_bord), "no", cross_bord))
 
+
+inv_reg_CHcommute_adj <- dplyr::select(inv_reg_CHcommute_adj, -pat_off)
 print("Origin of patents filed by cross-border commuters in Switzerland successfully re-assigned.")
 
 ######################################################
