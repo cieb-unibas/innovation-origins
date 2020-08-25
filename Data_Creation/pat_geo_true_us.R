@@ -75,10 +75,10 @@ firm_reg_us <- rbind(firm_reg_us, firm_reg_us_temp)
 
 # 1) match firms and inventors, calculate location distance between them and 
 #    only consider the closest match.
-inv_firm <- inner_join(inv_reg_us, firm_reg_us, by = c("p_key")) 
+inv_firm <- left_join(inv_reg_us, firm_reg_us, by = c("p_key")) 
 inv_firm <- mutate(inv_firm, lat_diff = abs(lat.x -lat.y), lng_diff = abs(lng.x - lng.y)) %>%
   filter(is.na(lat_diff) != T) %>% mutate(dist = lat_diff^2 + lng_diff^2, 
-                                          max_dist = ifelse(lat_diff < 1.2 & lng_diff < 1.2, 0, 1))
+                                          max_dist = ifelse(lat_diff < 1.4 & lng_diff < 1.4, 0, 1))
 inv_firm <- setDT(inv_firm)[order(dist), .SD[1], .(p_key, inventor_id)] 
 
 # 2) If country of inventor and firm is not identical AND distance is small,
@@ -104,7 +104,7 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   firm_list <- filter(firm_list, country %in% ctry_firm_start) %>% 
     mutate(organization = tolower(organization))
   firm_list$organization <- gsub('[[:punct:] ]+',' ', firm_list$organization)
-  firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
+  firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("tiergesundheit", "nutrition", "animal health", "pharma", "finance", "ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
                                                                             "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
                                                                             "usa", "engineering", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", "corp", "div", 
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
@@ -112,7 +112,7 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   
   # use only firms for which we know that they have at least some patents in the country of firm (eg Switzerland)
   firm_list <- setDT(firm_list)[, num := .N, .(organization, Up_reg_label)]
-  firm_list <- filter(firm_list, num > 5)
+  firm_list <- filter(firm_list, num > 4)
   firm_list <- aggregate(cbind(lat, lng) ~ organization + Up_reg_label, FUN = function(x)mean(x, na.rm = T, na.action = NULL), data = firm_list)
   firm_list <- distinct(firm_list, organization, lat, lng, Up_reg_label)
   
@@ -121,13 +121,13 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   # and subset again to firms that are not in these countries (e.g. US-affiliates)
   inv_firm_maybe <- filter(inv_firm, 
                            cross_bord == "maybe" & ctry_code %in% inv_ctry & 
-                             !(country %in% c(ctry_firm_start, inv_ctry))) %>% 
+                             !(country %in% c(inv_ctry))) %>% 
     dplyr::select(organization, ctry_code, p_key, inventor_id, lat, lng) 
   
 if(nrow(inv_firm_maybe) != 0){
   inv_firm_maybe$organization <- gsub('[[:punct:] ]+',' ', inv_firm_maybe$organization)
   inv_firm_maybe <- mutate(inv_firm_maybe, organization = trimws(removeWords(tolower(organization), c("ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
-                                                                            "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
+                                                                                                      "tiergesundheit", "nutrition", "animal health", "pharma", "finance", "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
                                                                             "usa", "engineering", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", "corp", "div", 
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
                                                                             "kommanditgesellschaft", "pourrecherchemicrotechnique", "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "research")), which = "both")) 
@@ -138,14 +138,14 @@ if(nrow(inv_firm_maybe) != 0){
   
   # Moreover, using distance among names of firm of inventor and list of Swiss firms as a second criteria. 
   # These two criteria determine the degree of accuracy
-  close_firm <- difference_left_join(inv_firm_maybe, firm_list, by = c("lat", "lng"), max_dist = 2)
+  close_firm <- difference_left_join(inv_firm_maybe, firm_list, by = c("lat", "lng"), max_dist = 5)
   close_firm <- filter(close_firm, is.na(organization.y) != T)
   close_firm <- mutate(close_firm, name_diff = stringdist(organization.x, organization.y)) 
   close_firm <- mutate(close_firm, lat_diff = abs(lat.x -lat.y), 
                        lng_diff = abs(lng.x - lng.y), 
                        dist = lat_diff^2 + lng_diff^2) %>% 
-    filter(lat_diff < 1.3 & lng_diff < 1.3 & name_diff < 3)
-  close_firm <- setDT(close_firm)[order(dist, name_diff), .SD[1], .(p_key, inventor_id)]
+    filter(lat_diff < 1.4 & lng_diff < 1.4 & name_diff < 4)
+  close_firm <- setDT(close_firm)[order(name_diff, dist), .SD[1], .(p_key, inventor_id)]
   
   if(nrow(close_firm) != 0){
   close_firm <- filter(close_firm, is.na(organization.y) != T) %>% 

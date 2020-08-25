@@ -36,8 +36,8 @@ adj_commuters_epo <- adj_commuters_epo %>% select(p_key, name, ctry_pat, regio_p
 ## combine EPO and USPTO patents with adjusted origin
 adj_commuters_all <- rbind(adj_commuters_us, adj_commuters_epo)
 
-## Keep only one p_key/name combination. Since the US-data should be better matched, we keep the US-data for equivalent patents
-adj_commuters_all <- setDT(adj_commuters_all)[order(pat_off), .SD, .(p_key)]
+## Keep only one p_key/name combination. Since the EP-data should be better matched to regions, we keep the EP-data for equivalent patents
+adj_commuters_all <- setDT(adj_commuters_all)[order(-pat_off), .SD, .(p_key)]
 adj_commuters_all <- adj_commuters_all %>% distinct(p_key, name, .keep_all = TRUE)
 
 print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
@@ -49,6 +49,7 @@ print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
 
 ## merge cross-border commuter information to original sample
 inv_reg_CHcommute_adj <- left_join(inv_reg, adj_commuters_all, by = c("p_key", "name"))
+
 if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
         warning("Number of observations in original and adjusted dataset do not match.")}else{
                 print("Origin for patents with cross-border commuters in Switzerland successfully added.")}
@@ -63,10 +64,23 @@ inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
 inv_reg_CHcommute_adj <- dplyr::select(inv_reg_CHcommute_adj, -pat_off)
 print("Origin of patents filed by cross-border commuters in Switzerland successfully re-assigned.")
 
+
 ######################################################
 ###### SAVE THE ORIGIN-CORRECTED DATASET #############
 ######################################################
 
 saveRDS(inv_reg_CHcommute_adj, paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
 print("Datset saved as 'inv_reg_CHcommute_adj.rds'")
+
+
+## Some first inspections
+# inv_reg_CHcommute_adj <- setDT(inv_reg_CHcommute_adj)[, share := 1/.N, .(p_key, tech_field)]
+# test <- aggregate(share ~ cross_bord + ctry_pat + tech_field + p_year, data = inv_reg_CHcommute_adj, FUN = sum)
+# test <- dcast(test, p_year + ctry_pat + tech_field ~ cross_bord, value.var = c("share"))
+# test <- mutate(test, share = (no+yes) / no)
+# 
+# ggplot(filter(test, ctry_pat == "CH" & p_year < 2017 & tech_field %in% 16), aes(x = p_year, y = share, color = tech_field, group = tech_field)) +
+#         geom_point() + 
+#         geom_line()
+
 
