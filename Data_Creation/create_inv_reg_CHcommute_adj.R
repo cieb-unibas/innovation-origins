@@ -59,6 +59,8 @@ inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
                                 regio_pat = ifelse(is.na(regio_pat), Up_reg_label, regio_pat),
                                 ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
                                 cross_bord = ifelse(is.na(cross_bord), "no", cross_bord))
+## rename region and country of inventor
+inv_reg_CHcommute_adj <- dplyr::rename(inv_reg_CHcommute_adj, ctry_inv = Ctry_code, regio_inv = Up_reg_label)
 
 
 inv_reg_CHcommute_adj <- dplyr::select(inv_reg_CHcommute_adj, -pat_off)
@@ -79,8 +81,15 @@ print("Datset saved as 'inv_reg_CHcommute_adj.rds'")
 # test <- dcast(test, p_year + ctry_pat + tech_field ~ cross_bord, value.var = c("share"))
 # test <- mutate(test, share = (no+yes) / no)
 # 
-# ggplot(filter(test, ctry_pat == "CH" & p_year < 2017 & tech_field %in% 16), aes(x = p_year, y = share, color = tech_field, group = tech_field)) +
-#         geom_point() + 
-#         geom_line()
+ggplot(filter(test, ctry_pat == "CH" & p_year < 2017 & tech_field %in% c(16, 28, 30)), aes(x = p_year, y = share, color = as.factor(tech_field), group = as.factor(tech_field))) +
+        geom_point() +
+        geom_line()
+
+## Some checks why share in pharma declines strongly after 2010
+temp <- filter(inv_reg_CHcommute_adj, tech_field == 16 & ctry_pat %in% c("FR", "DE", "CH") & p_year %in% seq(2010, 2017, 1))
+firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg/firm_reg_", tech_field_start, ".rds")) %>% 
+        dplyr::select(p_key, organization, lat, lng, country, Up_reg_label)
+
+temp <- left_join(temp, firm_reg, by = c("p_key"))
 
 
