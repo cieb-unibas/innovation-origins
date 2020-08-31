@@ -71,16 +71,3 @@ print("Origin of patents filed by cross-border commuters in Switzerland successf
 
 saveRDS(inv_reg_CHcommute_adj, paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
 print("Datset saved as 'inv_reg_CHcommute_adj.rds'")
-
-
-## Some first inspections
-# inv_reg_CHcommute_adj <- setDT(inv_reg_CHcommute_adj)[, share := 1/.N, .(p_key, tech_field)]
-# test <- aggregate(share ~ cross_bord + ctry_pat + tech_field + p_year, data = inv_reg_CHcommute_adj, FUN = sum)
-# test <- dcast(test, p_year + ctry_pat + tech_field ~ cross_bord, value.var = c("share"))
-# test <- mutate(test, share = (no+yes) / no)
-# 
-# ggplot(filter(test, ctry_pat == "CH" & p_year < 2017 & tech_field %in% 16), aes(x = p_year, y = share, color = tech_field, group = tech_field)) +
-#         geom_point() + 
-#         geom_line()
-
-
