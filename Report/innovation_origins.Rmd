@@ -9,6 +9,7 @@ fig_caption: yes
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library("shiny")
+library("shinydashboardPlus")
 library("ggplot2")
 library("viridis")
 library("RColorBrewer")
@@ -32,4 +33,40 @@ library("data.table")
 <!-- </script> -->
 <!-- </head> -->
 
+<br>
 
+<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=25% }</a>
+
+```{r, echo = F}
+a(actionButton(inputId = "email1", label = "Mail us",
+                 icon = icon("envelope", lib = "font-awesome")),
+    href="mailto:cieb@unibas.ch")
+
+socialButton(url = "http://github.com/cieb-unibas",  type = "github")
+socialButton(url = "https://twitter.com/cieb_unibas",  type = "twitter")
+```
+
+<br>
+
+## <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'** </font>
+
+*September 2020* by <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>
+```{r, echo = F}
+renderText("Share this article") 
+    socialButton(url = "http://twitter.com/", type = "twitter")
+    socialButton(url = "http://facebook.com/", type = "facebook")
+    socialButton(url = "http://linkedin.com/", type = "linkedin")
+    socialButton(url = "http://xing.com/", type = "xing")
+```
+
+**Every day over 300 000 people from neighboring countries cross the border to work in Switzerland. There are many who contribute substantially to the development of innovations in Switzerland.**
+
+Cross-border commuters are an important economic factor for the Swiss economy. Especially so for some specific regions and, possibly, also for the economic sectors that these regions have primarily specialized in. For example, according to the most recent figures of the <a href = https://www.bfs.admin.ch/bfs/en/home/statistics/work-income/employment-working-hours/employed-persons/swiss-foreign-nationals/cross-border-commuters.html target = “_blank”>Swiss Federal Statistic Office</a>, the Lake Geneva region and the region of Northwestern Switzerland together attract almost 200 000 cross-border commuters. Furthermore, for the Swiss pharmaceutical industry, it can be shown that without taking into account cross-border commuters economic indicators like e.g. labor productivity would be clearly over-estimated (see <a href = Link Output Dragan target = “_blank”>Title Output Dragan </a>).
+
+But what about the role of cross-border commuters for inventions and the development of innovations in Switzerland? Are cross-border commuters also substantially contributing to new innovations from Swiss companies? Are there differences across industries in how strongly they rely on cross-border commuting workers? And finally, do standard innovation indicators sufficiently reflect the cross-border commuter phenomenon in Switzerland? In what follows, we are taking a closer look at these issues.
+
+We start with briefly discussing that standard innovation indicators, such as the <a href = xxx= “_blank”>WEF Global Innovation Index</a> or the <a href = xxx= “_blank”>WIPO Intellectual Property Index</a>, typically do not consider cross-border commuters when evaluating an economy’s innovative capacity. While this may be not so relevant when e.g. looking at the U.S., it could be very important for Switzerland. Thus, subsequently we present an empirical approach that allows us to take into account cross-border commuting inventors in Switzerland. In a next step, we highlight how this changes innovation indicators for Switzerland. Ultimately, we also discuss the importance of cross-border commuters for innovations in different Swiss industries and show that the most innovative industries are also those that rely the heaviest on cross-border commuters.
+
+<br>
+
+#### <font color='#68838B'>**How to determine the origin of an invention?**
