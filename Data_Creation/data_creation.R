@@ -48,6 +48,7 @@ plot_data <- filter(plot_data, ctry_pat == "CH")
 plot_data <- aggregate(share ~ cross_bord + p_year, data = plot_data, FUN = sum)
 plot_data <- dcast(plot_data, p_year ~ cross_bord, value.var = c("share"))
 plot_data <- mutate(plot_data, share = (no+yes) / no)
+plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 
 # store the data
 dat_list[["CH_overall"]] <- plot_data
@@ -73,10 +74,11 @@ plot_data <- aggregate(share ~ cross_bord + tech_field + p_year, data = plot_dat
 plot_data <- dcast(plot_data, p_year + tech_field ~ cross_bord, value.var = c("share"))
 plot_data$yes <- ifelse(is.na(plot_data$yes), 0, plot_data$yes)
 plot_data <- mutate(plot_data, share = (no+yes) / no)
+plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 plot_data$tech_field <- as.character(plot_data$tech_field)
 
 # store the data
-dat_list[["Techfields"]] <- plot_data
+dat_list[["CH_Techfields"]] <- plot_data
 
 # # illustrate
 # ggplot(filter(plot_data, p_year < 2015 & tech_field %in% c(13, 15, 16)),
@@ -106,7 +108,7 @@ plot_data <- aggregate(share ~ cross_bord + regio_pat + p_year, data = plot_data
 plot_data <- dcast(plot_data, p_year + regio_pat ~ cross_bord, value.var = c("share"))
 plot_data$yes <- ifelse(is.na(plot_data$yes), 0, plot_data$yes)
 plot_data <- mutate(plot_data, share = (no+yes) / no)
-
+plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 
 # store the data
 dat_list[["CH_region"]] <- plot_data
@@ -144,9 +146,22 @@ dat_list[["neighboring_ctry"]] <- plot_data
 #         geom_point() +
 #         geom_line()
 
-##################################################
-#### EXAMPLE OF CROSS-BORDER COMMUTING PATENT ####
-##################################################
+#########################
+#### EXAMPLE PATENTs ####
+#########################
+
+## EXAMPLE OF CH PATENT BY INVENTORS FROM DIFFERENT COUNTRIES ------------------
+plot_data <- df %>%
+        group_by(p_key) %>%
+        mutate(inventors = n(),
+               commuters = paste(cross_bord),
+               expl = paste(ctry_inv),
+               expl = ifelse("CH" %in% expl & "DE" %in% expl & !"yes" %in% commuters,
+                             "yes", "no")) %>%
+        filter(expl == "yes", inventors > 4 & p_year > 2005)
+print("Choose first examples from these patents")
+
+## EXAMPLE OF CH PATENT BY CROSS-BORDER COMMUTING INVENTORS: -------------------
 
 # some patents are assigned to multiple technology fields. 
 # keep them only once and filter for patents that are assigned to CH
@@ -161,19 +176,15 @@ plot_data <- plot_data %>% filter(USPTO == "yes") %>%
         group_by(p_key) %>%
         mutate(CH_connex = ifelse(!"CH" %in% paste(ctry_inv), "no", "yes")) %>%
         filter(CH_connex == "no" & tech_field == 16)
-print("Choose from these examples")
-
-# highlight and store an example
-patent_id <- "US7786128"
-df[patent_id == "US7786128", ]
-dat_list[["patent_example"]] <- patent_id
+print("Choose 2nd example from these patents")
 
 ######################################
 #### SAVE THE DATA FOR THE REPORT ####
 ######################################
 
-#saveRDS(dat_list, paste0(getwd(), "/Report/commuter_data.rds"))
+for(i in 1:length(dat_list)){
+        csv_name <- paste0(names(dat_list[i]), ".csv")
+        write.csv(dat_list[[i]],
+                  file = paste0(getwd(), "/Report/", csv_name))
+        }
 print("Data for the analysis sucessfully saved.")
-
-
-
