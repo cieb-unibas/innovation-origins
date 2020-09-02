@@ -72,22 +72,31 @@ If cross-border commuters play such an important role for overall economic activ
 Every other year, reports such as the <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, the <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> or the <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> evaluate the innovative capacity of countries. One of the measures these studies typically use are patents or patent applications. More precisely, they look at the number of patents that were filed by inventors of a given country. This is possible because patent documentations state the residence addresses of all the inventors for any given patent. You can see this in an example of a patent document below.
 
 <br>
-
+<center>![](example_patent_multicountry.jpg){ width=50% }</center>
 <br>
 
-As you can see, this patent states four different “Inventors”. Three are from Germany and one from France. If more than one country is mentioned on the patent, there are two possibilities to assign a patent to countries. The first option is to simply raise the patent count of all the mentioned countries equally by one. The second option is to proportionally divide the patent among all the mentioned countries according to the share of inventors from that country on the patent. With the first option, our example-patent would be equally assigned to Germany and France. With the latter one, Germany would get assigned ¾ of the patent and France ¼, which takes into account that there were more German than French inventors involved when the invention was developed.
+As you can see, this patent states nine different “Inventors”. Five are from Germany and four are from Switzerland. If more than one country is mentioned on the patent, there are two possibilities to assign a patent to countries. The first option is to simply raise the patent count of all the mentioned countries equally by one. The second option is to proportionally divide the patent among the countries according to the share of inventors from each country. With the first option, our example-patent would be equally assigned to Germany and Switzerland. With the latter one, Germany would get assigned 5/9 of the patent and Switzerland 4/9, which takes into account that there were more German than Swiss residents involved in the development of the patent.
 
-There is also a third option. Instead of focusing on inventors, one can consider the location of the company that owns the patent. In our example-patent, this is stated as the location of the “Assignee” right under the “Inventors” information. In this case the patent is owned by a US subsidiary of pharma giant Hoffmann-La Roche and would therefore be attributed to the U.S. Patenting of foreign subsidiaries are quite common and, therefore, company addresses are rather sparely used to determine patent origin. All the pros and cons of these different approaches are, for example, briefly and comprehensively discussed in a recent report by <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann</a> (p. 68).
+There is also a third option. Instead of focusing on inventors, one can consider the location of the company that owns the patent. In our example-patent, this is stated as the location of the “Assignee” right under the “Inventors” information. In this case the patent is owned by selFrag AG from Kerzers, Switzerland and would therefore be attributed to the Switzerland. Because patents are sometimes filed by foreign subsidiaries or headquarters, company addresses are rather sparely used to determine patent origin. All the pros and cons of the different options are, for example, briefly and comprehensively discussed in a recent report by <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann (p. 68)</a>. The optimal choice among these approaches depends on the question one wants to answer. In this article, we investigate innovative capacities in Switzerland. For this purpose, it is best to follow the common approach to look at inventor addresses and to use shares in order to assign patents to countries.
 
-The optimal choice among these approaches depends on the question one wants to answer. In this article, we investigate innovative capacities in Switzerland. So, for our purpose it is best to follow the common approach to look at inventor addresses and to use shares in order to assign patents to countries.
-
-But what if inventors live in neighboring countries and commute to a workplace in Switzerland where they contribute to new inventions? Then the patent would not be assigned to Switzerland 
+Now, for the case of Switzerland recall the very high numbers of cross-border commuters in e.g. Geneva or Basel. What if *all* inventors of a patent live in neighboring countries and commute to a workplace in Switzerland? Such a patent would not be assigned to Switzerland even though research and development was conducted in a Swiss-based Lab. In addition, focusing on the firm location would also not solve the problem if the patent was filed by a foreign affiliate of the Swiss-based branch. The picture below shows a patent with exactly these characteristics.
 
 <br>
 <center>![](example_patent_crossbord.jpg){ width=50% }</center>
 <br>
 
+All of the inventors of this patent live in Germany or France and the assignee of the patent is a U.S.-affiliate of Swiss pharma giant Hoffmann-La Roche. With the above-mentioned approaches, such a patent would never be attributed to Switzerland. However, the places of residence of all inventors are very close to the region of Basel, where Hoffmann-La Roche’s headquarter and some of its major research facilities are located. Accordingly, it is very likely that this patent was in fact developed in Basel by cross-border commuters and then filed at the U.S. Patent Office by a U.S. branch of Hoffmann-La Roche. The actual invention, however, was conducted in Switzerland.
 
+In order to identify such patents and assign them to Switzerland, we have developed a refined approach, which we explain in the next section.
 
+<br>
+
+#### <font color='#68838B'>**Searching for cross-border commuting patent inventors** </font>
+
+<br>
+
+#### <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
+
+<br>
 
 

@@ -160,6 +160,7 @@ plot_data <- df %>%
                              "yes", "no")) %>%
         filter(expl == "yes", inventors > 4 & p_year > 2005)
 print("Choose first examples from these patents")
+# chose patent: US10029262B2
 
 ## EXAMPLE OF CH PATENT BY CROSS-BORDER COMMUTING INVENTORS: -------------------
 
@@ -177,6 +178,7 @@ plot_data <- plot_data %>% filter(USPTO == "yes") %>%
         mutate(CH_connex = ifelse(!"CH" %in% paste(ctry_inv), "no", "yes")) %>%
         filter(CH_connex == "no" & tech_field == 16)
 print("Choose 2nd example from these patents")
+# choose patent US7786128B2
 
 ######################################
 #### SAVE THE DATA FOR THE REPORT ####
