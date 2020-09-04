@@ -187,6 +187,7 @@ print("Choose 2nd example from these patents")
 for(i in 1:length(dat_list)){
         csv_name <- paste0(names(dat_list[i]), ".csv")
         write.csv(dat_list[[i]],
-                  file = paste0(getwd(), "/Report/", csv_name))
+                  file = paste0(getwd(), "/Report/", csv_name),
+                  row.names = FALSE)
         }
 print("Data for the analysis sucessfully saved.")
