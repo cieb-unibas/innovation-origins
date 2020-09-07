@@ -122,56 +122,92 @@ In order to identify and re-assign such patents, we have developed an approach, 
 
 ```{r, echo = FALSE}
 ## LOAD ALL .CSV FILES
-csv_files <- list.files(pattern = ".csv")
+path_csv <- "C:/Users/Matthias/Documents/GithubRepos/CIEB/innovation-origins/Report"
+csv_files <- list.files(path = path_csv, pattern = ".csv")
 df_list <- lapply(csv_files, read.csv)
 names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE}
 #### CROSS-BORDER COMMUTERS IN SWITZERLAND:  AREAPLOT & LINEPLOT ---------------------
 
 # load and prepare the data 
 plot_data <- df_list[["CH_overall"]]
 plot_data <- plot_data %>%
+  mutate(share = share -1) %>%
   filter(p_year <= 2015) %>%
   gather(key = Type, value = number, Swiss_based, commuters)
-plotly_labels <- ifelse(plot_data$Type == "Swiss_based", 
-                        "Swiss residents", "Cross-border commuters")
 
-# parameters to transform data for defining a 2nd axis for the share:
+# parameters to transform data for defining a 2nd axis for the total number of patents:
 ylim_absolute <- c(0, 5000)
-ylim_share <- c(0.7, 1.3)
+ylim_share <- c(0, 0.15)
 b <- diff(ylim_absolute)/diff(ylim_share)
 a <- b*(ylim_absolute[1] - ylim_share[1])
 
-# make the plot
 p <- ggplot(plot_data)+
-  geom_area(aes(x = p_year, y = number, fill = Type), alpha = 0.7)+
-  scale_fill_viridis(discrete = TRUE) +
-  geom_line(aes(x = p_year, y = a + share * b), color = "black")+
-  geom_point(aes(x = p_year, y = a + share * b), color = "black")+
-  geom_hline(yintercept = a + 1 * b, color = "red", linetype = "dotted")+
-  scale_y_continuous("Number of Patents",
-                     sec.axis = sec_axis(~ (. - a)/b, 
-                                         name = "Share of patents invented by cross-border commuters")) +
+  geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.7)+
+  geom_line(aes(x = p_year, y = share), color = "black")+
+  geom_point(aes(x = p_year, y = share), color = "black")+
+  scale_fill_viridis(discrete = TRUE, 
+                     labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
+  scale_y_continuous("Share of Swiss patents by cross-border commuters",
+                     sec.axis = sec_axis(~ (. + a) * b, #name = "Number of patents"))+#,
+                                        guide = "none")) +
   xlab("Year") +
-  theme(legend.position="none",
+  theme(legend.position="bottom",
         panel.background = element_blank(),
-        axis.line.y = element_line(),
+        panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
         axis.line = element_line())
-p
 
+p
 # display the plot
-# ggplotly(p, tooltip = "text")
+#ggplotly(p, tooltip = "text")
 
 ```
 
 
 ```{r, echo = FALSE}
-#### CROSS-BORDER COMMUTERS IN SWISS INDUSTRIES:  DYNAMIC LINEPLOT ---------------------
 
+# ALTERNATIVE WAY OF AXES
+
+
+#### CROSS-BORDER COMMUTERS IN SWITZERLAND:  AREAPLOT & LINEPLOT ---------------------
+
+# # load and prepare the data
+# plot_data <- df_list[["CH_overall"]]
+# plot_data <- plot_data %>%
+#   mutate(share = share -1) %>%
+#   filter(p_year <= 2015) %>%
+#   gather(key = Type, value = number, Swiss_based, commuters)
+# plotly_labels <- ifelse(plot_data$Type == "Swiss_based",
+#                         "Swiss residents", "Cross-border commuters")
+# 
+# # parameters to transform data for defining a 2nd axis for the share:
+# ylim_absolute <- c(0, 5000)
+# ylim_share <- c(0, 0.15)
+# b <- diff(ylim_absolute)/diff(ylim_share)
+# a <- b*(ylim_absolute[1] - ylim_share[1])
+# 
+# # make the plot
+# p <- ggplot(plot_data)+
+#   geom_area(aes(x = p_year, y = number, fill = Type), alpha = 0.7)+
+#   scale_fill_viridis(discrete = TRUE) +
+#   geom_line(aes(x = p_year, y = a + share * b), color = "black")+
+#   geom_point(aes(x = p_year, y = a + share * b), color = "black")+
+#   scale_y_continuous("Number of Patents",
+#                      sec.axis = sec_axis(~ (. - a)/b,
+#                                          name = "Share of patents invented by cross-border commuters")) +
+#   xlab("Year") +
+#   theme(legend.position="none",
+#         panel.background = element_blank(),
+#         panel.grid.minor.y = element_line(colour = "black"),
+#         axis.line.y = element_line(),
+#         axis.line = element_line())
+# p
+# 
+# # display the plot
+# #ggplotly(p, tooltip = "text")
 ```
-
 
 ```{r, echo = FALSE}
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS:  DYNAMIC AREAPLOT ---------------------
@@ -181,17 +217,14 @@ p
 
 ```{r, echo = FALSE}
 #### ORIGIN OF CROSS-BORDER COMMUTERS: AREAPLOT ---------------------
-plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= 2015)
-ggplot(plot_data)+
-  geom_area(aes(x = p_year, y = count, fill = ctry_inv))+
-  scale_fill_viridis(discrete = TRUE) +
-  labs( x = "Year", y = "Number of cross-border commuting inventors") +
-  theme(panel.background = element_blank(),
-        axis.line = element_line())
+# plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= 2015)
+# ggplot(plot_data)+
+#   geom_area(aes(x = p_year, y = count, fill = ctry_inv))+
+#   scale_fill_viridis(discrete = TRUE) +
+#   labs( x = "Year", y = "Number of cross-border commuting inventors") +
+#   theme(panel.background = element_blank(),
+#         axis.line = element_line())
 ```
-
-
-
 
 
 
