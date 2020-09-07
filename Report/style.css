@@ -23,3 +23,10 @@ img {
 
 td { font-size: 11pt; }
 
+blockquote {
+  max-width: 550px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  font-size: 14pt;
+}
