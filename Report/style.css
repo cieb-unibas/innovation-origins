@@ -25,8 +25,14 @@ td { font-size: 11pt; }
 
 blockquote {
   max-width: 550px;
-  text-align: center;
+  text-align: right;
   margin: 20px;
   padding: 20px;
   font-size: 14pt;
+}
+
+.box_div {
+  font-size: 11pt;
+  background-color: #e0ebeb;
+  font-family: "Verdana";
 }
