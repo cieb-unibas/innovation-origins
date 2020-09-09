@@ -20,6 +20,7 @@ library("plotly")
 library("shinyWidgets")
 library("tidyverse")
 library("data.table")
+library("DT")
 ```
 
 <!-- <head> -->
@@ -98,7 +99,7 @@ All the inventors of this patent live in Germany or France and the assignee of t
 
 ## <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
 
-Our sample of patents consists of data from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a> for U.S. patents and from the <a href = “xxx” target = “_blank”>OECD</a> for European patents. <a href = “xxx” target = “_blank”>Here (Link Christian)</a> you can read more about the data we use for our analyses. 
+In what follows, we investigate inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a> for U.S. patents and from the <a href = “xxx” target = “_blank”>OECD</a> for European patents. In this <a href = “xxx” target = “_blank”>report (Link Output Christian)</a> you can read more about the datasets we use for all of our analyses and how they were processed. In the textbox below, you find a description of how we identify cross-border commuting inventors in Switzerland. 
 
 <br>
 
@@ -107,7 +108,7 @@ Our sample of patents consists of data from the <a href = “https://www.uspto.g
 <details>
   <summary>*Click here to read about our empirical approach*</summary>
 
-  The patent data we use for the first step of the analysis is from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a>  . It covers the period 1990 to 2015 and is cleaned for patent equivalents (for more information on patent equivalents see e.g. <a href = “xxx” target = “_blank”>xxx</a> ). As described above, this data always features information on the resident countries of inventors and companies. Furthermore, USPTO data also contains the coordinates of their resident addresses. Combining these pieces of information, allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
+  The patent data we use for the first step of the analysis is from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is cleaned for patent equivalents (for more information on patent equivalents see e.g. <a href = “xxx” target = “_blank”>xxx</a> ). As described above, this data always features information on the resident countries of inventors and companies. Furthermore, USPTO data also contains the coordinates of their resident addresses. Combining these pieces of information, allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
   
   Let’s start with the general idea. A patent is a candidate for being co-invented by a cross-border commuter if this inventor’s resident country is not Switzerland, but the company that owns the patent is in Switzerland. Of course, this general idea would be way too broad for a final definition. Recall, for example, our first example patent: The company was based in Switzerland and several inventors were living in Germany. As outlined above, this does not mean that they are necessarily cross-border commuters. For example, one of the German inventors lived in Hamburg and it is almost impossible that somebody is commuting over such a huge distance to Switzerland.
   
@@ -128,14 +129,13 @@ Our sample of patents consists of data from the <a href = “https://www.uspto.g
 3. the company is located in a Swiss region which is close to the foreign region where the inventor lives. 
 
 Combined, these definitions suggest that our approach to identify cross-border commuters on EPO patents should result in a lower bound.
-  
-  Bringing together our results for the USPTO and the EPO patents, we find that 23 047 patents  were likely co-developed by cross-border commuters in Switzerland.  In the next section, we discuss how this affects how we look at Swiss innovation activity.
-</details>
+
+Bringing together our results for the USPTO and the EPO patents, we find that, over time, 23’047 patents were likely co-developed by cross-border commuters in Switzerland.  In the next section, we discuss how this affects how we look at Swiss innovation activity.</details>
 </div>
 
 <br>
 
-(...)
+Let us start by focusing on the number of people who commute to Switzerland from neighboring countries and who have contributed to inventions by Swiss companies. The Figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin. At the beginning of the 1990s there were relatively few cross-border commuting inventors – most of them coming from Germany to Switzerland. However, until 2005 their number has increased from all neighboring countries to over a total of over 1000 people. The natural question from this seems whether patenting and innovative activity in Switzerland grew proportionally. This is what can be examined from the next plot.
 
 <br>
 
@@ -151,20 +151,21 @@ max_year <- 2015 # do not use data after 2015 because data quality is poor
 ```{r, echo = FALSE, fig.asp = 0.5}
 #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------
 
-# define the data to plot
-plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
+renderPlot({
+  
+  # define the data to plot
+  plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
 
-# make the plot
-ggplot(plot_data)+
- geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
- scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
-                    labels = c("Austria", "Germany", "France", "Italy")) +
- labs( x = "Year", y = "Number of cross-border commuting inventors") +
- theme(legend.position="bottom",
-       panel.background = element_blank(),
-       axis.line = element_line())
-
-# display the plot reactively
+  # make the plot
+  ggplot(plot_data)+
+  geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
+  scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
+                     labels = c("Austria", "Germany", "France", "Italy")) +
+  labs( x = "Year", y = "Number of cross-border commuting inventors") +
+  theme(legend.position="bottom",
+         panel.background = element_blank(),
+         axis.line = element_line())
+})
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
@@ -189,26 +190,21 @@ b <- diff(ylim_absolute)/diff(ylim_share)
 a <- b*(ylim_absolute[1] - ylim_share[1])
 
 # make the plot
+renderPlot({
 ggplot(plot_data)+
   geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
   geom_line(aes(x = p_year, y = share), color = "black")+
-  geom_point(aes(x = p_year, y = share), color = "black")+
-  geom_smooth(aes(x = p_year, y = share), se = FALSE)+
   scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
                      labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
   scale_y_continuous("Share of Swiss patents by cross-border commuters",
                      sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), 
                      labels = c("0%", "5%", "10%", "15%"))+
-                                        # guide = "none")) +
   xlab("Year") +
   theme(legend.position="bottom",
         panel.background = element_blank(),
         panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
         axis.line = element_line())
-
-# display the plot reactively:
-
-
+})
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
@@ -216,17 +212,100 @@ ggplot(plot_data)+
 
 Not surprisingly, patents by Swiss residents and cross-border commuters have both increased over time (see e.g. <a href = “xxx” target = “_blank”>xxx</a>  for a discussion about patenting activity in Switzerland). At the same time, the share of patents invented by cross-border commuters has increased drastically. In 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share increased to around 10% in 2005 and has remained relatively stable ever since. 
 
-What does this imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered. Second, as the share of patents by cross-border commuters did not increase for the last 10 years, it seems unlikely that cross-border commuters did substitute domestic inventors. <blockquote> ***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote> Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This is in line with industry representatives (…) 
+What does this imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered. Second, as the share of patents by cross-border commuters did not increase for the last 10 years, it seems unlikely that cross-border commuters did substitute domestic inventors. 
+<div class=bloc_div>
+<blockquote> ***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote>
+</div>
+
+Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This is in line with industry representatives (…) 
 
 While cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy, this could be even more apparent for some specific regions and industries.
 
 ```{r, echo = FALSE}
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES:  DYNAMIC AREAPLOT ---------------------
 
-# (1) add a input panel to choose industries or regions
-# (2) then add a conditional picker input for choosing regions or industries
-# (3) subset the data reactively according to these specifications
-# (4) make the same plot as before for one or more regions.
+# (1) choose between region or industry and define the data (WORKS) ------------------------------
+radioButtons(inputId = "region_or_industry", 
+             label = NULL, choiceNames = c("Region", "Technology Field"),
+             choiceValues = c("CH_region", "CH_Techfields"), selected = "CH_Techfields",
+             inline = TRUE)
+
+conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
+                 pickerInput(
+                   inputId = "OBS_reg",
+                   label = "Chose a region",
+                   choices = as.list(as.character(unique(na.omit(df_list$CH_region$regio_pat)))),
+                   multiple = FALSE))
+
+conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
+                 pickerInput(
+                   inputId = "OBS_ind",
+                   label = "Chose a technology field", selected = "16",
+                   choices = as.list(as.character(unique(na.omit(df_list$CH_Techfields$tech_field)))),
+                   multiple = FALSE))
+
+
+# (2) define reactives() for data and plotting parameters ------------------------------
+dat_fun <- reactive({
+  
+  # define and subset the data
+  plot_data <- df_list[[input$region_or_industry]]
+  subsetter <- colnames(plot_data)[2]
+  if(subsetter == "tech_field"){
+    keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{
+      keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg)
+    }
+  plot_data <- plot_data[keep_obs, ]
+  
+  # calculate 5-year shares
+  plot_data <- plot_data %>% dplyr::arrange(p_year) %>% filter(as.numeric(p_year) <= 2015)
+  plot_data$period <- rep(seq(1990, 2015, by =3), each = 3)[1:26]
+  plot_data <- plot_data %>% group_by(period) %>% 
+    summarise(Swiss_based = sum(Swiss_based), commuters = sum(commuters)) %>%
+    mutate(share = commuters / Swiss_based) %>%
+    rename(p_year = period)
+  
+  # reshape the data
+  plot_data <- plot_data %>%
+    gather(key = Type, value = number, Swiss_based, commuters)
+  plot_data
+})
+
+# (3) define plot parameters accordingly -------------------------------------------------------
+param_fun <- reactive({
+  plot_data <- dat_fun()
+  ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE))
+  ylim_share <- c(0, max(plot_data$share, na.rm = TRUE))
+  b <- diff(ylim_absolute)/diff(ylim_share)
+  a <- b*(ylim_absolute[1] - ylim_share[1])
+  param_list <- list(a, b)
+  names(param_list) <- c("a", "b")
+  param_list
+})
+
+# (4) make the plot -----------------------------------------------------------------------------
+renderPlot({
+  
+  # specify data and parameters
+  plot_data <- dat_fun()
+  param_list <- param_fun()
+  a <- param_list[["a"]]
+  b <- param_list[["b"]]
+  
+  ggplot(plot_data)+
+    geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
+    geom_line(aes(x = p_year, y = share), color = "black")+
+    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+                     labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
+    scale_y_continuous("Share of patents by cross-border commuters",
+                     sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
+                     labels = scales::percent)+
+    xlab("Year") +
+    theme(legend.position="bottom",
+          panel.background = element_blank(),
+          panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+          axis.line = element_line())
+  })
 
 
 ```
