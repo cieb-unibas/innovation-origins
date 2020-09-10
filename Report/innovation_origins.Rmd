@@ -151,20 +151,25 @@ max_year <- 2015 # do not use data after 2015 because data quality is poor
 ```{r, echo = FALSE, fig.asp = 0.5}
 #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------
 
-renderPlot({
-  
+# renderPlotly({
+renderPlot({  
   # define the data to plot
   plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
+# mutate(plot_data, `Country of origin` = paste0(ctry_inv, "\nCount: ", count))
 
   # make the plot
-  ggplot(plot_data)+
+  # ggplotly(
+  ggplot(plot_data)+#, aes(label = `Country of origin`))+
   geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
   scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
                      labels = c("Austria", "Germany", "France", "Italy")) +
-  labs( x = "Year", y = "Number of cross-border commuting inventors") +
+  labs(x = "Year", y = "Number of cross-border commuting inventors") +
   theme(legend.position="bottom",
-         panel.background = element_blank(),
-         axis.line = element_line())
+        panel.background = element_blank(),
+        panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+        axis.title = element_text(face = "bold"),
+        axis.line = element_line())#,
+  # tooltip = c("label"), dynamicTicks = FALSE)
 })
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
@@ -177,11 +182,12 @@ In  our sample of USPTO and EPO patents, Switzerland’s patent output clearly i
 #### CROSS-BORDER COMMUTERS IN SWITZERLAND: -------------------------------------------
 
 # load and prepare the data 
-plot_data <- df_list[["CH_overall"]]
+plot_data <- df_list[["CH_overall"]] %>% rename(`Swiss residents` = Swiss_based, Commuters = commuters)
 plot_data <- plot_data %>%
   mutate(share = share -1) %>%
   filter(p_year <= max_year) %>%
-  gather(key = Type, value = number, Swiss_based, commuters)
+  gather(key = Type, value = number, `Swiss residents`, Commuters)
+plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number)))
 
 # define parameters to transform the data to get 2nd axis:
 ylim_absolute <- c(0, 5000)
@@ -189,21 +195,26 @@ ylim_share <- c(0, 0.15)
 b <- diff(ylim_absolute)/diff(ylim_share)
 a <- b*(ylim_absolute[1] - ylim_share[1])
 
-# make the plot
+# make the plot => problem with plotly: does not display the second axis. Tbd
+# renderPlotly({
+#   ggplotly(
 renderPlot({
-ggplot(plot_data)+
-  geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
-  geom_line(aes(x = p_year, y = share), color = "black")+
-  scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                     labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-  scale_y_continuous("Share of Swiss patents by cross-border commuters",
-                     sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), 
-                     labels = c("0%", "5%", "10%", "15%"))+
-  xlab("Year") +
-  theme(legend.position="bottom",
-        panel.background = element_blank(),
-        panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-        axis.line = element_line())
+    ggplot(plot_data)+#, aes(label = Status))+
+    geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
+    geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
+    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+                       labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
+    scale_y_continuous("Share of Swiss patents by cross-border commuters",
+                       sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), 
+                       labels = c("0%", "5%", "10%", "15%"))+
+    xlab("Year") +
+    theme(legend.position="bottom",
+          panel.background = element_blank(),
+          panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+          axis.title = element_text(face = "bold"),
+          axis.line = element_line())#,
+
+#     tooltip = c("label"), dynamicTicks = FALSE)
 })
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
@@ -294,16 +305,18 @@ renderPlot({
   
   ggplot(plot_data)+
     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
-    geom_line(aes(x = p_year, y = share), color = "black")+
+    geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
                      labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
     scale_y_continuous("Share of patents by cross-border commuters",
                      sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
+                     # limits = c(0, 0.35),
                      labels = scales::percent)+
     xlab("Year") +
     theme(legend.position="bottom",
           panel.background = element_blank(),
           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+          axis.title = element_text(face = "bold"),
           axis.line = element_line())
   })
 
