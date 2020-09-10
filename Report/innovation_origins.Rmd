@@ -85,6 +85,10 @@ This patent states nine different “Inventors”. Five are from Germany and fou
 
 There is also a third option. Instead of focusing on inventors, one can consider the location of the company that owns the patent. In our example, this is the location of the patent’s “Assignee”. In this case, the patent is owned by selFrag AG from Kerzers, Switzerland, and it would therefore be attributed to Switzerland only. Because of this - and also because patents are sometimes filed by foreign subsidiaries or headquarters - company addresses are rarely used to determine patent origins. For more information, a recent report by <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann (p. 68)</a> briefly and comprehensively discusses the pros and cons of these different options. The optimal choice mostly depends on the question one wants to answer. In this article, we want to investigate innovative capacities in Switzerland. For this purpose, it is best to follow the most common approach, which is to look at inventor addresses and to use shares to assign patents to countries.
 
+<div class=bloc_div>
+<blockquote>***Such a patent would not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility.***</blockquote> 
+</div>
+
 Now, for the case of Switzerland, recall the very high numbers of cross-border commuters in, for example, Geneva or Basel. What if *all* the inventors of a patent developed in Switzerland live in neighboring countries and commute to a workplace in Switzerland? Such a patent would not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility. In addition, focusing on the location of the firm would also not solve the problem if the patent was filed by a foreign affiliate of the Swiss-based firm. The picture below shows an example of a patent with exactly these characteristics.
 
 <br>
@@ -228,9 +232,15 @@ What does this imply? First and foremost, it means that Swiss innovative activit
 <blockquote> ***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote>
 </div>
 
-Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This is in line with industry representatives (…) 
+Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This finding fits with Swiss companies and industry representatives arguing that access to foreign workers is crucial for their business success. Further, it is in line with very recent research on the importance of immigrants for the Swiss economy (see <a href = “https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y” target = “_blank”>Beerli et al., 2020</a>).
 
-While cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy, this could be even more apparent for some specific regions and industries.
+<br>
+
+Taken together, cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy. But, as we argued at the beginning, this could be even more apparent for some specific regions and industries.
+
+The graph below allows you to examine this further for yourself. You can choose a Swiss region or industry and the graph then displays patent counts and the share of patents invented by cross-border commuters for your selected region or industry. Note that in contrast to the previous plot, the counts and shares are not calculated annually but over a 3-year period. This is because the number of patents in a single year can be rather low for some industries and cross-border commuting shares would thus highly fluctuate. 
+
+<br>
 
 ```{r, echo = FALSE}
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES:  DYNAMIC AREAPLOT ---------------------
@@ -244,14 +254,14 @@ radioButtons(inputId = "region_or_industry",
 conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
                  pickerInput(
                    inputId = "OBS_reg",
-                   label = "Chose a region",
+                   label = "Choose a region",
                    choices = as.list(as.character(unique(na.omit(df_list$CH_region$regio_pat)))),
                    multiple = FALSE))
 
 conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
                  pickerInput(
                    inputId = "OBS_ind",
-                   label = "Chose a technology field", selected = "16",
+                   label = "Choose a technology field", selected = "16",
                    choices = as.list(as.character(unique(na.omit(df_list$CH_Techfields$tech_field)))),
                    multiple = FALSE))
 
@@ -322,8 +332,11 @@ renderPlot({
 
 
 ```
+<span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
+<br>
 
+(...)
 
 
 
