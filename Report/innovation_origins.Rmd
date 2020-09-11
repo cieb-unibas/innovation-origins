@@ -139,7 +139,7 @@ Bringing together our results for the USPTO and the EPO patents, we find that, o
 
 <br>
 
-Let us start by focusing on the number of people who commute to Switzerland from neighboring countries and who have contributed to inventions by Swiss companies. The Figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin. At the beginning of the 1990s there were relatively few cross-border commuting inventors – most of them coming from Germany to Switzerland. However, until 2005 their number has increased from all neighboring countries to over a total of over 1000 people. The natural question from this seems whether patenting and innovative activity in Switzerland grew proportionally. This is what can be examined from the next plot.
+Let us start by focusing on the number of inventors who commute to a Swiss workplace from neighboring countries. The Figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin. 
 
 <br>
 
@@ -180,7 +180,9 @@ renderPlot({
 
 <br>
 
-In  our sample of USPTO and EPO patents, Switzerland’s patent output clearly increases when also considering cross-border commuting inventors. This can well be seen from the figure below. The black line on the left axis, states the share of Swiss patents invented by cross-border commuters. The right axis, in turn, visualizes the evolution of total patents in our sample. The yellow area indicates patents by Swiss residents and the purple area those by cross-border commuters.
+At the beginning of the 1990s there were relatively few cross-border commuting inventors – most of them coming from Germany to Switzerland. However, until 2005 their number has increased for all neighboring countries to a combined total of over 1000 people. Not considering all these inventors and their corresponding patents could thus result in substantially underreporting Switzerland’s innovative output.
+
+The extent of this bias can be seen in the next plot. Focus on the colored areas first. This time, they show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple) respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (see e.g. <a href = “xxx” target = “_blank”>xxx</a>  for a discussion about the general evolution of patenting in Switzerland). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors. The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite substantial. Already in 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
 
 ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5}
 #### CROSS-BORDER COMMUTERS IN SWITZERLAND: -------------------------------------------
@@ -225,22 +227,20 @@ renderPlot({
 
 <br>
 
-Not surprisingly, patents by Swiss residents and cross-border commuters have both increased over time (see e.g. <a href = “xxx” target = “_blank”>xxx</a>  for a discussion about patenting activity in Switzerland). At the same time, the share of patents invented by cross-border commuters has increased drastically. In 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share increased to around 10% in 2005 and has remained relatively stable ever since. 
+What do these findings imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered. Second, as the share of patents by cross-border commuters did not increase for the last 10 years, it seems unlikely that cross-border commuters did substitute domestic inventors. 
 
-What does this imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered. Second, as the share of patents by cross-border commuters did not increase for the last 10 years, it seems unlikely that cross-border commuters did substitute domestic inventors. 
 <div class=bloc_div>
-<blockquote> ***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote>
+<blockquote>***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote> 
 </div>
 
 Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This finding fits with Swiss companies and industry representatives arguing that access to foreign workers is crucial for their business success. Further, it is in line with very recent research on the importance of immigrants for the Swiss economy (see <a href = “https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y” target = “_blank”>Beerli et al., 2020</a>).
 
 <br>
 
-Taken together, cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy. But, as we argued at the beginning, this could be even more apparent for some specific regions and industries.
+Taken together, cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy. But, as we argued at the beginning, this could be even more apparent for some specific regions and industries. 
 
-The graph below allows you to examine this further for yourself. You can choose a Swiss region or industry and the graph then displays patent counts and the share of patents invented by cross-border commuters for your selected region or industry. Note that in contrast to the previous plot, the counts and shares are not calculated annually but over a 3-year period. This is because the number of patents in a single year can be rather low for some industries and cross-border commuting shares would thus highly fluctuate. 
+The graph below allows you to examine this further for yourself. You can choose a Swiss region or industry and the graph then displays patent counts and the share of patents invented by cross-border commuters for your selected region or industry. Note that in contrast to the previous plot, the counts and shares are not calculated annually but over a 3-year period. This is because the number of patents in a single year can be rather low for some industries and cross-border commuter shares would highly fluctuate. 
 
-<br>
 
 ```{r, echo = FALSE}
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES:  DYNAMIC AREAPLOT ---------------------
@@ -336,7 +336,5 @@ renderPlot({
 
 <br>
 
-(...)
-
-
+Unsurprisingly, Swiss regions strongly differ with respect to cross-border commuting patents. Shares vary from only around 0.5-1% in Espace Mittelland to around 20% in Northwestern Switzerland and Ticino. The same is true for technology fields. 
 
