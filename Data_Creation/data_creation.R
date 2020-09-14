@@ -24,6 +24,7 @@ print("Packages loaded and directories set.")
 
 # load the data
 df <- readRDS(paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
+ipc <- readRDS(paste0(mainDir1, "/created data/oecd_tech_field.RDS"))
 
 # only consider patents for which at least one inventor assigned to Switzerland
 keep_keys <- df %>% filter(ctry_pat == "CH")
@@ -53,14 +54,6 @@ plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 # store the data
 dat_list[["CH_overall"]] <- plot_data
 
-# # illustrate
-# ggplot(plot_data[plot_data$p_year < 2015, ],
-#        aes(x = p_year, y = share)) +
-#         geom_point() +
-#         geom_line() +
-#         geom_hline(yintercept = 1, color = "black", linetype = "dotted")+
-#         ylim(0.75, 1.5)
-
 ######################################################################################
 ## CROSS-BORDER COMMUTER ADJUSTED PATENT COUNTS BY TECHNOLOGY FIELDS IN SWITZERLAND ##
 ######################################################################################
@@ -77,16 +70,12 @@ plot_data <- mutate(plot_data, share = (no+yes) / no)
 plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 plot_data$tech_field <- as.character(plot_data$tech_field)
 
+# add names of technology fields
+plot_data <- merge(plot_data, ipc, by = "tech_field", all.x = TRUE)
+plot_data <- plot_data[, c(2, 1, 3:6)]
+
 # store the data
 dat_list[["CH_Techfields"]] <- plot_data
-
-# # illustrate
-# ggplot(filter(plot_data, p_year < 2015 & tech_field %in% c(13, 15, 16)),
-#        aes(x = p_year, y = share, color = tech_field, group = tech_field)) +
-#         geom_point() +
-#         geom_line() +
-#         geom_hline(yintercept = 1, color = "black", linetype = "dotted")+
-#         ylim(0.75, 1.5)
 
 ########################################################################
 #### CROSS-BORDER COMMUTER ADJUSTED PATENT COUNTS BY SWISS REGIONS #####
@@ -113,14 +102,6 @@ plot_data <- rename(plot_data, Swiss_based = no, commuters = yes)
 # store the data
 dat_list[["CH_region"]] <- plot_data
 
-# # illustrate
-# ggplot(filter(plot_data, p_year < 2015),
-#        aes(x = p_year, y = share, color = regio_pat, group = regio_pat)) +
-#         geom_point() +
-#         geom_line() +
-#         geom_hline(yintercept = 1, color = "black", linetype = "dotted")+
-#         ylim(0.75, 1.5)
-
 ###############################################################################
 #### COUNT OF CROSS-BORDER COMMUTERS TO SWITZERLAND BY NEIGHBORING COUNTRY ####
 ###############################################################################
@@ -140,12 +121,6 @@ plot_data <- filter(plot_data, ctry_inv %in% commut_ctry)
 # store the data
 dat_list[["neighboring_ctry"]] <- plot_data
 
-# # illustrate
-# ggplot(filter(plot_data, p_year < 2015),
-#        aes(x = p_year, y = count, color = ctry_inv, group = ctry_inv)) +
-#         geom_point() +
-#         geom_line()
-
 #########################
 #### EXAMPLE PATENTs ####
 #########################
@@ -160,7 +135,7 @@ plot_data <- df %>%
                              "yes", "no")) %>%
         filter(expl == "yes", inventors > 4 & p_year > 2005)
 print("Choose first examples from these patents")
-# chose patent: US10029262B2
+# => chose patent: "US10029262B2"
 
 ## EXAMPLE OF CH PATENT BY CROSS-BORDER COMMUTING INVENTORS: -------------------
 
@@ -178,7 +153,7 @@ plot_data <- plot_data %>% filter(USPTO == "yes") %>%
         mutate(CH_connex = ifelse(!"CH" %in% paste(ctry_inv), "no", "yes")) %>%
         filter(CH_connex == "no" & tech_field == 16)
 print("Choose 2nd example from these patents")
-# choose patent US7786128B2
+# => choose patent "US7786128B2"
 
 ######################################
 #### SAVE THE DATA FOR THE REPORT ####

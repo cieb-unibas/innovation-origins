@@ -275,10 +275,20 @@ The graph below allows you to examine this further for yourself. You can choose 
 
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES --------------------------------
 
-# (1) apply the custum reshape_fun()-function to both datasets ---------------------------
+# (1) apply the custom reshape_fun()-function to both data-sets and combine technology field names
 plot_df <- lapply(c("CH_region",
                     "CH_Techfields"), function(x) reshape_fun(dataset = x))
 names(plot_df) <- c("CH_region", "CH_Techfields")
+
+# (2) specify picker_input() selection options
+REGIONS <- as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat))))
+names(REGIONS) <- REGIONS
+
+tech_field_name <- paste(plot_df$CH_Techfields$tech_field,
+                         plot_df$CH_Techfields$tech_name)
+tech_field_name <- unique(tech_field_name)
+TECHFIELDS <- as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field))))
+names(TECHFIELDS) <- tech_field_name
 
 # (2) choose between region or industry and define the data ------------------------------
 radioButtons(inputId = "region_or_industry",
@@ -290,14 +300,14 @@ conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
                  pickerInput(
                    inputId = "OBS_reg",
                    label = "Choose a region", selected = "Northwestern Switzerland",
-                   choices = as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat)))),
+                   choices = REGIONS,
                    multiple = FALSE))
 
 conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
                  pickerInput(
                    inputId = "OBS_ind",
-                   label = "Choose a technology field", selected = "16",
-                   choices = as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field)))),
+                   label = "Choose a technology field", selected = "16 Pharmaceuticals",
+                   choices = TECHFIELDS,
                    multiple = FALSE))
 
 # (3) make the plot ---------------------------------------------------------------------

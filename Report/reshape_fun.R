@@ -11,9 +11,11 @@ reshape_fun <- function(dataset){
         # load the data
         plot_data <- df_list[[dataset]]
         
-        # use the same variable names and kick out tech_field No. 22 becuase of missing values
+        # use the same variable names, keep ipc names and kick out tech_field No. 22 because of missing values
         if(dataset == "CH_Techfields"){
                 plot_data <- subset(plot_data, plot_data$tech_field != 22)
+                ipc_name <- plot_data %>% distinct(tech_field, .keep_all = TRUE) %>% 
+                        select(tech_field, tech_name)
                 plot_data <- plot_data %>% rename(regio_pat = tech_field)
         }
         
@@ -27,7 +29,10 @@ reshape_fun <- function(dataset){
                 rename(p_year = period)
         
         # rename to the original variable names again
-        if(dataset == "CH_Techfields"){plot_data <- plot_data %>% rename(tech_field = regio_pat)}
+        if(dataset == "CH_Techfields"){
+                plot_data <- plot_data %>% rename(tech_field = regio_pat)
+                plot_data <- merge(plot_data, ipc_name, by = "tech_field")
+        }
         
         # change type names and adapt the data structure from wide to long format
         plot_data <- plot_data %>%
@@ -37,7 +42,7 @@ reshape_fun <- function(dataset){
         # define text-labels for the plots
         plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number)))
         plot_data <- plot_data %>% mutate(Share = paste0(round(100 * share, 1), "%"))
-        
+
         # return the processed data
         return(plot_data %>% as.data.frame)
 }
