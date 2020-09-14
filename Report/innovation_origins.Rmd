@@ -145,21 +145,25 @@ Let us start by focusing on the number of inventors who commute to a Swiss workp
 
 ```{r, echo = FALSE}
 ## LOAD ALL .CSV FILES ---------------------------------------------------------------
-
 csv_files <- list.files(pattern = ".csv")
 df_list <- lapply(csv_files, read.csv)
 names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
 max_year <- 2015 # do not use data after 2015 because data quality is poor
+
+## LOAD HELPER-FUNCTION -------------------------------------------------------------
+source(file = "reshape_fun.R", local = knitr::knit_global()) 
 ```
 
 ```{r, echo = FALSE, fig.asp = 0.5}
+
 #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------
 
 # renderPlotly({
-renderPlot({  
+ renderPlot({
+   
   # define the data to plot
   plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
-# mutate(plot_data, `Country of origin` = paste0(ctry_inv, "\nCount: ", count))
+  # plot_data <- mutate(plot_data, `Country of origin` = paste0(ctry_inv, "\nCount: ", count))
 
   # make the plot
   # ggplotly(
@@ -185,6 +189,7 @@ At the beginning of the 1990s there were relatively few cross-border commuting i
 The extent of this bias can be seen in the next plot. Focus on the colored areas first. This time, they show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple) respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (see e.g. <a href = “xxx” target = “_blank”>xxx</a>  for a discussion about the general evolution of patenting in Switzerland). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors. The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite substantial. Already in 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
 
 ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5}
+
 #### CROSS-BORDER COMMUTERS IN SWITZERLAND: -------------------------------------------
 
 # load and prepare the data 
@@ -202,7 +207,6 @@ ylim_share <- c(0, 0.15)
 b <- diff(ylim_absolute)/diff(ylim_share)
 a <- b*(ylim_absolute[1] - ylim_share[1])
 
-# make the plot => problem with plotly: does not display the second axis. Tbd
 # renderPlotly({
 #   ggplotly(
 renderPlot({
@@ -210,8 +214,8 @@ renderPlot({
     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                       labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-    scale_y_continuous("Share of Swiss patents by cross-border commuters",
+                       labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    scale_y_continuous("Share of patents by cross-border commuters",
                        sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), 
                        labels = c("0%", "5%", "10%", "15%"))+
     xlab("Year") +
@@ -225,28 +229,27 @@ renderPlot({
 })
 
 ### ALTERNATIVE USING PLOTLY -------------------------------------------------------------
-renderPlotly({
-  ggplotly(
-    ggplot(plot_data)+
-    geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
-    geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
-    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                       labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-    scale_y_continuous("Total number of patents",
-                       sec.axis = sec_axis(~ (. - a) / b, 
-                                           name = "Share of patents by cross-border commuters"), 
-                       limits = c(0, 6000)
-                       )+
-    xlab("Year") +
-    theme(legend.position="none",
-          panel.background = element_blank(),
-          panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-          axis.title = element_text(face = "bold"),
-          axis.line = element_line()),
-
-     tooltip = c("label", "text"), dynamicTicks = FALSE)
-})
-
+# renderPlotly({
+#   ggplotly(
+#     ggplot(plot_data)+
+#     geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
+#     geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
+#     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+#                        labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
+#     scale_y_continuous("Total number of patents",
+#                        sec.axis = sec_axis(~ (. - a) / b, 
+#                                            name = "Share of patents by cross-border commuters"), 
+#                        limits = c(0, 6000)
+#                        )+
+#     xlab("Year") +
+#     theme(legend.position="none",
+#           panel.background = element_blank(),
+#           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+#           axis.title = element_text(face = "bold"),
+#           axis.line = element_line()),
+# 
+#      tooltip = c("label", "text"), dynamicTicks = FALSE)
+# })
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
@@ -266,175 +269,16 @@ Taken together, cross-border commuters seem to substantially fuel the innovative
 
 The graph below allows you to examine this further for yourself. You can choose a Swiss region or industry and the graph then displays patent counts and the share of patents invented by cross-border commuters for your selected region or industry. Note that in contrast to the previous plot, the counts and shares are not calculated annually but over a 3-year period. This is because the number of patents in a single year can be rather low for some industries and cross-border commuter shares would highly fluctuate. 
 
-
-```{r, echo = FALSE}
-#### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES:  DYNAMIC AREAPLOT ---------------------
-
-# (1) choose between region or industry and define the data (WORKS) ------------------------------
-radioButtons(inputId = "region_or_industry",
-             label = NULL, choiceNames = c("Region", "Technology Field"),
-             choiceValues = c("CH_region", "CH_Techfields"), selected = "CH_Techfields",
-             inline = TRUE)
-
-conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
-                 pickerInput(
-                   inputId = "OBS_reg",
-                   label = "Choose a region",
-                   choices = as.list(as.character(unique(na.omit(df_list$CH_region$regio_pat)))),
-                   multiple = FALSE))
-
-conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
-                 pickerInput(
-                   inputId = "OBS_ind",
-                   label = "Choose a technology field", selected = "16",
-                   choices = as.list(as.character(unique(na.omit(df_list$CH_Techfields$tech_field)))),
-                   multiple = FALSE))
-
-
-# (2) define reactives() for data and plotting parameters ------------------------------
-dat_fun <- reactive({
-
-  # define and subset the data according to the selection
-  plot_data <- df_list[[input$region_or_industry]]
-  subsetter <- colnames(plot_data)[2]
-  if(subsetter == "tech_field"){
-    keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{
-      keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg)
-    }
-  plot_data <- plot_data[keep_obs, ]
-
-  # calculate 5-year shares
-  plot_data <- plot_data %>% dplyr::arrange(p_year) %>% filter(as.numeric(p_year) <= 2015)
-  plot_data$period <- rep(seq(1990, 2015, by =3), each = 3)[1:26]
-  plot_data <- plot_data %>% group_by(period) %>%
-    summarise(Swiss_based = sum(Swiss_based), commuters = sum(commuters)) %>%
-    mutate(share = commuters / Swiss_based) %>%
-    rename(p_year = period)
-
-  # reshape the data
-  plot_data <- plot_data %>%
-    rename(`Swiss residents` = Swiss_based, Commuters = commuters) %>%
-    gather(key = Type, value = number, `Swiss residents`, Commuters)
-  plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number)))
-  plot_data <- plot_data %>% mutate(Share = paste0(round(100 * share, 1), "%"))
-
-  plot_data
-})
-
-# (3) define plot parameters accordingly -------------------------------------------------------
-param_fun <- reactive({
-  plot_data <- dat_fun()
-  ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE))
-  ylim_share <- c(0, max(plot_data$share, na.rm = TRUE))
-  b <- diff(ylim_absolute)/diff(ylim_share)
-  a <- b*(ylim_absolute[1] - ylim_share[1])
-  param_list <- list(a, b)
-  names(param_list) <- c("a", "b")
-  param_list
-})
-
-
-# (4) make the plot -----------------------------------------------------------------------------
-renderPlot({
-
-  # specify data and parameters
-  plot_data <- dat_fun()
-  param_list <- param_fun()
-  a <- param_list[["a"]]
-  b <- param_list[["b"]]
-
-  ggplot(plot_data)+
-    geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
-    geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
-    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                     labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-    scale_y_continuous("Share of patents by cross-border commuters",
-                     sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
-                     # limits = c(0, 0.35),
-                     labels = scales::percent)+
-    xlab("Year") +
-    theme(legend.position="bottom",
-          panel.background = element_blank(),
-          panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-          axis.title = element_text(face = "bold"),
-          axis.line = element_line())
-  })
-
-# ### ALTERNATIVE USING PLOTLY -------------------------------------------------------------
-# renderPlotly({
-# 
-#   plot_data <- dat_fun()
-#   param_list <- param_fun()
-#   a <- param_list[["a"]]
-#   b <- param_list[["b"]]
-# 
-#   ggplotly(
-#     ggplot(plot_data)+
-#     geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
-#     geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
-#     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-#                        labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-#     scale_y_continuous("Total number of patents",
-#                        sec.axis = sec_axis(~ (. - a) / b,
-#                                            name = "Share of patents by cross-border commuters"),
-#                       limits = c(0, 4000))+
-#     xlab("Year") +
-#     theme(legend.position="none",
-#           panel.background = element_blank(),
-#           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-#           axis.title = element_text(face = "bold"),
-#           axis.line = element_line()),
-# 
-#      tooltip = c("label", "text"), dynamicTicks = FALSE)
-# })
-```
+<br>
 
 ```{r, echo = FALSE, message = FALSE}
-#### MORE EFFICIENT
 
-# (1) reshape the data ------------------------------
+#### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES --------------------------------
 
-# define function:
-reshape_fun <- function(dataset){
-
-  # load the data
-  plot_data <- df_list[[dataset]]
-
-  # use the same variable names and kick out tech_field No. 22 becuase of missings
-  if(dataset == "CH_Techfields"){
-    plot_data <- subset(plot_data, plot_data$tech_field != 22)
-    plot_data <- plot_data %>% rename(regio_pat = tech_field)
-    }
-
-  # calculate 3-year patent averages for regions/techfields
-  plot_data <- plot_data %>% dplyr::arrange(p_year) %>% filter(as.numeric(p_year) <= 2015)
-  plot_data <- plot_data %>% group_by(regio_pat) %>%
-    mutate(period = rep(seq(1990, 2015, by =3), each = 3)[1:n()])
-  plot_data <- plot_data %>% group_by(regio_pat, period) %>%
-    summarise(Swiss_based = sum(Swiss_based), commuters = sum(commuters)) %>%
-    mutate(share = commuters / Swiss_based) %>%
-    rename(p_year = period)
-
-  # rename to original variable names
-  if(dataset == "CH_Techfields"){plot_data <- plot_data %>% rename(tech_field = regio_pat)}
-
-  # change type names and the data structure from wide to long format
-  plot_data <- plot_data %>%
-    rename(`Swiss residents` = Swiss_based, Commuters = commuters) %>%
-    gather(key = Type, value = number, `Swiss residents`, Commuters)
-
-  # define text-labels for the plots
-  plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number)))
-  plot_data <- plot_data %>% mutate(Share = paste0(round(100 * share, 1), "%"))
-
-  return(plot_data %>% as.data.frame)
-}
-
-# apply the function on both datasets
+# (1) apply the custum reshape_fun()-function to both datasets ---------------------------
 plot_df <- lapply(c("CH_region",
                     "CH_Techfields"), function(x) reshape_fun(dataset = x))
 names(plot_df) <- c("CH_region", "CH_Techfields")
-
 
 # (2) choose between region or industry and define the data ------------------------------
 radioButtons(inputId = "region_or_industry",
@@ -456,11 +300,12 @@ conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
                    choices = as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field)))),
                    multiple = FALSE))
 
+# (3) make the plot ---------------------------------------------------------------------
 
-# (4) make the plot -----------------------------------------------------------------------------
-renderPlotly({
+## STATIC
+renderPlot({
 
-  # define the data
+  # specify data and parameters
   plot_data <- plot_df[[input$region_or_industry]]
   subsetter <- colnames(plot_data)[1]
   if(subsetter == "tech_field"){
@@ -476,26 +321,60 @@ renderPlotly({
   a <- b*(ylim_absolute[1] - ylim_share[1])
 
   # make the plot
-  ggplotly(
-    ggplot(plot_data)+
-    geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
-    geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
+  ggplot(plot_data)+
+    geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
+    geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                       labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-    scale_y_continuous("Total number of patents",
-                       sec.axis = sec_axis(~ (. - a) / b,
-                                           name = "Share of patents by cross-border commuters"),
-                      limits = c(0, 4000))+
+                     labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    scale_y_continuous("Share of patents by cross-border commuters",
+                     sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
+                     labels = scales::percent)+
     xlab("Year") +
-    theme(legend.position="none",
+    theme(legend.position="bottom",
           panel.background = element_blank(),
           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
           axis.title = element_text(face = "bold"),
-          axis.line = element_line()),
+          axis.line = element_line())
+  })
 
-     tooltip = c("label", "text"), dynamicTicks = FALSE)
-})
-
+## DYNAMIC
+# renderPlotly({
+# 
+#   # define the data
+#   plot_data <- plot_df[[input$region_or_industry]]
+#   subsetter <- colnames(plot_data)[1]
+#   if(subsetter == "tech_field"){
+#     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{
+#     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg)
+#     }
+#   plot_data <- plot_data[keep_obs, ]
+#   
+#   # define the plot parameters
+#   ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE))
+#   ylim_share <- c(0, max(plot_data$share, na.rm = TRUE))
+#   b <- diff(ylim_absolute)/diff(ylim_share)
+#   a <- b*(ylim_absolute[1] - ylim_share[1])
+# 
+#   # make the plot
+#   ggplotly(
+#     ggplot(plot_data)+
+#     geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
+#     geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
+#     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+#                        labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+#     scale_y_continuous("Total number of patents",
+#                        sec.axis = sec_axis(~ (. - a) / b,
+#                                            name = "Share of patents by cross-border commuters")
+#                        )+
+#     xlab("Year") +
+#     theme(legend.position="none",
+#           panel.background = element_blank(),
+#           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+#           axis.title = element_text(face = "bold"),
+#           axis.line = element_line()),
+# 
+#      tooltip = c("label", "text"), dynamicTicks = FALSE)
+# })
 ```
 <span style="font-size:0.8em">*Source: Author's own estimations based on data from the <a href="xxx" target ="blank">USPTO</a> and the <a href="xxx" target ="blank">OECD</a> . The displayed data is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
