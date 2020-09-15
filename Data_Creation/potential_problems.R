@@ -1,5 +1,8 @@
 # load the data / this takes a bit of time
+library("dplyr")
+mainDir1 <- c("/scicore/home/weder/GROUP/Innovation/01_patent_data")
 df <- readRDS(paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
+firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg.rds"))
 
 ################################################################################## 
 ## PROBLEM 1: There are people with ctry_inv == "CH" AND cross_border status #####
@@ -62,7 +65,8 @@ tmp <- df %>% filter(cross_bord == "yes", p_year <= 2007, regio_pat == "Espace M
 # => No problems there
 
 ## Central Switzerland
-tmp <- df %>% filter(cross_bord == "yes", p_year <= 2007, regio_pat == "Central Switzerland")
+tmp <- df %>% filter(cross_bord == "yes", p_year <= 2007, regio_pat == "Central Switzerland") # number of patents
+tmp <- tmp %>% distinct(name, .keep_all = TRUE) # number of people
 
 # There should not be any because all cantons belonging to this OECD region are not close to the border. 
 # => potentail problem here:
@@ -71,5 +75,12 @@ tmp <- df %>% filter(cross_bord == "yes", p_year <= 2007, regio_pat == "Central 
 # (c) inventors were basically living in Switzerland (e.g. had a B permit) but lived in neighboring countries on
 # weekends etc.
 
-
+# ------------------------------------------------------------------------------------------
+# HOWEVER: several p_keys do not seem to have a Swiss firm among these central switzerland patents
+# I checked out the following p_keys: 
+# (1) "15712426" (U.S. firms with no Swiss affiliates, french inventors) 
+# (2) "47857521" (Australian company without Swiss affiliates, Italian inventors)
+# (3) "16114048" (Deere = U.S. company with many patents!, German inventors)
+# => maybe the distance or string-matching for firms did not work so well here.
+# ------------------------------------------------------------------------------------------
 
