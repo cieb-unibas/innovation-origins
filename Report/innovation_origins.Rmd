@@ -45,7 +45,12 @@ a(actionButton(inputId = "email1", label = "Mail us",
 
 <br>
 
-# <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'** </font>
+
+# <font color='#68838B'>***Is Switzerland more innovative than usually thought?*** 
+**Cross-border commuting and inventions 'Made in Switzerland'** </font>
+
+
+<br>
 
 *September 2020* by <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
 
@@ -81,7 +86,7 @@ Every other year, reports such as the <a href = https://www.globalinnovationinde
 <br>
 <center>
 <a href="https://patentimages.storage.googleapis.com/2d/2c/18/51725e50ce657b/US10029262.pdf" target = "_blank">
-![](example_patent_multicountry.jpg){ width=70% }</a> 
+![](example_patent_multicountry.jpg){ width=80% }</a> 
 </center>
 <br>
 
@@ -96,7 +101,10 @@ There is also a third option. Instead of focusing on inventors, one can consider
 Now, for the case of Switzerland, recall the very high numbers of cross-border commuters in, for example, Geneva or Basel. What if *all* the inventors of a patent developed in Switzerland live in neighboring countries and commute to a workplace in Switzerland? Such a patent would not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility. In addition, focusing on the location of the firm would also not solve the problem if the patent was filed by a foreign affiliate of the Swiss-based firm. The picture below shows an example of a patent with exactly these characteristics.
 
 <br>
-<center>![](example_patent_crossbord.jpg){ width=50% }</center>
+<center>
+<a href="https://patentimages.storage.googleapis.com/d3/fc/90/f9374c9864e9b2/US7786128.pdf" target = "_blank">
+<center>![](example_patent_crossbord.jpg){ width=80% }</a> 
+</center>
 <br>
 
 All the inventors of this patent live in Germany or France and the assignee of the patent is a U.S.-affiliate of Swiss pharmaceutical giant Hoffmann-La Roche. With the above-mentioned approaches, such a patent would never be attributed to Switzerland. However, the places of residence of all inventors are very close to the region of Basel (e.g. Grenzach-Wylen, Freiburg). Furthermore, Hoffmann-La Roche’s headquarter is located in Basel and some of its major research facilities are in this region. Therefore, it is very likely that this patent was in fact developed in Basel by cross-border commuters from Germany and France and later filed at the <a href = “https://www.uspto.gov/” target = “_blank”>United States Patent and Trademark Office (USPTO)</a> by a U.S. branch of Hoffmann-La Roche. The actual invention, however, was conducted in Switzerland and the patent should thus also be attributed to Switzerland.
@@ -186,11 +194,12 @@ source(file = "reshape_fun.R", local = knitr::knit_global())
   # tooltip = c("label"), dynamicTicks = FALSE)
 })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
+</a>
 
-At the beginning of the 1990s there were relatively few cross-border commuting inventors – most of them coming from Germany to Switzerland. However, until 2005 their number has increased for all neighboring countries to a combined total of over 1000 people. This aligns nicely with the findings of  <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. These authors document that inflows of cross-border workers to Swiss border regions increased substantially following liberalizations at the beginning of the 21st century. Based on survey data, they point out that this additional inflow was especially relevant for research and development activities. Although it is important to note that we do not investigate any causal effects of the mentioned liberalizations, patent data on cross-border commuting inventors seems to at least support this finding. Even more importantly, not considering all these cross-border commuting inventors and their corresponding patents could result in substantially underreporting Switzerland’s innovative output.
+At the beginning of the 1990s there were relatively few cross-border commuting inventors – most of them coming from Germany to Switzerland. However, until 2005 their number has increased for all neighboring countries to a combined total of over 1000 people. This aligns nicely with the findings of  <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = "_blank">Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. These authors document that inflows of cross-border workers to Swiss border regions increased substantially following liberalizations at the beginning of the 21st century. Based on survey data, they point out that this additional inflow was especially relevant for research and development activities. Although it is important to note that we do not investigate any causal effects of the mentioned liberalizations, patent data on cross-border commuting inventors seems to at least support this finding. Even more importantly, not considering all these cross-border commuting inventors and their corresponding patents could result in substantially underreporting Switzerland’s innovative output.
 
 The extent of this bias can be seen in the next plot. Focus on the colored areas first. This time, they show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple) respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview on the patenting in Switzerland see <a href = “https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y” target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors. The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite impressive. Already in 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
 
@@ -257,7 +266,7 @@ renderPlot({
 #      tooltip = c("label", "text"), dynamicTicks = FALSE)
 # })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -277,7 +286,7 @@ Note that in contrast to the previous plot, the counts and shares are not calcul
 
 <br>
 
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, fig.height = 3}
 
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES --------------------------------
 
@@ -393,7 +402,7 @@ renderPlot({
 #      tooltip = c("label", "text"), dynamicTicks = FALSE)
 # })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
