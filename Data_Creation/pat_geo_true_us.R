@@ -104,7 +104,7 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   firm_list <- filter(firm_list, country %in% ctry_firm_start) %>% 
     mutate(organization = tolower(organization))
   firm_list$organization <- gsub('[[:punct:] ]+',' ', firm_list$organization)
-  firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("tiergesundheit", "nutrition", "animal health", "pharma", "finance", "ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
+  firm_list <- mutate(firm_list, organization = trimws(removeWords(organization, c("holding", "tiergesundheit", "nutrition", "animal health", "pharma", "finance", "ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
                                                                             "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
                                                                             "usa", "engineering", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", "corp", "div", 
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
@@ -126,7 +126,7 @@ derive_cross_bord_func <- function(ctry_firm_start, inv_ctry){
   
 if(nrow(inv_firm_maybe) != 0){
   inv_firm_maybe$organization <- gsub('[[:punct:] ]+',' ', inv_firm_maybe$organization)
-  inv_firm_maybe <- mutate(inv_firm_maybe, organization = trimws(removeWords(tolower(organization), c("ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
+  inv_firm_maybe <- mutate(inv_firm_maybe, organization = trimws(removeWords(tolower(organization), c("holding", "ex", "us", "gmbh", "f", "s a", "ac", "sa", "ing", "a g", "co", "corp", "inc", "ltd", "llc", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", 
                                                                                                       "tiergesundheit", "nutrition", "animal health", "pharma", "finance", "corp", "div", "kaisha", "cie",  "incorporated", "industries", "/", "international", "technologies", "technology", "products", "group", "holdings", "elevator", "china", "germany", 
                                                                             "usa", "engineering", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "pourrecherchemicrotechnique", "corp", "div", 
                                                                             "kaisha", "cie",  "incorporated", "industries", "/", "gmbh", "ing", "corp", "inc", "ltd", "gmbh", "ag", "limited", "plc", "corporation", "company", "aktiengesellschaft", "industrietreuhand", 
@@ -140,12 +140,13 @@ if(nrow(inv_firm_maybe) != 0){
   # These two criteria determine the degree of accuracy
   close_firm <- difference_left_join(inv_firm_maybe, firm_list, by = c("lat", "lng"), max_dist = 5)
   close_firm <- filter(close_firm, is.na(organization.y) != T)
-  close_firm <- mutate(close_firm, name_diff = stringdist(organization.x, organization.y)) 
+  close_firm <- mutate(close_firm, name_diff_osa = stringdist(organization.x, organization.y, method = "osa"), name_diff_jaccard = stringdist(organization.x, organization.y, method = "jaccard"),
+                       name_diff_cosine = stringdist(organization.x, organization.y, method = "cosine"), name_diff_jw = stringdist(organization.x, organization.y, method = "jw"))
   close_firm <- mutate(close_firm, lat_diff = abs(lat.x -lat.y), 
                        lng_diff = abs(lng.x - lng.y), 
                        dist = lat_diff^2 + lng_diff^2) %>% 
-    filter(lat_diff < 1.4 & lng_diff < 1.4 & name_diff < 4)
-  close_firm <- setDT(close_firm)[order(name_diff, dist), .SD[1], .(p_key, inventor_id)]
+  filter(lat_diff < 1.4 & lng_diff < 1.4 & name_diff_osa < 2 &  name_diff_jaccard < 0.5, name_diff_cosine < 0.4 & name_diff_jw < 0.25)
+  close_firm <- setDT(close_firm)[order(name_diff_osa, dist), .SD[1], .(p_key, inventor_id)]
   
   if(nrow(close_firm) != 0){
   close_firm <- filter(close_firm, is.na(organization.y) != T) %>% 
