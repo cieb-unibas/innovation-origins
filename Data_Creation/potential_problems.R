@@ -43,7 +43,7 @@ tmp[tmp$name == "alexander mayweg", ]
 # terrifique...
 # cross-bord == "yes" is assigned based on p_key and name/inventor_id. Thus, both times alexander mayweg gets assigned as a commuter
 
-# Similar with:
+# CR: Similar with:
 # https://patentimages.storage.googleapis.com/6b/39/00/4ddab430f024dd/EP1749002B1.pdf
 # and https://patentimages.storage.googleapis.com/ac/83/8b/af771c08cab369/US7563910.pdf
 
@@ -87,7 +87,8 @@ tmp <- tmp %>% distinct(name, .keep_all = TRUE) # number of people
 # ------------------------------------------------------------------------------------------
 # HOWEVER: several p_keys do not seem to have a Swiss firm among these central switzerland patents
 # I checked out the following p_keys: 
-# (1) "15712426" (U.S. firms with no Swiss affiliates, french inventors) : Checked. This is due to bad match of firm names:
+# (1) "15712426" (U.S. firms with no Swiss affiliates, french inventors) : Checked. 
+# CR: This is due to bad match of firm names:
 # organization.x ctry_code    p_key inventor_id   lat.x  lng.x organization.y   lat.y  lng.y        Up_reg_label name_diff lat_diff lng_diff     dist
 # 1          eaton        FR 15712426   6169943-3 48.5672 7.5134          alcon 47.1789 8.4235 Central Switzerland         3   1.3883   0.9101 2.755659
 # I have updated the dist measure between firm names -> now more strict and consider also more than one distance measure

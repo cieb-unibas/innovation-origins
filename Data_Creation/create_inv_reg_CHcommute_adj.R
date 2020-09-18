@@ -47,8 +47,17 @@ print(paste("All datasets loaded. The origin of", nrow(adj_commuters_all),
 ###### ADD INFORMATION ON PATENTS THAT ARE REASSIGNED #############
 ###################################################################
 
+
+firm_reg <- readRDS(paste0(mainDir1, "/created data/firm_reg.rds"))
+firm_reg <- dplyr::rename(firm_reg, firm_ctry = country) %>% dplyr::select(p_key, )
+
 ## merge cross-border commuter information to original sample
 inv_reg_CHcommute_adj <- left_join(inv_reg, adj_commuters_all, by = c("p_key", "name"))
+inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj, pat_off_name = substr(patent_id, 1, 2))
+
+## For equivalent patents use inventor country of EPO since patent texts from EPO seems to have less errors
+inv_reg_CHcommute_adj <- setDT(inv_reg_CHcommute_adj)[order(pat_off_name), .SD, .(p_key)]
+inv_reg_CHcommute_adj <- setDT(inv_reg_CHcommute_adj)[, Ctry_code := Ctry_code[1], .(p_key, name)]
 
 if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
         warning("Number of observations in original and adjusted dataset do not match.")}else{
@@ -58,7 +67,7 @@ if(nrow(inv_reg_CHcommute_adj) != nrow(inv_reg)){
 inv_reg_CHcommute_adj <- mutate(inv_reg_CHcommute_adj,
                                 regio_pat = ifelse(is.na(regio_pat), Up_reg_label, regio_pat),
                                 ctry_pat = ifelse(is.na(ctry_pat), Ctry_code, ctry_pat),
-                                cross_bord = ifelse(is.na(cross_bord), "no", cross_bord))
+                                cross_bord = ifelse(is.na(cross_bord) | ctry_pat == Ctry_code, "no", cross_bord))
 ## rename region and country of inventor
 inv_reg_CHcommute_adj <- dplyr::rename(inv_reg_CHcommute_adj, ctry_inv = Ctry_code, regio_inv = Up_reg_label)
 
