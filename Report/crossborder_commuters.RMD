@@ -1,9 +1,15 @@
 ---
-output: 
-   html_document:
-      css: style.css
-runtime: shiny
 fig_caption: yes
+output:
+  html_document:
+    css: style.css
+resource_files:
+- CH_overall.csv
+- CH_region.csv
+- CH_Techfields.csv
+- cieb.png
+- neighboring_ctry.csv
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -21,6 +27,7 @@ library("shinyWidgets")
 library("tidyverse")
 library("data.table")
 library("DT")
+
 ```
 
 <!-- <head> -->
@@ -113,7 +120,7 @@ All the inventors of this patent live in Germany or France and the assignee of t
 <details>
   <summary>*Click here to read about our empirical approach*</summary>
 
-The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents see e.g. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff and Hoisl, 2005</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD, 2008</a>). However, since it takes time between the filling and publishing of a patent and since patents are often first filled in a patent office other than the USPTO or EPO, the priority date is trailing behind the publication date of USPTO and EPO patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
+The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents see e.g. <a href = https://www.oecd-ilibrary.org/docserver/5kml97dr6ptl-en.pdf?expires=1600441329&id=id&accname=guest&checksum=7474AA3CF6B37AFEFBB5A7CA7A8FFD3C target = “_blank”>Martinez, 2010</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD, 2008</a>). However, since it takes time between the filling and publishing of a patent and since patents are often first filled in a patent office other than the USPTO or EPO, the priority date is trailing behind the publication date of USPTO and EPO patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
 
 In principle, a patent is a candidate for being (co-)invented by a cross-border commuter if the inventor’s resident country is not Switzerland, but the company that owns the patent is based in Switzerland. Of course, however, this would be way too broad for a definition of cross-border commuting inventors in Switzerland. Recall, for example, our first example patent: The company was based in Switzerland and several inventors were living in Germany. As outlined above, this does not mean that they are necessarily cross-border commuters. For example, one of the German inventors lived in Hamburg and commuting over such a large distance to Switzerland is almost impossible.
 

@@ -1,0 +1,13 @@
+name: crossborder_commuters
+title: crossborder_commuters
+username:
+account: cieb
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2840188
+bundleId: 3644044
+url: https://cieb.shinyapps.io/crossborder_commuters/
+when: 1600441550.12808
+asMultiple: FALSE
+asStatic: FALSE
+additionalFiles: neighboring_ctry.csv
