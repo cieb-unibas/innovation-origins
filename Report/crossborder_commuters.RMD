@@ -48,7 +48,7 @@ library(rtweet)
 
 <br>
 
-# <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'**</font>
+## <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'**</font>
 
 *September 2020* by <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
 
@@ -78,8 +78,6 @@ a(actionButton(inputId = "email1", label = "",
 
 Picture: <a href="https://www.flickr.com/photos/stormsworld/8456586910/in/photolist-JfMjzY-Jf3uBk-9HwYDV-ZiCo9F-2jagrVH-HMX3CB-szWiqL-PsKy3L-bRHW5-HbJ87t-mWUYYB-J6PXd-228e7G7-nX4vQD-GAoNUV-AnHZzL-QonY9T-TUXSe1-MynNKE-yoSd93-dwmhsa-WyYCTY-7oFhzy-easv3-4VR2iw-BG4XB8-UkSxzU-ZbG9qo-uYNiyQ-aq6HJV-2gTznUx-3dSjtL-P2g2FQ-8xkuwR-6nJEim-5bA2Ve-5bA2yK-7Xo2QH-8qknKq-5aLf3M-t8HmX-8upbZT-3avCQY-dThdEA-2gaaCH-C2ckEz-5aQ6UU-26Frxpu-bV9qz-57bbjv" target = "_blank">Barry Davis | Flickr</a>
 
-
-
 <br>
 
 **Over 300 000 people from neighboring countries regularly cross the border to work in Switzerland. Many of them contribute substantially to the development of new innovations by Swiss companies. At the same time, the work of cross-border commuting inventors is often not properly considered by standard innovation measures. As a result, the Swiss economy could be even more innovative than generally thought. In fact, innovative activity in Switzerland could be underestimated by around 10% for the country as a whole - and by up to 30% for some specific regions and industries.**
@@ -92,7 +90,7 @@ What often remains unclear, though, is the extent to which cross-border workers 
 
 <br>
 
-## <font color='#68838B'>**How to determine the origin of an invention?**</font>
+### <font color='#68838B'>**How to determine the origin of an invention?**</font>
 
 Every  year, reports such as the <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, the <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> or the <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> evaluate the innovative capacity of countries and find attention in politics and the media (e.g. <a href = https://www.nzz.ch/wirtschaft/wettbewerbsfaehigkeit-schweiz-verliert-deutschland-noch-mehr-ld.1514074?reduced=true target = “_blank”>NZZ, 9.10.2019</a>; <a href =https://www.srf.ch/news/wirtschaft/ranking-wettbewerbsfaehigkeit-die-schweiz-verliert-spitzenplatz target = “_blank”>SRF, 17.10.2018</a>). These studies typically use patents as one of the measures for innovation. More precisely, they look at the number of patents filed by inventors of a given country. This number can be derived because a patent documentation always states the residence countries of all inventors. You can see in the following example.
 
@@ -165,7 +163,7 @@ Combined, these definitions suggest that our approach to identify cross-border c
 
 <br>
 
-## <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
+### <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
 
 We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> for U.S. patents and from the <a href= http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a> for European patents.
 
