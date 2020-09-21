@@ -27,7 +27,7 @@ library("shinyWidgets")
 library("tidyverse")
 library("data.table")
 library("DT")
-
+library(rtweet)
 ```
 
 <!-- <head> -->
@@ -41,34 +41,44 @@ library("DT")
 <!-- </script> -->
 <!-- </head> -->
 
-<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=25% }</a>
-```{r, echo = F}
-socialButton(url = "http://github.com/cieb-unibas",  type = "github")
-socialButton(url = "https://twitter.com/cieb_unibas",  type = "twitter")
-a(actionButton(inputId = "email1", label = "Mail us",
-                 icon = icon("envelope", lib = "font-awesome")),
-    href="mailto:cieb@unibas.ch")
-```
 
 <br>
 
+<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=25% }</a>
+
+<br>
 
 # <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'**</font>
 
 *September 2020* by <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
 
+Follow us
+```{r, echo = F}
+
+a(actionButton(inputId = "github", label = "", 
+                 icon = icon("github", lib = "font-awesome")),
+                 href=  "http://github.com/cieb-unibas")
+
+
+a(actionButton(inputId = "twitter", label = "", 
+                 icon = icon("twitter", lib = "font-awesome")),
+                 href="https://twitter.com/cieb_unibas")
+
+a(actionButton(inputId = "email1", label = "", 
+                 icon = icon("envelope", lib = "font-awesome")),
+                 href="mailto:cieb@unibas.ch")
+
+
+```
+
 <br>
 
-![TitlePic](title_picture.jpg)
+
+![](title_picture.jpg){width=60%}
+
 Picture: <a href="https://www.flickr.com/photos/stormsworld/8456586910/in/photolist-JfMjzY-Jf3uBk-9HwYDV-ZiCo9F-2jagrVH-HMX3CB-szWiqL-PsKy3L-bRHW5-HbJ87t-mWUYYB-J6PXd-228e7G7-nX4vQD-GAoNUV-AnHZzL-QonY9T-TUXSe1-MynNKE-yoSd93-dwmhsa-WyYCTY-7oFhzy-easv3-4VR2iw-BG4XB8-UkSxzU-ZbG9qo-uYNiyQ-aq6HJV-2gTznUx-3dSjtL-P2g2FQ-8xkuwR-6nJEim-5bA2Ve-5bA2yK-7Xo2QH-8qknKq-5aLf3M-t8HmX-8upbZT-3avCQY-dThdEA-2gaaCH-C2ckEz-5aQ6UU-26Frxpu-bV9qz-57bbjv" target = "_blank">Barry Davis | Flickr</a>
 
-```{r, echo = F}
-renderText("Share this article") 
-    socialButton(url = "http://twitter.com/", type = "twitter")
-    socialButton(url = "http://facebook.com/", type = "facebook")
-    socialButton(url = "http://linkedin.com/", type = "linkedin")
-    socialButton(url = "http://xing.com/", type = "xing")
-```
+
 
 <br>
 
@@ -429,7 +439,35 @@ All of these findings indicate that open borders are key for high-quality innova
 <br>
 <br>
 
+<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a>, <a href = https://shiny.rstudio.com/ target = “_blank”>shiny</a> and <a href = https://www.rdocumentation.org/packages/plotly/versions/4.9.2.1 target = “_blank”>plotly</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
-<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a>, <a href = https://shiny.rstudio.com/ target = “_blank”>shiny</a> and <a href = https://www.rdocumentation.org/packages/plotly/versions/4.9.2.1 target = “_blank”>plotly</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
+<br>
 
+Share this article 
+
+```{r, echo = F}
+actionButton("twitter_share",
+                   label = "",
+                   icon = icon("twitter"),
+                   onclick = sprintf("window.open('%s')", "https://twitter.com/intent/tweet?d&url=https://https://cieb.shinyapps.io/crossborder_commuters/"))
+
+actionButton("twitter_share",
+                   label = "",
+                   icon = icon("linkedin"),
+                   onclick = sprintf("window.open('%s')", "https://www.linkedin.com/sharing/share-offsite/?url=https://https://cieb.shinyapps.io/crossborder_commuters/"))
+
+actionButton("xing_share",
+                   label = "",
+                   icon = icon("xing"),
+                   onclick = sprintf("window.open('%s')", "https://www.xing.com/app/user?op=share;url=https://https://cieb.shinyapps.io/crossborder_commuters/"))
+
+actionButton("facebook_share",
+                   label = "",
+                   icon = icon("facebook"),
+                   onclick = sprintf("window.open('%s')", "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcieb.shinyapps.io%2Fcrossborder_commuters%2F&amp;src=sdkpreparse"))
+
+```
+
+<br>
+<br>
 <br>
