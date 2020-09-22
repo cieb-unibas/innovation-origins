@@ -33,23 +33,22 @@ library("DT")
 library(rtweet)
 ```
 
-<!-- <head> -->
-<!-- <!-- Global site tag (gtag.js) - Google Analytics --> -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script> -->
-<!-- <script> -->
-<!--   window.dataLayer = window.dataLayer || []; -->
-<!--   function gtag(){dataLayer.push(arguments);} -->
-<!--   gtag('js', new Date()); -->
-<!--   gtag('config', 'UA-71167447-1'); -->
-<!-- </script> -->
-<!-- </head> -->
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-71167447-1');
+</script>
+</head>
 
 
 <br>
 
-<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=25% }</a>
+<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=30% }</a>
 
-<br>
 
 ## <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'**</font>
 
