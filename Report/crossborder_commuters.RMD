@@ -9,6 +9,9 @@ resource_files:
 - CH_Techfields.csv
 - cieb.png
 - neighboring_ctry.csv
+- example_patent_crossbord.jpg
+- example_patent_multicountry.jpg
+- title_picture.jpg
 runtime: shiny
 ---
 
