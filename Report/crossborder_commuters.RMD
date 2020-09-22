@@ -445,7 +445,6 @@ All of these findings indicate that open borders are key for high-quality innova
 <br>
 
 Share this article 
-
 ```{r, echo = F}
 actionButton("twitter_share",
                    label = "",
