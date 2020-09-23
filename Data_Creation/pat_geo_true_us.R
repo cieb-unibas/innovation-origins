@@ -78,13 +78,13 @@ firm_reg_us <- rbind(firm_reg_us, firm_reg_us_temp)
 inv_firm <- left_join(inv_reg_us, firm_reg_us, by = c("p_key")) 
 inv_firm <- mutate(inv_firm, lat_diff = abs(lat.x -lat.y), lng_diff = abs(lng.x - lng.y)) %>%
   filter(is.na(lat_diff) != T) %>% mutate(dist = lat_diff^2 + lng_diff^2, 
-                                          max_dist = ifelse(lat_diff <= 1.2 & lng_diff <= 1.2, 0, 1))
+                                          max_dist = ifelse(lat_diff <= 1.4 & lng_diff <= 1.4, 0, 1))
                                  
 ## calculate all firms' countries of a patent
-inv_firm <- setDT(inv_firm)[, all_ctry := paste0(unique(country), collapse = " "), .(p_key)]
-inv_firm <- setDT(inv_firm)[, num_ctry_firm_pre := uniqueN(country), .(p_key)]
-inv_firm <- setDT(inv_firm)[order(dist), .SD[1], .(p_key, inventor_id)]
-inv_firm <- setDT(inv_firm)[, num_ctry_firm_post := uniqueN(country), .(p_key)]
+# inv_firm <- setDT(inv_firm)[, all_ctry := paste0(unique(country), collapse = " "), .(p_key)]
+# inv_firm <- setDT(inv_firm)[, num_ctry_firm_pre := uniqueN(country), .(p_key)]
+# inv_firm <- setDT(inv_firm)[order(dist), .SD[1], .(p_key, inventor_id)]
+# inv_firm <- setDT(inv_firm)[, num_ctry_firm_post := uniqueN(country), .(p_key)]
 
 
 # 2) If country of inventor and firm is not identical AND distance is small,
