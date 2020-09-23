@@ -84,35 +84,35 @@ Picture: <a href="https://www.flickr.com/photos/stormsworld/8456586910/in/photol
 
 **Over 300 000 people from neighboring countries regularly cross the border to work in Switzerland. Many of them contribute substantially to the development of new innovations by Swiss companies. At the same time, the work of cross-border commuting inventors is often not properly considered by standard innovation measures. As a result, the Swiss economy could be even more innovative than generally thought. In fact, innovative activity in Switzerland could be underestimated by around 10% for the country as a whole - and by up to 30% for some specific regions and industries.**
 
+Cross-border commuters are important for the Swiss economy. This is especially the case for some Swiss regions and the industries they are specialized in. For example, the most recent figures of the <a href = https://www.bfs.admin.ch/bfs/en/home/statistics/work-income/employment-working-hours/employed-persons/swiss-foreign-nationals/cross-border-commuters.html target = “_blank”> Swiss Federal Statistic Office</a> highlight that the Lake Geneva region together with the region of Northwestern Switzerland already attract almost 200 000 cross-border commuters.
 
-Cross-border commuters are important for the Swiss economy. This is especially the case for some Swiss regions and the industries they are specialized in. For example, the most recent figures of the <a href = https://www.bfs.admin.ch/bfs/en/home/statistics/work-income/employment-working-hours/employed-persons/swiss-foreign-nationals/cross-border-commuters.html target = “_blank”> Swiss Federal Statistic Office</a> highlight that the Lake Geneva region and the region of Northwestern Switzerland together already attract almost 200 000 cross-border commuters.
-
-But despite their relatively large number, cross-border workers in Switzerland are very unlikely to have a negative impact on domestic workers. In a very recent research paper, <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a> argue that liberalizations of cross-border commuting restrictions in Switzerland have fostered the development of new innovations by Swiss companies in border regions. Simultaneously, this increase in inventive activity has fostered labor market opportunities and raised labor demand for domestic workers. As a result, cross-border commuters did not cause downward pressure on Swiss wages or raise unemployment of neither higher nor lower educated domestic workers. In contrast, the liberalization even increased wages of high-skilled workers. In general, these findings are in line with other studies suggesting that Switzerland benefits from cross-border workers and immigration as such (see for example <a href = https://cdn.avenir-suisse.ch/production/uploads/2020/09/personenfreizuegigkeit_analyse.pdf target = “_blank”>Avenir Suisse, 2020,</a> for an overview or <a href = https://www.avenir-suisse.ch/grenzgaenger-teil-der-loesung-nicht-des-problems/ target = “_blank”>Salvi, 2014,</a> for a short case study).
+But despite their relatively large number, cross-border workers in Switzerland are very unlikely to have a negative impact on domestic workers. In a very recent research paper, <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a> argue that liberalizations of cross-border commuting restrictions in Switzerland have in fact fostered the development of new innovations by Swiss companies in border regions. Simultaneously, this increase in inventive activity has stimulated labor market opportunities and raised labor demand for domestic workers. As a result, cross-border commuters have neither caused downward pressure on Swiss wages nor reduced employment of either higher or lower educated domestic workers. On the contrary, this liberalization has even increased the wages of high-skilled workers. In general, these findings are in line with other studies suggesting that Switzerland benefits from cross-border workers and immigration as such (see for example <a href = https://cdn.avenir-suisse.ch/production/uploads/2020/09/personenfreizuegigkeit_analyse.pdf target = “_blank”>Avenir Suisse, 2020,</a> for an overview or <a href = https://www.avenir-suisse.ch/grenzgaenger-teil-der-loesung-nicht-des-problems/ target = “_blank”>Salvi, 2014,</a> for a short case study).
 
 What often remains unclear, though, is the extent to which cross-border workers contribute to Switzerland's innovation landscape. This is what we want to discuss in this article. We will argue that cross-border commuters contribute substantially to new inventions made in Switzerland. And since standard innovation measures typically do not take this into account, they tend to substantially underestimate Switzerland’s innovative output.
 
 <br>
 
-### <font color='#68838B'>**How to determine the origin of an invention?**</font>
+### <font color='#68838B'>**How to determine the origin of an invention**</font>
 
-Every  year, reports such as the <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, the <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> or the <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> evaluate the innovative capacity of countries and find attention in politics and the media (e.g. <a href = https://www.nzz.ch/wirtschaft/wettbewerbsfaehigkeit-schweiz-verliert-deutschland-noch-mehr-ld.1514074?reduced=true target = “_blank”>NZZ, 9.10.2019</a>; <a href =https://www.srf.ch/news/wirtschaft/ranking-wettbewerbsfaehigkeit-die-schweiz-verliert-spitzenplatz target = “_blank”>SRF, 17.10.2018</a>). These studies typically use patents as one of the measures for innovation. More precisely, they look at the number of patents filed by inventors of a given country. This number can be derived because a patent documentation always states the residence countries of all inventors, as  you can see in the following example.
+Every  year, reports such as the <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, the <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> or the <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> evaluate the innovative capacity of countries and find attention in politics and the media (e.g. <a href = https://www.nzz.ch/wirtschaft/wettbewerbsfaehigkeit-schweiz-verliert-deutschland-noch-mehr-ld.1514074?reduced=true target = “_blank”>NZZ, 9.10.2019</a>; <a href =https://www.srf.ch/news/wirtschaft/ranking-wettbewerbsfaehigkeit-die-schweiz-verliert-spitzenplatz target = “_blank”>SRF, 17.10.2018</a>). These studies typically use patents as one of the measures for innovation. More precisely, they look at the number of patents filed by inventors of a given country. This number can be derived because a patent documentation always states the residence countries of all inventors, as you can see in the following example.
 
 <br>
 <center>
 <a href="https://patentimages.storage.googleapis.com/2d/2c/18/51725e50ce657b/US10029262.pdf" target = "_blank">
-![](example_patent_multicountry.jpg){ width=80% }</a> 
+![](example_patent_multicountry.jpg){ width=80% }</a>
 </center>
+
 <br>
 
-This patent states nine different “Inventors”. Five are from Germany and four are from Switzerland. The German locations (mostly from the area of Karlsruhe) and the Swiss ones (from the area around Bern) are rather far away from each other. This suggests that two different labs collaborated for this discovery and not all of the inventors worked in the same place. Some of the research was probably conducted in Germany and some in Switzerland. In such a case, there are several possibilities to link a patent to countries. One option is to assign it to both countries as one additional patent. Another option is to proportionally divide the patent among the countries according to the share of inventors from each country. With the first option, our example-patent would be equally assigned to Germany and Switzerland. With the latter one, $\frac{5}{9}$ of the patent would be assigned to Germany and $\frac{4}{9}$ to Switzerland. This approach takes into account the larger share of  Germans compared to Swiss residents  in the development of the patent.
+This patent states nine different “Inventors”. Five are from Germany and four are from Switzerland. The German locations (mostly from the area of Karlsruhe) and the Swiss ones (from the area around Bern) are rather far away from each other. This suggests that two different labs collaborated for this discovery and not all of the inventors worked in the same place. Some of the research was probably conducted in Germany and some in Switzerland. In such a case, there are several possibilities to link a patent to countries. One option is to assign it to both countries as one additional patent. Another option is to proportionally divide the patent among the countries according to the share of inventors from each country. With the first option, our example patent would be equally assigned to Germany and Switzerland. With the latter one, $\frac{5}{9}$ of the patent would be assigned to Germany and $\frac{4}{9}$ to Switzerland. This approach takes into account the larger share of German compared to Swiss residents in the development of the patent.
 
 <div class=bloc_div>
-<blockquote>***A lot of patents may not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility.***</blockquote>
+<blockquote>***A large number of patents may not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility.***</blockquote>
 </div>
 
-A third option would be to consider the location of the company that owns the patent, instead of focusing on inventors. In our example, this is the location of the patent’s “Assignee”. In this case, the patent is owned by selFrag AG from Kerzers, Switzerland, and it would therefore be attributed to Switzerland only. Because of this - and also because patents are sometimes filed by foreign subsidiaries or headquarters - company addresses are rarely used to determine patent origins. For more information on how to determine the origin of patents, see e.g. <a href = https://www.sbfi.admin.ch/sbfi/en/home/services/publications/data-base-publications/intellectual-property.html target = “_blank”>Bechthold & de Rassenfosse (2019)</a> or a recent report by <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann (p. 68)</a> that briefly and comprehensively discusses the pros and cons of different options. The optimal choice mostly depends on the question one wants to answer. In this article, we want to investigate Switzerland’s innovation output. For this purpose, it is best to follow the most common approach, which is to look at inventor addresses and to use shares to assign patents to countries.
+ A third option would be to consider the location of the company that owns the patent, instead of focusing on its inventors. In our example, this is the location of the patent’s “Assignee”. In this case, the patent is owned by selFrag AG from Kerzers, Switzerland and would therefore be attributed to Switzerland only. Because of this - and also because patents are sometimes filed by foreign subsidiaries or headquarters - company addresses are rarely used to determine patent origins. For more information on how to determine the origin of patents, see e.g. <a href = https://www.sbfi.admin.ch/sbfi/en/home/services/publications/data-base-publications/intellectual-property.html target = “_blank”>Bechthold & de Rassenfosse (2019)</a> or a recent report by <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann (p. 68)</a> that briefly and comprehensively discusses the pros and cons of different options. The optimal choice depends mostly on the question one wants to answer. In this article, we want to investigate Switzerland’s innovation output. For this purpose, it is best to follow the most common approach, which is to look at inventor addresses and to use shares to assign patents to countries.
 
-Now, for the case of Switzerland, recall the very high numbers of cross-border commuters to, for example, Geneva or Basel. What if *all* the inventors of a patent developed in Switzerland live in neighboring countries and commute to a workplace in Switzerland? In this case, the patent documentation shows no connection to Switzerland. Consequently, a lot of patents may not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility. In addition, focusing on the location of the firm would also not solve the problem if the patent was filed by a foreign affiliate of the Swiss-based firm. The image below shows an example of a patent with exactly these characteristics.
+Now, for the case of Switzerland, recall the very high numbers of cross-border commuters to Geneva or Basel, for example. What if *all* the inventors of a patent developed in Switzerland live in neighboring countries and commute to a workplace in Switzerland? In this case, the patent documentation shows no connection to Switzerland. Consequently, many patents may not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility. Nor would focusing on the location of the firm solve the problem if the patent was filed by a foreign affiliate of the Swiss-based firm. The image below shows an example of a patent with exactly these characteristics.
 
 <br>
 <center>
@@ -121,7 +121,7 @@ Now, for the case of Switzerland, recall the very high numbers of cross-border c
 </center>
 <br>
 
-All the inventors of this patent live in Germany or France and the assignee of the patent is a U.S.-affiliate of Swiss pharmaceutical giant Hoffmann-La Roche. With the above-mentioned approaches, such a patent would never be attributed to Switzerland. However, the places of residence of all inventors are very close to the region of Basel (e.g. Grenzach-Wylen, Freiburg). Furthermore, Hoffmann-La Roche’s headquarter is located in Basel and some of its major research facilities are in this region. At the same time, Hoffmann-La Roche has no German research sites close to either Freiburg or Grenzach-Wylen according to publicly available <a href = https://www.roche.com/de/careers/country/germany/de_service/de_locations.html target = “_blank”>information by the company</a>. Therefore, it is very likely that this patent was in fact developed in Basel by cross-border commuters from Germany and France and later filed at the <a href = “https://www.uspto.gov/” target = “_blank”>United States Patent and Trademark Office (USPTO)</a> by a U.S. branch of Hoffmann-La Roche. The actual invention, however, was conducted in Switzerland and the patent should thus also be attributed to Switzerland. To ensure this, we need to identify cross-border commuters in patent data. In the textbox below, you find a description of how we do this. 
+All the inventors of this patent live in Germany or France and the assignee of the patent is a U.S.-affiliate of Swiss pharmaceutical giant, Hoffmann-La Roche. With the above-mentioned approaches, such a patent would never be attributed to Switzerland. However, the places of residence of all inventors are very close to the region of Basel (e.g. Grenzach-Wylen, Freiburg). Furthermore, Hoffmann-La Roche’s headquarters is located in Basel and some of its major research facilities are in this region. At the same time, Hoffmann-La Roche has no German research sites close to either Freiburg or Grenzach-Wylen according to publicly available <a href = https://www.roche.com/de/careers/country/germany/de_service/de_locations.html target = “_blank”>information by the company</a>. Therefore, it is very likely that this patent was in fact developed in Basel by cross-border commuters from Germany and France and later filed at the <a href = https://www.uspto.gov/ target = “_blank”>United States Patent and Trademark Office (USPTO)</a> by a U.S. branch of Hoffmann-La Roche. The actual invention, however, was conducted in Switzerland and the patent should thus also be attributed to Switzerland. To ensure this, we need to identify cross-border commuters in the patent data. In the textbox below, you find a description of how we do this.
 
 <br>
 
@@ -131,29 +131,28 @@ All the inventors of this patent live in Germany or France and the assignee of t
 <details>
   <summary>*Click here to read about our empirical approach*</summary>
 
-The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents see e.g. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff and Hoisl, 2005</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD,2008</a>). However, since it takes time between the filling and publishing of a patent and since patents are often first filled in a patent office other than the USPTO or EPO, the priority date is trailing behind the publication date of USPTO and EPO patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
+The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents, see e.g. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff and Hoisl, 2005</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information, see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD,2008</a>). However, since it takes time between the filing and publishing of a patent and since patents are often first filed in a patent office other than the USPTO or EPO, the priority date trails behind the publication date of USPTO and EPO patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
 
-In principle, a patent is a candidate for being (co-)invented by a cross-border commuter if the inventor’s resident country is not Switzerland, but the company that owns the patent is based in Switzerland.   Of course, however, this would be way too broad for a definition of cross-border commuting inventors in Switzerland. Recall, for example, our first example patent: The company was based in Switzerland and several inventors were living in Germany. As outlined above, this does not mean that they are necessarily cross-border commuters. For example, one of the German inventors lived in Hamburg and commuting over such a large distance to Switzerland is almost impossible. 
+In principle, a patent is a candidate for being (co-)invented by a cross-border commuter if the inventor’s resident country is not Switzerland, but the company that owns the patent is based in Switzerland. If more than one company has been involved in the development of the patent and these companies are located in different countries, we have to link inventors to companies. We do this by matching inventors to the company that is most closely located to their resident addresses. Of course, however, this would be way too broad for a definition of cross-border commuting inventors in Switzerland. Recall, for example, our first example patent: The company was based in Switzerland and several inventors were living in Germany. As outlined above, this does not mean that they are necessarily cross-border commuters. For example, one of the German inventors lived in Hamburg and commuting over such a large distance to Switzerland is almost impossible.
 
-Therefore, we need to refine the general approach. In order to do this, we introduce a limit on the distance between company and inventor locations. We choose a threshold value so that the difference between the latitude and longitude of the company and the inventor cannot be greater than about 100 kilometers. If the distance is too large, we consider commuting impossible. To calculate distances, we use the coordinates of inventor and company residence addresses. We then assign the cross-border commuter status if 
+Therefore, we need to refine the general approach. In order to do this, we introduce a limit on the distance between company and inventor locations. We choose a threshold value so that the difference between the latitude and longitude of the company and the inventor cannot be greater than about 100 kilometers. If the distance is too large, we consider commuting impossible. To calculate distances, we use the coordinates of inventor and company residence addresses. We then assign the cross-border commuter status if
 
 1.	inventors are not living in Switzerland **and** 
 2.	the company that owns the patent is based in Switzerland **and** 
-3.	inventors are not living too far away from the location of the Swiss company 
+3.	inventors are not living too far away from the location of the Swiss company.
 
-Consequently, an inventor who is mentioned on a patent filed by a Basel-based company but is living in Hamburg would not be considered as a cross-border commuter. In turn, an inventor living in Lörrach would be. Patents that were (co-)invented by such inventors then get reassigned to Switzerland.
+Consequently, an inventor who is mentioned on a patent filed by a Basel-based company but is living in Hamburg would not be considered a cross-border commuter. In turn, an inventor living in Lörrach would. Patents that were (co-)invented by such inventors then get reassigned to Switzerland.
 
-However, this might still miss some cross-border commuters. What if the Swiss company did file the patent through a foreign affiliate as in our second example? A solution is to find all firms that have a significant number of patents that can be clearly attributed to Switzerland (i.e. both the inventors and the company are located in Switzerland). Such a list allows to derive which firms have a research facility in Switzerland. This then allows us to link foreign affiliates to Swiss research sites. Moreover, it is then also possible to derive the geographical coordinates of each research facility.
+However, this might still miss some cross-border commuters. What if the Swiss company did file the patent through a foreign affiliate, as in our second example? A solution is to find all firms that have a significant number of patents that can be clearly attributed to Switzerland (i.e. both the inventors and the company are located in Switzerland). Such a list allows us to derive which firms have a research facility in Switzerland. This then allows us to link foreign affiliates to Swiss research sites. Moreover, it is then also possible to derive the geographical coordinates of each research facility.
 
 We then assign the cross-border commuter status to further patents if 
 
 1.	inventors are not living in Switzerland **and** 
-2.	the company’s affiliation that files the patent is not located in Switzerland nor in the country where the inventor is coming from **and**
-3.	the company that owns the patent has a Swiss sited research location **and**
-4.	inventors are not living too far away from this Swiss sited research location of the company. 
+2.	the company’s affiliate that files the patent is not located in Switzerland or in the country where the inventor is from **and**
+3.	the company that owns the patent has a Swiss-sited research location **and**
+4.	inventors are not living too far away from the company’s Swiss-sited research location. 
 
-
-Up to now, we have not included <a href = “https://www.epo.org/” target = “_blank”>European Patent Office (EPO)</a> patents in our analysis, which could be a major shortcoming. The reason is that data on EPO patents, which have been made available by the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>, does not have geographical coordinate information . Therefore, we need an alternative approach to also check for cross-border commuters on EPO patents. We proceed in the following way: First, because we already reassigned USPTO patents, we only consider EPO patents from Swiss-based companies that do not have an equivalent USPTO patent. As before, we then check if the resident country of the company that owns the patent is Switzerland, but the inventor lives somewhere else. As before, we must then consider whether the locations of the inventor and the company are not too far away. Instead of coordinates, we now use the resident *regions* of inventors and companies. More precisely, we assume that commuting to a workplace in Switzerland is only possible for inventors from foreign regions that are close to the Swiss border. We define these regions to be "Freiburg" and "Schwaben" for Germans, "Alsace", "Rhône-Alpes", "Lorraine" and "Franche-Comté" for people from France, "Lombardy" and "Piedmont" for Italians and the region of "Vorarlberg" for Austrians. We exclude inventors who live outside of these regions as potential cross-border commuters, because the distance to the Swiss border would be too far. Furthermore, we make additional restrictions that inventors from Germany only commute to the Swiss regions "Northwestern Switzerland", "Zürich" or "Eastern Switzerland", Italians only to “Ticino”, Austrians only to “Eastern Switzerland” and French commuters only to "Northwestern Switzerland" or to the "Lake Geneva Region”. 
+Up to now, we have not included <a href = https://www.epo.org/ target = “_blank”>European Patent Office (EPO)</a> patents in our analysis, which could be a major shortcoming. The reason is that data on EPO patents, which have been made available by the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>, does not have geographical coordinate information . Therefore, we need an alternative approach to also check for cross-border commuters on EPO patents. We proceed in the following way: First, because we have already reassigned USPTO patents, we consider only EPO patents from Swiss-based companies that do not have an equivalent USPTO patent. As before, we then check if the resident country of the company that owns the patent is Switzerland, but the inventor lives somewhere else. As before, we must then consider whether the locations of the inventor and the company are not too far away. Instead of coordinates, we now use the resident *regions* of inventors and companies. More precisely, we assume that commuting to a workplace in Switzerland is only possible for inventors from foreign regions that are close to the Swiss border. We define these regions to be "Freiburg" and "Schwaben" for Germans, "Alsace", "Rhône-Alpes", "Lorraine" and "Franche-Comté" for people from France, "Lombardy" and "Piedmont" for Italians and the region of "Vorarlberg" for Austrians. We exclude inventors who live outside of these regions as potential cross-border commuters, because the distance to the Swiss border would be too far. Furthermore, we make additional restrictions that inventors from Germany only commute to the Swiss regions of "Northwestern Switzerland", "Zürich" or "Eastern Switzerland", Italians only to "Ticino", Austrians only to "Eastern Switzerland" and French commuters only to "Northwestern Switzerland" or to the "Lake Geneva Region".
 
 To summarize, we assign the cross-border commuter status to EPO patent inventors only if 
 
@@ -161,8 +160,7 @@ To summarize, we assign the cross-border commuter status to EPO patent inventors
 2.	the company that owns the patent is based in Switzerland **and** 
 3.	the company is located in a Swiss region which is close to the foreign region where the inventor lives. 
 
-
-Combined, these definitions suggest that our approach to identify cross-border commuters on EPO patents should result in a lower bound. Together, our results for the USPTO and the EPO patents, highlight that, over time, 21’799  patents  were likely (co-)developed by cross-border commuters in Switzerland. In the next section, we discuss what this means for Swiss innovation activity.
+Combined, these definitions suggest that our approach to identifying cross-border commuters on EPO patents should result in a lower bound. Together, our results for the USPTO and the EPO patents highlight that, over time, 21’799  patents  were likely (co-)developed by cross-border commuters in Switzerland. In the next section, we discuss what this means for Swiss innovation activity.
 </details>
 </div>
 
@@ -170,9 +168,9 @@ Combined, these definitions suggest that our approach to identify cross-border c
 
 ### <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
 
-We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a> for U.S. patents and from the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> for European patents. 
+We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a> for U.S. patents and from the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> for European patents.
 
-Let us start by focusing on the number of inventors who commute to a Swiss workplace from neighboring countries. The Figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin. 
+Let us start by focusing on the number of inventors who commute to a Swiss workplace from neighboring countries. The figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin.
 
 <br>
 
@@ -191,35 +189,31 @@ source(file = "reshape_fun.R", local = knitr::knit_global())
 
 #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------
 
-# renderPlotly({
- renderPlot({
+renderPlot({
    
-  # define the data to plot
-  plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
-  # plot_data <- mutate(plot_data, `Country of origin` = paste0(ctry_inv, "\nCount: ", count))
+# define the data to plot
+plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
 
-  # make the plot
-  # ggplotly(
-  ggplot(plot_data)+#, aes(label = `Country of origin`))+
-  geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
-  scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
-                     labels = c("Austria", "Germany", "France", "Italy")) +
-  labs(x = "Year", y = "Number of cross-border commuting inventors") +
-  theme(legend.position="bottom",
-        panel.background = element_blank(),
-        panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-        axis.title = element_text(face = "bold"),
-        axis.line = element_line())#,
-  # tooltip = c("label"), dynamicTicks = FALSE)
+# make the plot
+ggplot(plot_data)+#, aes(label = `Country of origin`))+
+geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
+scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
+                   labels = c("Austria", "Germany", "France", "Italy")) +
+labs(x = "Year", y = "Number of cross-border commuting inventors") +
+theme(legend.position="bottom",
+      panel.background = element_blank(),
+      panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+      axis.title = element_text(face = "bold"),
+      axis.line = element_line())
 })
 ```
 <span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
-At the beginning of the 1990s, there were relatively few cross-border commuting inventors – most of them commuted from Germany to Switzerland. However, until 2005 their number has increased for all neighboring countries to a combined total of over 1000 people. This fits nicely with the findings of <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. According to these authors, the inflows of cross-border workers to Swiss border regions increased substantially following liberalizations at the beginning of the 21st century. Based on survey data, they point out that this additional inflow was especially relevant for research and development activities. Although it is important to note that we do not investigate any causal effects of the mentioned liberalizations, using patent data to identify cross-border commuting inventors seems to at least support this finding. Even more importantly, not considering all these cross-border commuting inventors and their corresponding patents could result in a substantial underreporting of Switzerland’s innovative output.
+At the beginning of the 1990s, there were relatively few cross-border commuting inventors – most of them commuted from Germany to Switzerland. However, until 2005 their number has increased to a combined total of over 1000 people for all neighboring countries. This fits nicely with the findings of <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. According to these authors, the inflows of cross-border workers to Swiss border regions increased substantially following liberalizations at the beginning of the 21st century. Based on survey data, they point out that this additional inflow was especially relevant for research and development activities. Although it is important to note that we do not investigate any causal effects of the mentioned liberalizations, using patent data to identify cross-border commuting inventors seems to at least support this finding. Even more importantly, not considering all these cross-border commuting inventors and their corresponding patents could result in a substantial underreporting of Switzerland’s innovative output.
 
-The extent of this bias can be seen in the next plot. Focus on the colored areas first. This time, they show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple), respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview on the patenting in Switzerland see <a href = “https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y” target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors.  The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite impressive. Already in 1990, around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
+The extent of this bias can be seen in the next plot. Focus on the colored areas first. They show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple), respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview of the patenting in Switzerland see <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors.  The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite impressive. As early as 1990 around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
 
 ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5}
 
@@ -240,10 +234,8 @@ ylim_share <- c(0, 0.15)
 b <- diff(ylim_absolute)/diff(ylim_share)
 a <- b*(ylim_absolute[1] - ylim_share[1])
 
-# renderPlotly({
-#   ggplotly(
 renderPlot({
-    ggplot(plot_data)+#, aes(label = Status))+
+    ggplot(plot_data)+
     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
@@ -256,56 +248,30 @@ renderPlot({
           panel.background = element_blank(),
           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
           axis.title = element_text(face = "bold"),
-          axis.line = element_line())#,
-
-#     tooltip = c("label"), dynamicTicks = FALSE)
+          axis.line = element_line())
 })
-
-### ALTERNATIVE USING PLOTLY -------------------------------------------------------------
-# renderPlotly({
-#   ggplotly(
-#     ggplot(plot_data)+
-#     geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
-#     geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
-#     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-#                        labels = c("Cross-Border Commuters", "Swiss Residents"), name = "") +
-#     scale_y_continuous("Total number of patents",
-#                        sec.axis = sec_axis(~ (. - a) / b, 
-#                                            name = "Share of patents by cross-border commuters"), 
-#                        limits = c(0, 6000)
-#                        )+
-#     xlab("Year") +
-#     theme(legend.position="none",
-#           panel.background = element_blank(),
-#           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-#           axis.title = element_text(face = "bold"),
-#           axis.line = element_line()),
-# 
-#      tooltip = c("label", "text"), dynamicTicks = FALSE)
-# })
 ```
 <span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
-What do these findings imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuting inventors is not considered. Second, as the share of patents by cross-border commuters has not increased for the last 10 years, it seems unlikely that cross-border commuters have substituted domestic inventors. 
+What do these findings imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuting inventors is not considered. Second, as the share of patents by cross-border commuters has not increased for the last 10 years, it seems unlikely that cross-border commuters have substituted domestic inventors.
 
 <div class=bloc_div>
 <blockquote>***Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuters is not considered.***</blockquote>
 </div>
 
-Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly , suggesting that the Swiss economy benefits heavily from cross-border commuting inventors. This is again interesting in the light of the findings from <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. More cross-border commuting inventors has gone hand in hand with more patents filed by *both* Swiss residents *and* commuters. This again supports the argument that Switzerland’s innovative output could indeed have greatly benefited from the additional inflow of cross-border commuting inventors.
+Instead, patenting by both Swiss residents *and* cross-border commuters has grown rapidly , suggesting that the Swiss economy benefits substantially from cross-border commuting inventors. This is again interesting in the light of the findings from <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. Having more cross-border commuting inventors has gone hand in hand with more patents filed by *both* Swiss residents *and* commuters. This again supports the argument that Switzerland’s innovative output could indeed have greatly benefited from the additional inflow of cross-border commuting inventors.
 
 <br>
 
-Cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy. But this could even be more apparent for some specific regions and industries. The graph below allows you to examine this further for yourself. You can choose a Swiss region (as defined by the <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>) or a technology field (as defined by the <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf  target = “_blank”>WIPO</a>) and the graph displays patent counts and the share of patents invented by cross-border commuters for your selected region or technology field. 
+Cross-border commuters seem to substantially fuel the innovative engine of the Swiss economy. But this could even be more apparent for some specific regions and industries. The graph below allows you to examine this further for yourself. You can choose a Swiss region (as defined by the <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>) or a technology field (as defined by the <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf  target = “_blank”>WIPO</a>) and the graph displays patent counts and the share of patents invented by cross-border commuters for your selected region or technology field.
 
 <div class=bloc_div>
-<blockquote>***Cross-border commuters seem to substantially fuel the innovative engine of the Swiss Economy.***</blockquote> 
+<blockquote>***Cross-border commuters seem to substantially fuel the innovative engine of the Swiss economy.***</blockquote> 
 </div>
 
-
-Note that in contrast to the previous plot, the counts and shares are not calculated annually but over a 3-year period. This is because the number of patents in a single year can be rather low for some industries and, as a result, the shares of cross-border commuters would highly fluctuate. Using 3-year periods instead smooths such fluctuations. Further, note that cross-border commuting was restricted from and to border regions before the liberalizations at the beginning of the 21st century. There are nonetheless some cross-border commuters registered in the non-border region of Central Switzerland (covering the cantons Luzern, Uri, Schwyz, Zug, Nidwalden and Obwalden). The most likely reasons for this are that these inventors were either not cross-border commuters in a legal sense (e.g. they were Swiss residents but also had a foreign address which they stated on the patent documentation) or the patent was only filed by a company headquarter in Central Switzerland, whereas the actual research was conducted in a lab in the border region. 
+Note that in contrast to the previous plot, the counts and shares are not calculated annually but over 3-year periods up to the year 2011. This is because the number of patents in a single year can be rather low for some industries and, as a result, the shares of cross-border commuters would fluctuate sharply. Using 3-year periods instead smooths out such fluctuations. Further, note that cross-border commuting was restricted from and to border regions before the liberalizations at the beginning of the 21st century. There are nonetheless some cross-border commuters registered in the non-border region of Central Switzerland (covering the cantons Luzern, Uri, Schwyz, Zug, Nidwalden and Obwalden). The most likely reasons for this are that these inventors were either not cross-border commuters in a legal sense (e.g. they were Swiss residents but also had a foreign address which they stated on the patent documentation) or the patent was only filed by a company headquarters in Central Switzerland, whereas the actual research was conducted in a lab in the border region.
 
 <br>
 
@@ -385,51 +351,12 @@ renderPlot({
           axis.title = element_text(face = "bold"),
           axis.line = element_line())
   })
-
-## DYNAMIC
-# renderPlotly({
-# 
-#   # define the data
-#   plot_data <- plot_df[[input$region_or_industry]]
-#   subsetter <- colnames(plot_data)[1]
-#   if(subsetter == "tech_field"){
-#     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{
-#     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg)
-#     }
-#   plot_data <- plot_data[keep_obs, ]
-#   
-#   # define the plot parameters
-#   ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE))
-#   ylim_share <- c(0, max(plot_data$share, na.rm = TRUE))
-#   b <- diff(ylim_absolute)/diff(ylim_share)
-#   a <- b*(ylim_absolute[1] - ylim_share[1])
-# 
-#   # make the plot
-#   ggplotly(
-#     ggplot(plot_data)+
-#     geom_area(aes(x = p_year, y = number, fill = Type, label = Status), alpha = 0.8)+
-#     geom_line(aes(x = p_year, y = a + share * b, label = Share), color = "black")+
-#     scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-#                        labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
-#     scale_y_continuous("Total number of patents",
-#                        sec.axis = sec_axis(~ (. - a) / b,
-#                                            name = "Share of patents by cross-border commuters")
-#                        )+
-#     xlab("Year") +
-#     theme(legend.position="none",
-#           panel.background = element_blank(),
-#           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
-#           axis.title = element_text(face = "bold"),
-#           axis.line = element_line()),
-# 
-#      tooltip = c("label", "text"), dynamicTicks = FALSE)
-# })
 ```
 <span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
-The share of patents by cross-border commuters varies from only around 0.5-1% in Espace Mittelland to a maximum of nearly 30% in the border regions Northwestern Switzerland and Ticino. The same is true for different technology fields. “16 Pharmaceuticals”, which is the most important export sector of the Swiss economy, has also by far the highest share of patents developed by cross-border commuting inventors (up to over 30%). Similarly, many other fields related to chemistry and biology have also relatively high shares. For both fields, this is most likely because Basel is the location of Switzerland’s most important pharmaceutical and chemistry cluster. 
+The share of patents by cross-border commuters varies from only around 0.5-1% in Espace Mittelland to a maximum of nearly 30% in the border regions of Northwestern Switzerland and Ticino. The same is true for different technology fields. “16 Pharmaceuticals”, which is the most important export sector of the Swiss economy, has also by far the highest share of patents developed by cross-border commuting inventors (up to over 30%). Similarly, many other fields related to chemistry and biology also have relatively high shares. For both fields, this is most likely because Basel is the location of Switzerland’s most important pharmaceutical and chemistry cluster.
 
 Another interesting observation is the increasing number of patents by cross-border commuting inventors over time in booming fields such as “4 Digital communication”, “6 Computer technology”, “24 Environmental technology” or “13 Medical technology”. Thus, being able to recruit cross-border commuters is particularly important in several dynamic and emerging technology fields.
 
@@ -437,12 +364,12 @@ Another interesting observation is the increasing number of patents by cross-bor
 <blockquote>***Open borders are key for high-quality innovations in Switzerland.***</blockquote>
 </div>
 
-All of these findings indicate that open borders are key for high-quality innovations in Switzerland. Without having the possibility to recruit cross-border commuting researchers and developers, Switzerland’s overall patent output could be significantly lower. Besides cross-border workers, Switzerland also employs a high number of high-skilled immigrants. If the Swiss economy could no longer benefit from the knowledge of all of these foreign workers, its innovative capacity would most likely deteriorate severely. This would be particularly alarming as cross-border commuting inventors seem to be especially important in highly dynamic technology fields such as computer science, biotechnology, pharmaceuticals or environmental technologies.   
+All of these findings indicate that open borders are key for high-quality innovations in Switzerland. Without having the possibility to recruit cross-border commuting researchers and developers, Switzerland’s overall patent output could be significantly lower. Besides cross-border workers, Switzerland also employs a high number of high-skilled immigrants. If the Swiss economy could no longer benefit from the knowledge of all of these foreign workers, its innovative capacity would most likely deteriorate severely. This would be particularly alarming as cross-border commuting inventors seem to be especially important in highly dynamic technology fields such as computer science, biotechnology, pharmaceuticals or environmental technologies.
 
 <br>
 <br>
 
-<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub<a/>.*</span>
 
 <br>
 
