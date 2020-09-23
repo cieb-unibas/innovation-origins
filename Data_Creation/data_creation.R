@@ -25,6 +25,12 @@ print("Packages loaded and directories set.")
 df <- readRDS(paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
 ipc <- readRDS(paste0(mainDir1, "/created data/oecd_tech_field.RDS"))
 
+# check whether p_year has been updated
+dat_p_year_new <- readRDS( paste0(mainDir1, "/created data/dat_p_year_temp.rds"))
+test <- left_join(df, dat_p_year_new, by = "p_key")
+test <- filter(test, p_year.x != p_year.y)
+nrow(test)
+
 # only consider patents for which at least one inventor assigned to Switzerland
 keep_keys <- df %>% filter(ctry_pat == "CH")
 keep_keys <- keep_keys$p_key

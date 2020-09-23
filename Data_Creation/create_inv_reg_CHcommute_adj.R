@@ -85,6 +85,8 @@ print("Datset saved as 'inv_reg_CHcommute_adj.rds'")
 
 
 ## Some first inspections
+inv_reg_CHcommute_adj <- readRDS(paste0(mainDir1, "/created data/inv_reg_CHcommute_adj.rds"))
+
 # inv_reg_CHcommute_adj <- setDT(inv_reg_CHcommute_adj)[, share := 1/.N, .(p_key, tech_field)]
 # test <- aggregate(share ~ cross_bord + ctry_pat + tech_field + p_year, data = inv_reg_CHcommute_adj, FUN = sum)
 # test <- dcast(test, p_year + ctry_pat + tech_field ~ cross_bord, value.var = c("share"))
