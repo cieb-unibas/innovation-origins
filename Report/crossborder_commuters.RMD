@@ -58,10 +58,12 @@ Follow us
 ```{r, echo = F}
 a(actionButton(inputId = "github", label = "", 
                  icon = icon("github", lib = "font-awesome")),
-                 href=  "http://github.com/cieb-unibas")
+                 href=  "http://github.com/cieb-unibas", 
+                 target = "_blank")
 a(actionButton(inputId = "twitter", label = "", 
                  icon = icon("twitter", lib = "font-awesome")),
-                 href="https://twitter.com/cieb_unibas")
+                 href="https://twitter.com/cieb_unibas", 
+                 target = "_blank")
 a(actionButton(inputId = "email1", label = "", 
                  icon = icon("envelope", lib = "font-awesome")),
                  href="mailto:cieb@unibas.ch")
@@ -125,7 +127,7 @@ All the inventors of this patent live in Germany or France and the assignee of t
 <details>
   <summary>*Click here to read about our empirical approach*</summary>
 
-The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents, see e.g. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff and Hoisl, 2005</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information, see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD, 2008</a>). However, since it takes time between the filing and publishing of a patent and since patents are often first filed in a patent office other than the USPTO or EPO, the priority date trails behind the publication date of USPTO and EPO patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
+The patent data we use for the first step of the analysis is from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. It covers the period 1990 to 2015 and is corrected for patent equivalents (for more information on patent equivalents, see e.g. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff and Hoisl, 2005</a>). This dataset features information on the resident countries of inventors and companies. Furthermore, it also contains the geographical coordinates of their resident addresses. Moreover, to assign patents to a year, we use the so-called priority year. The priority year indicates the year a patent was first filed at a patent office anywhere in the world. This date comes closest to the real time of the invention. Therefore, it is often used when analyzing innovation activities by means of patent statistics (for more information, see e.g. <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD, 2008</a>). However, since it takes time between the filing and publishing of a patent, the priority date trails behind the publication date of patents. Thus, in order to present a comprehensive picture of inventor activity, we limit ourselves to showing only patents up to the priority year 2015. Combining these pieces of information allows us to develop an approach to empirically identify cross-border commuting inventors in Switzerland.
 
 In principle, a patent is a candidate for being (co-)invented by a cross-border commuter if the inventor’s resident country is not Switzerland, but the company that owns the patent is based in Switzerland. If more than one company has been involved in the development of the patent and these companies are located in different countries, we have to link inventors to companies. We do this by matching inventors to the company that is most closely located to their resident addresses. Of course, however, this would be way too broad for a definition of cross-border commuting inventors in Switzerland. Recall, for example, our first example patent: The company was based in Switzerland and several inventors were living in Germany. As outlined above, this does not mean that they are necessarily cross-border commuters. For example, one of the German inventors lived in Hamburg and commuting over such a large distance to Switzerland is almost impossible.
 
@@ -162,7 +164,7 @@ Combined, these definitions suggest that our approach to identifying cross-borde
 
 ### <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
 
-We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = “https://www.uspto.gov/” target = “_blank”>USPTO</a> for U.S. patents and from the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> for European patents.
+We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> for U.S. patents and from the <a href= http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a> for European patents.
 
 Let us start by focusing on the number of inventors who commute to a Swiss workplace from neighboring countries. The figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin.
 
@@ -197,7 +199,7 @@ theme(legend.position="bottom",
       axis.line = element_line())
 })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -237,7 +239,7 @@ renderPlot({
           axis.line = element_line())
 })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -327,7 +329,7 @@ renderPlot({
           axis.line = element_line())
   })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -344,12 +346,11 @@ All of these findings indicate that open borders are key for high-quality innova
 <br>
 <br>
 
-<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
 Share this article 
-
 ```{r, echo = F}
 actionButton("twitter_share",
                    label = "",
