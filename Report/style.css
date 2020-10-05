@@ -37,6 +37,18 @@ blockquote {
 
 .box_div {
   font-size: 11pt;
-  background-color: #e0ebeb;
+  background-color: #D1E5F0; /*e0ebeb*/
   font-family: "Verdana";
+}
+
+hr {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+/*infos on links*/
+a {
+  color: #2166AC;
 }

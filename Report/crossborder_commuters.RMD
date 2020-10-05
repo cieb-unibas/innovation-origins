@@ -47,27 +47,14 @@ library(rtweet)
 
 <br>
 
-<a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=30% }</a>
+<br>
+<!-- <a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=30% }</a> -->
 
 
-## <font color='#68838B'>**Cross-border commuting and inventions 'Made in Switzerland'**</font>
+## **Cross-border commuting and inventions 'Made in Switzerland'**
 
 *September 2020* by <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
 
-Follow us
-```{r, echo = F}
-a(actionButton(inputId = "github", label = "", 
-                 icon = icon("github", lib = "font-awesome")),
-                 href=  "http://github.com/cieb-unibas", 
-                 target = "_blank")
-a(actionButton(inputId = "twitter", label = "", 
-                 icon = icon("twitter", lib = "font-awesome")),
-                 href="https://twitter.com/cieb_unibas", 
-                 target = "_blank")
-a(actionButton(inputId = "email1", label = "", 
-                 icon = icon("envelope", lib = "font-awesome")),
-                 href="mailto:cieb@unibas.ch")
-```
 
 <br>
 
@@ -88,11 +75,12 @@ What often remains unclear, though, is the extent to which cross-border workers 
 
 <br>
 
-### <font color='#68838B'>**How to determine the origin of an invention**</font>
+### **How to determine the origin of an invention**
 
 Every  year, reports such as the <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, the <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> or the <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> evaluate the innovative capacity of countries and find attention in politics and the media (e.g. <a href = https://www.nzz.ch/wirtschaft/wettbewerbsfaehigkeit-schweiz-verliert-deutschland-noch-mehr-ld.1514074?reduced=true target = “_blank”>NZZ, 9.10.2019</a>; <a href =https://www.srf.ch/news/wirtschaft/ranking-wettbewerbsfaehigkeit-die-schweiz-verliert-spitzenplatz target = “_blank”>SRF, 17.10.2018</a>). These studies typically use patents as one of the measures for innovation. More precisely, they look at the number of patents filed by inventors of a given country. This number can be derived because a patent documentation always states the residence countries of all inventors, as you can see in the following example.
 
 <br>
+<hr color = "#d8122f33" style="width:30%; height:10px">
 <center>
 <a href="https://patentimages.storage.googleapis.com/2d/2c/18/51725e50ce657b/US10029262.pdf" target = "_blank">
 ![](example_patent_multicountry.jpg){ width=80% }</a>
@@ -111,6 +99,7 @@ This patent states nine different “Inventors”. Five are from Germany and fou
 Now, for the case of Switzerland, recall the very high numbers of cross-border commuters to Geneva or Basel, for example. What if *all* the inventors of a patent developed in Switzerland live in neighboring countries and commute to a workplace in Switzerland? In this case, the patent documentation shows no connection to Switzerland. Consequently, many patents may not be assigned to Switzerland even though all the research and development was conducted in a company’s Swiss-based facility. Nor would focusing on the location of the firm solve the problem if the patent was filed by a foreign affiliate of the Swiss-based firm. The image below shows an example of a patent with exactly these characteristics.
 
 <br>
+<hr color = "#d8122f33" style="width:30%; height:10px">
 <center>
 <a href="https://patentimages.storage.googleapis.com/d3/fc/90/f9374c9864e9b2/US7786128.pdf" target = "_blank">
 ![](example_patent_crossbord.jpg){ width=80% }</a> 
@@ -162,7 +151,7 @@ Combined, these definitions suggest that our approach to identifying cross-borde
 
 <br>
 
-### <font color='#68838B'>**Cross-border commuters and innovation in Switzerland** </font>
+### **Cross-border commuters and innovation in Switzerland** 
 
 We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> for U.S. patents and from the <a href= http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a> for European patents.
 
@@ -180,6 +169,9 @@ max_year <- 2015 # do not use data after 2015 because data quality is poor
 source(file = "reshape_fun.R", local = knitr::knit_global()) 
 ```
 
+<br>
+<hr color = "#d8122f33" style="width:30%; height:10px">
+##### ***Origin of cross-border commuters***
 ```{r, echo = FALSE, fig.asp = 0.5}
 #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------
 renderPlot({
@@ -189,8 +181,8 @@ plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year)
 # make the plot
 ggplot(plot_data)+#, aes(label = `Country of origin`))+
 geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+
-scale_fill_viridis(discrete = TRUE, option = "inferno", name = "", 
-                   labels = c("Austria", "Germany", "France", "Italy")) +
+scale_fill_brewer(palette = "RdBu", name = "", 
+                  labels = c("Austria", "Germany", "France", "Italy")) +
 labs(x = "Year", y = "Number of cross-border commuting inventors") +
 theme(legend.position="bottom",
       panel.background = element_blank(),
@@ -207,6 +199,9 @@ At the beginning of the 1990s, there were relatively few cross-border commuting 
 
 The extent of this bias can be seen in the next plot. Focus on the colored areas first. They show the absolute number of patents invented by Swiss residents (orange) and cross-border commuters (purple), respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview of the patenting in Switzerland see <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors.  The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the purple area). It is quite impressive. As early as 1990 around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.
 
+<br>
+<hr color = "#d8122f33" style="width:30%; height:10px">
+##### ***Cross-border commuters in Switzerland***
 ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5}
 #### CROSS-BORDER COMMUTERS IN SWITZERLAND: -------------------------------------------
 # load and prepare the data 
@@ -226,8 +221,7 @@ renderPlot({
     ggplot(plot_data)+
     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
-    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                       labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) +
     scale_y_continuous("Share of patents by cross-border commuters",
                        sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), 
                        labels = c("0%", "5%", "10%", "15%"))+
@@ -261,8 +255,10 @@ Cross-border commuters seem to substantially fuel the innovative engine of the S
 
 Note that in contrast to the previous plot, the counts and shares are not calculated annually but over 3-year periods up to the year 2011. This is because the number of patents in a single year can be rather low for some industries and, as a result, the shares of cross-border commuters would fluctuate sharply. Using 3-year periods instead smooths out such fluctuations. Further, note that cross-border commuting was restricted from and to border regions before the liberalizations at the beginning of the 21st century. There are nonetheless some cross-border commuters registered in the non-border region of Central Switzerland (covering the cantons Luzern, Uri, Schwyz, Zug, Nidwalden and Obwalden). The most likely reasons for this are that these inventors were either not cross-border commuters in a legal sense (e.g. they were Swiss residents but also had a foreign address which they stated on the patent documentation) or the patent was only filed by a company headquarters in Central Switzerland, whereas the actual research was conducted in a lab in the border region.
 
-<br>
 
+<br>
+<hr color = "#d8122f33" style="width:30%; height:10px">
+##### ***Cross-border commuters in Swiss regions and industries***
 ```{r, echo = FALSE, message = FALSE, fig.height = 3}
 #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES --------------------------------
 # (1) apply the custom reshape_fun()-function to both data-sets and combine technology field names
@@ -316,8 +312,10 @@ renderPlot({
   ggplot(plot_data)+
     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
-    scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
-                     labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    # scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+                     # labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    
+    scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) +
     scale_y_continuous("Share of patents by cross-border commuters",
                      sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
                      labels = scales::percent)+
@@ -350,7 +348,7 @@ All of these findings indicate that open borders are key for high-quality innova
 
 <br>
 
-Share this article 
+**Share this article**
 ```{r, echo = F}
 actionButton("twitter_share",
                    label = "",
