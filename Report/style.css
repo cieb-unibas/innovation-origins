@@ -1,30 +1,66 @@
 /* Whole document: */
 
-body{margin-top: 0px;
+
+
+body{margin-top: 0;
    margin:0;
   font-family: "Candara";
   font-size: 14pt;
 }
-/* Headers */
+
 h4{
   font-size: 18pt;
   font-family: "Candara";
 }
 
-h5{
-  font-size: 16pt;
-  font-family: "Candara";
-}
 
 img { 
   width:100%; height:100%;
-  object-fit: cover;
 }
 
 td { font-size: 11pt; }
 
 .bloc_div {
   float: right;
+}
+
+
+
+hr {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+
+
+html, body {
+  font-size: 20px;
+  background: white;
+  font-family: "Helvetica Neue", "Neue Helvetica W05", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Headers */
+h2 {
+  font-size: 1.5em;
+  color: #0062FF;
+  margin-bottom: 0;
+}
+
+
+/*infos on links*/
+a {
+  color: #0062FF;
 }
 
 blockquote {
@@ -37,18 +73,6 @@ blockquote {
 
 .box_div {
   font-size: 11pt;
-  background-color: #D1E5F0; /*e0ebeb*/
+  background-color: #ecf5f9; /*e0ebeb*/
   font-family: "Verdana";
-}
-
-hr {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-}
-
-/*infos on links*/
-a {
-  color: #2166AC;
 }

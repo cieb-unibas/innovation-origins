@@ -33,6 +33,17 @@ library("DT")
 library(rtweet)
 ```
 
+```{r context="data", echo=FALSE}
+## LOAD ALL .CSV FILES ---------------------------------------------------------------
+csv_files <- list.files(pattern = ".csv")
+df_list <- lapply(csv_files, read.csv)
+names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
+max_year <- 2015 # do not use data after 2015 because data quality is poor
+## LOAD HELPER-FUNCTION -------------------------------------------------------------
+source(file = "reshape_fun.R", local = knitr::knit_global()) 
+```
+
+
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
@@ -159,17 +170,8 @@ Let us start by focusing on the number of inventors who commute to a Swiss workp
 
 <br>
 
-```{r, echo = FALSE}
-## LOAD ALL .CSV FILES ---------------------------------------------------------------
-csv_files <- list.files(pattern = ".csv")
-df_list <- lapply(csv_files, read.csv)
-names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
-max_year <- 2015 # do not use data after 2015 because data quality is poor
-## LOAD HELPER-FUNCTION -------------------------------------------------------------
-source(file = "reshape_fun.R", local = knitr::knit_global()) 
-```
-
 <br>
+
 <hr color = "#d8122f33" style="width:30%; height:10px">
 ##### ***Origin of cross-border commuters***
 ```{r, echo = FALSE, fig.asp = 0.5}
