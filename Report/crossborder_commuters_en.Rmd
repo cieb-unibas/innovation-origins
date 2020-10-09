@@ -148,7 +148,7 @@ We then assign the cross-border commuter status to further patents if
 3.	the company that owns the patent has a Swiss-sited research location **and**
 4.	inventors are not living too far away from the company’s Swiss-sited research location. 
 
-Up to now, we have not included <a href = https://www.epo.org/ target = “_blank”>European Patent Office (EPO)</a> patents in our analysis, which could be a major shortcoming. The reason is that data on EPO patents, which have been made available by the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>, does not have geographical coordinate information . Therefore, we need an alternative approach to also check for cross-border commuters on EPO patents. We proceed in the following way: First, because we have already reassigned USPTO patents, we consider only EPO patents from Swiss-based companies that do not have an equivalent USPTO patent. As before, we then check if the resident country of the company that owns the patent is Switzerland, but the inventor lives somewhere else. As before, we must then consider whether the locations of the inventor and the company are not too far away. Instead of coordinates, we now use the resident *regions* of inventors and companies. More precisely, we assume that commuting to a workplace in Switzerland is only possible for inventors from foreign regions that are close to the Swiss border. We define these regions to be "Freiburg" and "Schwaben" for Germans, "Alsace", "Rhône-Alpes", "Lorraine" and "Franche-Comté" for people from France, "Lombardy" and "Piedmont" for Italians and the region of "Vorarlberg" for Austrians. We exclude inventors who live outside of these regions as potential cross-border commuters, because the distance to the Swiss border would be too far. Furthermore, we make additional restrictions that inventors from Germany only commute to the Swiss regions of "Northwestern Switzerland", "Zürich" or "Eastern Switzerland", Italians only to "Ticino", Austrians only to "Eastern Switzerland" and French commuters only to "Northwestern Switzerland" or to the "Lake Geneva Region".
+Up to now, we have not included <a href = https://www.epo.org/ target = “_blank”>European Patent Office (EPO)</a> patents in our analysis, which could be a major shortcoming. The reason is that data on EPO patents, which have been made available by the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>, does not have geographical coordinate information. Therefore, we need an alternative approach to also check for cross-border commuters on EPO patents. We proceed in the following way: First, because we have already reassigned USPTO patents, we consider only EPO patents from Swiss-based companies that do not have an equivalent USPTO patent. As before, we then check if the resident country of the company that owns the patent is Switzerland, but the inventor lives somewhere else. As before, we must then consider whether the locations of the inventor and the company are not too far away. Instead of coordinates, we now use the resident *regions* of inventors and companies. More precisely, we assume that commuting to a workplace in Switzerland is only possible for inventors from foreign regions that are close to the Swiss border. We define these regions to be "Freiburg" and "Schwaben" for Germans, "Alsace", "Rhône-Alpes", "Lorraine" and "Franche-Comté" for people from France, "Lombardy" and "Piedmont" for Italians and the region of "Vorarlberg" for Austrians. We exclude inventors who live outside of these regions as potential cross-border commuters, because the distance to the Swiss border would be too far. Furthermore, we make additional restrictions that inventors from Germany only commute to the Swiss regions of "Northwestern Switzerland", "Zürich" or "Eastern Switzerland", Italians only to "Ticino", Austrians only to "Eastern Switzerland" and French commuters only to "Northwestern Switzerland" or to the "Lake Geneva Region".
 
 To summarize, we assign the cross-border commuter status to EPO patent inventors only if 
 
@@ -193,7 +193,7 @@ theme(legend.position="bottom",
       axis.line = element_line())
 })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: CIEBs' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -235,7 +235,7 @@ renderPlot({
           axis.line = element_line())
 })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: CIEBs' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -329,7 +329,7 @@ renderPlot({
           axis.line = element_line())
   })
 ```
-<span style="font-size:0.8em">*Source: Authors' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> . The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*Source: CIEBs' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
 <br>
 
@@ -346,7 +346,7 @@ All of these findings indicate that open borders are key for high-quality innova
 
 <br>
 
-**Interested in a comparison** of the Swiss pharma with other countries? Then check out our analysis:<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
+**Interested in a comparison** of Swiss pharma with other countries? Then check out our analysis:<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
 
 <br>
 
