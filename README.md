@@ -1,5 +1,5 @@
 # Cross-border commuting and inventions ‘Made in Switzerland’
-This repository contains the data and code for an interactive report about the role of cross-border commuters for innovation in Switzerland. The full article can be accessed here: https://cieb.shinyapps.io/crossborder_commuters/.
+This repository contains the data and code for an interactive report about the role of cross-border commuters for innovation in Switzerland. The full article can be accessed <a href = https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland = “_blank”>here</a>.
 
 Our findings indicate that open borders are key for high-quality innovations in Switzerland. Without having the possibility to recruit cross-border commuting researchers and developers, Switzerland’s overall patent output could be significantly lower. Besides cross-border workers, Switzerland also employs a high number of high-skilled immigrants. If the Swiss economy could no longer benefit from the knowledge of all of these foreign workers, its innovative capacity would most likely deteriorate severely. This would be particularly alarming as cross-border commuting inventors seem to be especially important in highly dynamic technology fields such as computer science, biotechnology, pharmaceuticals or environmental technologies.
 
