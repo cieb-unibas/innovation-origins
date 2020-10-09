@@ -18,19 +18,19 @@ runtime: shiny
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library("shiny")
-library("shinydashboardPlus")
+# library("shinydashboardPlus")
 library("ggplot2")
-library("viridis")
+# library("viridis")
 library("RColorBrewer")
-library("knitr")
-library("png")
+# library("knitr")
+# library("png")
 # library("cowplot")
 # library("plotly")
 library("shinyWidgets")
 library("tidyverse")
 # library("data.table")
-library("DT")
-library(rtweet)
+# library("DT")
+# library(rtweet)
 ```
 
 ```{r context="data", echo=FALSE}
@@ -38,6 +38,7 @@ library(rtweet)
 csv_files <- list.files(pattern = ".csv")
 df_list <- lapply(csv_files, read.csv)
 names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
+
 max_year <- 2015 # do not use data after 2015 because data quality is poor
 ## LOAD HELPER-FUNCTION -------------------------------------------------------------
 source(file = "reshape_fun.R", local = knitr::knit_global()) 
@@ -326,7 +327,7 @@ renderPlot({
           panel.background = element_blank(),
           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
           axis.title = element_text(face = "bold"),
-          axis.line = element_line())
+          axis.line = element_line()) 
   })
 ```
 <span style="font-size:0.8em">*Source: CIEBs' own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on  <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
