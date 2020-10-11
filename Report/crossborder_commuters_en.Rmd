@@ -318,9 +318,9 @@ All of these findings indicate that open borders are key for high-quality innova
 
 **Interested in a comparison** of Swiss pharma with other countries? Then check out our analysis<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
 
-<br>
+<!-- <br> -->
 
-**Share this article**
+<!-- **Share this article** -->
 <!-- # ```{r, echo = F} -->
 <!-- # actionButton("twitter_share", -->
 <!-- #                    label = "", -->
