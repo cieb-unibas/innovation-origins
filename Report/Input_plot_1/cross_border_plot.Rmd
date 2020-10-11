@@ -1,0 +1,110 @@
+---
+fig_caption: yes
+output:
+  html_document:
+           self_contained: false
+           # theme: null
+           css: style.css
+           highlight: null
+           mathjax: null
+
+resource_files:
+- CH_region.csv
+- CH_Techfields.csv
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("shiny")
+library("ggplot2")
+library("RColorBrewer")
+library("shinyWidgets")
+library("tidyverse")
+htmltools::htmlDependency("jquery", "3.3.1",
+  src = c(href = "https://code.jquery.com/"),
+  script = "jquery-3.3.1.min.js")
+
+```
+
+```{r context="data", echo=FALSE}
+## LOAD ALL .CSV FILES ---------------------------------------------------------------
+csv_files <- list.files(pattern = ".csv")
+df_list <- lapply(csv_files, read.csv)
+names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
+
+max_year <- 2015 # do not use data after 2015 because data quality is poor
+## LOAD HELPER-FUNCTION -------------------------------------------------------------
+source(file = "reshape_fun.R", local = knitr::knit_global()) 
+```
+
+
+```{r, echo = FALSE, message = FALSE, fig.height = 3}
+#### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES --------------------------------
+# (1) apply the custom reshape_fun()-function to both data-sets and combine technology field names
+plot_df <- lapply(c("CH_region",
+                    "CH_Techfields"), function(x) reshape_fun(dataset = x))
+names(plot_df) <- c("CH_region", "CH_Techfields")
+# (2) specify picker_input() selection options
+REGIONS <- as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat))))
+names(REGIONS) <- REGIONS
+tech_field_name <- paste(plot_df$CH_Techfields$tech_field,
+                         plot_df$CH_Techfields$tech_name)
+tech_field_name <- unique(tech_field_name)
+TECHFIELDS <- as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field))))
+names(TECHFIELDS) <- tech_field_name
+# (2) choose between region or industry and define the data ------------------------------
+radioButtons(inputId = "region_or_industry",
+             label = NULL, choiceNames = c("Region", "Technology Field"),
+             choiceValues = c("CH_region", "CH_Techfields"), selected = "CH_region",
+             inline = TRUE)
+conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
+                 pickerInput(
+                   inputId = "OBS_reg",
+                   label = "Choose a region", selected = "Northwestern Switzerland",
+                   choices = REGIONS,
+                   multiple = FALSE))
+conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
+                 pickerInput(
+                   inputId = "OBS_ind",
+                   label = "Choose a technology field", selected = "16 Pharmaceuticals",
+                   choices = TECHFIELDS,
+                   multiple = FALSE))
+# (3) make the plot ---------------------------------------------------------------------
+## STATIC
+renderPlot({
+  # specify data and parameters
+  plot_data <- plot_df[[input$region_or_industry]]
+  subsetter <- colnames(plot_data)[1]
+  if(subsetter == "tech_field"){
+    keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{
+    keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg)
+    }
+  plot_data <- plot_data[keep_obs, ]
+  plot_data <- filter(plot_data, p_year <= 2011)
+  
+  # define the plot parameters
+  ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE))
+  ylim_share <- c(0, max(plot_data$share, na.rm = TRUE))
+  b <- diff(ylim_absolute)/diff(ylim_share)
+  a <- b*(ylim_absolute[1] - ylim_share[1])
+  # make the plot
+ ggplot(plot_data)+
+    geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+
+    geom_line(aes(x = p_year, y = share), color = "black", size = 1)+
+    # scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
+                     # labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
+    
+    scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) +
+    scale_y_continuous("Share of patents by cross-border commuters",
+                     sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),
+                     labels = scales::percent)+
+    xlab("Year") +
+    theme(legend.position="bottom",
+          panel.background = element_blank(),
+          legend.title = element_blank(),
+          panel.grid.major.y = element_line(colour = "black", linetype = "dotted"),
+          axis.title = element_text(face = "bold"),
+          axis.line = element_line()) 
+  })
+```

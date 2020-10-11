@@ -1,64 +1,25 @@
 ---
-fig_caption: yes
+title: ''
 output:
   html_document:
-    css: style.css
-resource_files:
-- example_patent_crossbord.jpg
-- example_patent_multicountry.jpg
-- title_picture.jpg
-- graph_crossborder_commuter_en.png
-- graph_crossborder_commuter_regio_en.png
-# runtime: shiny
+    self_contained: false
+    theme: null
+    css: null
+    highlight: null
+    mathjax: null
 ---
 
-<!-- # ```{r setup, include=FALSE} -->
-<!-- # knitr::opts_chunk$set(echo = TRUE) -->
-<!-- # library("shiny") -->
-<!-- # # library("shinydashboardPlus") -->
-<!-- # library("ggplot2") -->
-<!-- # # library("viridis") -->
-<!-- # library("RColorBrewer") -->
-<!-- # # library("knitr") -->
-<!-- # # library("png") -->
-<!-- # # library("cowplot") -->
-<!-- # # library("plotly") -->
-<!-- # library("shinyWidgets") -->
-<!-- # # library("tidyverse") -->
-<!-- # # library("data.table") -->
-<!-- # # library("DT") -->
-<!-- # # library(rtweet) -->
-<!-- <!-- ``` --> 
-
-<!-- # ```{r context="data", echo=FALSE} -->
-<!-- # ## LOAD ALL .CSV FILES --------------------------------------------------------------- -->
-<!-- # csv_files <- list.files(pattern = ".csv") -->
-<!-- # df_list <- lapply(csv_files, read.csv) -->
-<!-- # names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files) -->
-<!-- #  -->
-<!-- # max_year <- 2015 # do not use data after 2015 because data quality is poor -->
-<!-- # ## LOAD HELPER-FUNCTION ------------------------------------------------------------- -->
-<!-- # source(file = "reshape_fun.R", local = knitr::knit_global())  -->
-<!-- # ``` -->
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- ``` -->
 
 
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-71167447-1');
-</script>
-</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="style.css" type="text/css" />
 
+<div class="container-fluid main-container">
 
-<br>
-
-<br>
 <!-- <a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=30% }</a> -->
-
 
 ## **Cross-border commuting and inventions 'Made in Switzerland'**
 
@@ -357,32 +318,32 @@ All of these findings indicate that open borders are key for high-quality innova
 
 **Interested in a comparison** of Swiss pharma with other countries? Then check out our analysis<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
 
-<!-- <br> -->
+<br>
 
-<!-- **Share this article** -->
-<!-- ```{r, echo = F} -->
-<!-- actionButton("twitter_share", -->
-<!--                    label = "", -->
-<!--                    icon = icon("twitter"), -->
-<!--                    onclick = sprintf("window.open('%s')", "https://twitter.com/intent/tweet?d&url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- actionButton("twitter_share", -->
-<!--                    label = "", -->
-<!--                    icon = icon("linkedin"), -->
-<!--                    onclick = sprintf("window.open('%s')", "https://www.linkedin.com/sharing/share-offsite/?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- actionButton("xing_share", -->
-<!--                    label = "", -->
-<!--                    icon = icon("xing"), -->
-<!--                    onclick = sprintf("window.open('%s')", "https://www.xing.com/spi/shares/new?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- actionButton("facebook_share", -->
-<!--                    label = "", -->
-<!--                    icon = icon("facebook"), -->
-<!--                    onclick = sprintf("window.open('%s')", "https://www.facebook.com/sharer/sharer.php?u=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-
-<!-- actionButton("mail_share", -->
-<!--                    label = "", -->
-<!--                    icon = icon("envelope"), -->
-<!--                    onclick = sprintf("window.open('%s')", "mailto:info@example.com?&subject=&body=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- ``` -->
+**Share this article**
+<!-- # ```{r, echo = F} -->
+<!-- # actionButton("twitter_share", -->
+<!-- #                    label = "", -->
+<!-- #                    icon = icon("twitter"), -->
+<!-- #                    onclick = sprintf("window.open('%s')", "https://twitter.com/intent/tweet?d&url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
+<!-- # actionButton("twitter_share", -->
+<!-- #                    label = "", -->
+<!-- #                    icon = icon("linkedin"), -->
+<!-- #                    onclick = sprintf("window.open('%s')", "https://www.linkedin.com/sharing/share-offsite/?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
+<!-- # actionButton("xing_share", -->
+<!-- #                    label = "", -->
+<!-- #                    icon = icon("xing"), -->
+<!-- #                    onclick = sprintf("window.open('%s')", "https://www.xing.com/spi/shares/new?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
+<!-- # actionButton("facebook_share", -->
+<!-- #                    label = "", -->
+<!-- #                    icon = icon("facebook"), -->
+<!-- #                    onclick = sprintf("window.open('%s')", "https://www.facebook.com/sharer/sharer.php?u=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
+<!-- #  -->
+<!-- # actionButton("mail_share", -->
+<!-- #                    label = "", -->
+<!-- #                    icon = icon("envelope"), -->
+<!-- #                    onclick = sprintf("window.open('%s')", "mailto:info@example.com?&subject=&body=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
+<!-- # ``` -->
 
 <br>
 
@@ -392,3 +353,14 @@ All of these findings indicate that open borders are key for high-quality innova
 <br>
 <br>
 <br>
+
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-71167447-1');
+</script>
