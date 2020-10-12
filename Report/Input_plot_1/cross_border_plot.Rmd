@@ -1,10 +1,9 @@
 ---
-fig_caption: yes
 output:
   html_document:
            self_contained: false
            # theme: null
-           css: "https://innoscape.de/pharma_intro/style.css"
+           css: "https://innoscape.de/cross_border/style.css"
            highlight: null
            mathjax: null
 
@@ -14,6 +13,9 @@ resource_files:
 runtime: shiny
 ---
 
+
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library("shiny")
@@ -21,9 +23,9 @@ library("ggplot2")
 library("RColorBrewer")
 library("shinyWidgets")
 library("tidyverse")
-htmltools::htmlDependency("jquery", "3.3.1",
-  src = c(href = "https://code.jquery.com/"),
-  script = "jquery-3.3.1.min.js")
+# htmltools::htmlDependency("jquery", "3.3.1",
+#   src = c(href = "https://code.jquery.com/"),
+#   script = "jquery-3.3.1.min.js")
 
 ```
 
