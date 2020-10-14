@@ -320,32 +320,16 @@ All of these findings indicate that open borders are key for high-quality innova
 
 **Interested in a comparison** of Swiss pharma with other countries? Then check out our analysis<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
 
-<!-- <br> -->
+<br>
 
-<!-- **Share this article** -->
-<!-- # ```{r, echo = F} -->
-<!-- # actionButton("twitter_share", -->
-<!-- #                    label = "", -->
-<!-- #                    icon = icon("twitter"), -->
-<!-- #                    onclick = sprintf("window.open('%s')", "https://twitter.com/intent/tweet?d&url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- # actionButton("twitter_share", -->
-<!-- #                    label = "", -->
-<!-- #                    icon = icon("linkedin"), -->
-<!-- #                    onclick = sprintf("window.open('%s')", "https://www.linkedin.com/sharing/share-offsite/?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- # actionButton("xing_share", -->
-<!-- #                    label = "", -->
-<!-- #                    icon = icon("xing"), -->
-<!-- #                    onclick = sprintf("window.open('%s')", "https://www.xing.com/spi/shares/new?url=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- # actionButton("facebook_share", -->
-<!-- #                    label = "", -->
-<!-- #                    icon = icon("facebook"), -->
-<!-- #                    onclick = sprintf("window.open('%s')", "https://www.facebook.com/sharer/sharer.php?u=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- #  -->
-<!-- # actionButton("mail_share", -->
-<!-- #                    label = "", -->
-<!-- #                    icon = icon("envelope"), -->
-<!-- #                    onclick = sprintf("window.open('%s')", "mailto:info@example.com?&subject=&body=https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland")) -->
-<!-- # ``` -->
+**Share this article**
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 
 <br>
 
