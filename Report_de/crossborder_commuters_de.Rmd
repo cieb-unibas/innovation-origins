@@ -1,0 +1,352 @@
+---
+title: ''
+output:
+  html_document:
+    self_contained: false
+    theme: null
+    css: null
+    highlight: null
+    mathjax: null
+---
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<div class="container-fluid main-container">
+
+## **Bedeutung von Grenzgängern für Innovationen “Made in Switzerland”**
+
+<br>
+
+*September 2020* verfasst von <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> und <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
+
+
+<br>
+
+
+![](title_picture.jpg){width=100%}
+
+Foto: <a href="https://www.flickr.com/photos/stormsworld/8456586910/in/photolist-JfMjzY-Jf3uBk-9HwYDV-ZiCo9F-2jagrVH-HMX3CB-szWiqL-PsKy3L-bRHW5-HbJ87t-mWUYYB-J6PXd-228e7G7-nX4vQD-GAoNUV-AnHZzL-QonY9T-TUXSe1-MynNKE-yoSd93-dwmhsa-WyYCTY-7oFhzy-easv3-4VR2iw-BG4XB8-UkSxzU-ZbG9qo-uYNiyQ-aq6HJV-2gTznUx-3dSjtL-P2g2FQ-8xkuwR-6nJEim-5bA2Ve-5bA2yK-7Xo2QH-8qknKq-5aLf3M-t8HmX-8upbZT-3avCQY-dThdEA-2gaaCH-C2ckEz-5aQ6UU-26Frxpu-bV9qz-57bbjv" target = "_blank">Barry Davis | Flickr</a>
+
+<br>
+
+**Über 300 000 Personen aus den Nachbarländern pendeln regelmässig über die Grenze, um in der Schweiz zu arbeiten. Viele von ihnen tragen massgeblich zur Entwicklung neuer Innovationen der Schweizer Unternehmen bei. Allerdings werden Erfindungen von Grenzgängern bei den üblichen Erhebungen zur Einschätzung der Innovationskraft eines Landes oftmals nicht angemessen berücksichtigt. Dies könnte bedeuten, dass die Schweizer Wirtschaft noch innovativer ist als allgemein angenommen. Es sieht danach aus, dass die Innovationstätigkeit der Gesamt-Schweiz um rund 10% unterschätzt wird – und in einigen spezifischen Regionen und Branchen könnte die Innovationskraft sogar um bis zu 30% höher sein als gedacht.**
+
+Pendler aus dem Ausland, die sog. Grenzgänger, sind wichtig für die Schweizer Wirtschaft. Für einige Regionen der Schweiz und die dort jeweils schwerpunktmäßig angesiedelte Industriebranche gilt dies in ganz besonderem Maße. So zeigen die jüngsten Zahlen des  <a href = https://www.bfs.admin.ch/bfs/de/home/statistiken/arbeit-erwerb/erwerbstaetigkeit-arbeitszeit/erwerbstaetige/schweizer-innen-auslaender-innen/grenzgaenger-innen.html target = “_blank”> Bundesamtes für Statistik</a>, dass die Genferseeregion zusammen mit der Region Nordwestschweiz bereits fast 200.000 Grenzgänger anzieht.
+
+Doch wie wirkt sich die hohe Anzahl an Grenzgängern in die Schweiz auf die Einheimischen aus? Nach den Ergebnissen verschiedener Studien scheint es unwahrscheinlich, dass die Grenzgänger negative Auswirkungen auf die einheimischen Arbeitnehmer haben. In einer aktuellen Forschungsarbeit untersuchen <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a> die Folgen der Liberalisierung der Grenzgängerbeschränkungen . Es zeigt sich, dass diese Liberalisierung die Entwicklung von Innovationen bei Schweizer Unternehmen in Grenzregionen gefördert hat. Diese Zunahme an Erfindungskraft hat den grenznahen Schweizer Arbeitsmarkt derart stimuliert, dass sich auch die Nachfrage nach einheimischen Mitarbeitern erhöht hat. Somit haben die Grenzgänger nicht zu einer geringeren Beschäftigung von Einheimischen geführt, weder bei höher, noch bei niedriger qualifizierten Beschäftigten. Auch eine Anpassung der Schweizer Löhne nach unten trat durch die Liberalisierung der Grenzbeschränkungen nicht ein – im Gegenteil, die Löhne von hoch qualifizierten Arbeitskräften haben sich dadurch sogar erhöht. Diese Ergebnisse stimmen mit anderen Studien überein, die ebenfalls darauf hinweisen, dass die Schweiz von Grenzgängern und der Einwanderung als solche insgesamt profitiert (siehe dazu z.B. <a href = https://cdn.avenir-suisse.ch/production/uploads/2020/09/personenfreizuegigkeit_analyse.pdf target = “_blank”>Avenir Suisse, 2020,</a> für einen Überblick oder <a href = https://www.avenir-suisse.ch/grenzgaenger-teil-der-loesung-nicht-des-problems/ target = “_blank”>Salvi, 2014,</a> für eine kurze Fallstudie).
+
+Die Frage, inwieweit Grenzgänger einen Beitrag zur Innovationslandschaft Schweiz leisten, bleibt jedoch oft unbeantwortet. Darauf wollen wir in diesem Artikel eingehen. Wir werden zeigen, dass Grenzgängerinnen und Grenzgänger wesentlich zur Innovationstätigkeit von Schweizer Unternehmen beitragen. Bemerkenswert ist dabei, dass die Erfindungen von Grenzgängern bei der Messung zur Innovationskraft eines Landes typischwerwiese unberücksichtigt bleiben. Somit scheint der Innovationsoutput der Schweiz deutlich unterschätzt zu werden.
+
+
+<br>
+
+### **Wie bestimmt man die Herkunft einer Erfindung?**
+
+Jedes Jahr bewerten Berichte wie der <a href = https://www.globalinnovationindex.org/Home target = “_blank”>Global Innovation Index</a>, der <a href = https://www.weforum.org/reports/how-to-end-a-decade-of-lost-productivity-growth target = “_blank”>Global Competitiveness Report</a> oder der <a href = https://www.wipo.int/publications/en/series/index.jsp?id=38 target= “_blank”>World Intellectual Property Report</a> die Innovationsaktivität von Ländern. Diese Berichte finden sowohl in der Politik als auch in den Medien stets Beachtung (siehe z.B. <a href = https://www.nzz.ch/wirtschaft/wettbewerbsfaehigkeit-schweiz-verliert-deutschland-noch-mehr-ld.1514074?reduced=true target = “_blank”>NZZ, 9.10.2019</a>; <a href =https://www.srf.ch/news/wirtschaft/ranking-wettbewerbsfaehigkeit-die-schweiz-verliert-spitzenplatz target = “_blank”>SRF, 17.10.2018</a>). In diesen Studien werden Patente in der Regel als eine Messgröße für Innovationskraft verwendet. Es wird ermittelt, wie viele Patente ein bestimmtes Land angemeldet hat. Dabei wird ein Patent immer demjenigen Land zugeordnet, in dem der Erfinder des Patents seinen Wohnsitz hat. Diese Zuordnung ist möglich, da die offiziellen Patentdaten immer auch den Wohnsitz der Erfinder beinhalten – wie das folgende Beispiel zeigt:
+
+<br>
+<hr class="hr_red">
+<center>
+<a href="https://patentimages.storage.googleapis.com/2d/2c/18/51725e50ce657b/US10029262.pdf" target = "_blank">
+![](example_patent_multicountry.jpg){ width=80% }</a>
+</center>
+
+<br>
+
+Dieses Patent wurde von neun verschiedenen Erfindern angemeldet. Fünf von ihnen kommen aus Deutschland, vier sind aus der Schweiz. Die Wohnsitze der Deutschen (vor Allem im Raum Karlsruhe) und die Wohnorte der Schweizer (in der Gegend um Bern) sind recht weit voneinander entfernt gelegen. Dies deutet darauf hin, dass zwei verschiedene Arbeitsgruppen für dieses Patent zusammengearbeitet haben, die nicht am selben Ort ihren Arbeitsplatz haben, sondern zum Teil in Deutschland und zum Teil in der Schweiz arbeiten. In einem solchenFall gibt es verschiedene Möglichkeiten, welchem Land bzw. welchen Ländern das Patent offiziell zugeordnet wird. Man könnte es beispielsweise jeweils beiden Ländern gleichermaßen zuordnen. Eine andere Möglichkeit wäre die proportionale Aufteilung des Patents unter den Ländern entsprechend dem Anteil der Erfinder aus jedem Land. Bei der ersten Option würde unser Beispielpatent zu gleichen Teilen auf Deutschland und die Schweiz aufgeteilt. Bei der letzteren Option würden 5/9 des Patents auf Deutschland und 4/9 auf die Schweiz entfallen. Dieser zweite Ansatz berücksichtigt den im Vergleich zur Schweiz grösseren Anteil von Deutschen bei der Entwicklung des Patents.
+
+<div class=bloc_div>
+<blockquote>***Eine große Anzahl an Patenten wird derzeit der Schweiz nicht zugeordnet, obwohl die gesamte Forschung und Entwicklung in einem Schweizer Unternehmen (mit Forschungsstätte ebenfalls in der Schweiz) durchgeführt wurde.***</blockquote>
+</div>
+
+Eine dritte Option wäre, das Patent demjenigen Land zuzuordnen, in dem die Firma, die das Patent anmeldet, ihren Sitz hat. In unserem Beispiel ist der Patentinhaber die selFrag AG aus Kerzers (Schweiz), somit würde bei dieser Vorgehensweise das Patent ausschließlich der Schweiz zugerechnet werden. Diese Vorgehensweise hat sich nicht durchgesetzt, sondern man betrachtet eher die Erfinder, auch weil Patente manchmal von ausländischen Tochtergesellschaften oder ausländischen Firmenzentralen angemeldet werden. Weitere Informationen darüber, wie die Herkunft von Patenten bestimmt werden kann, finden Sie z.B. von <a href = https://www.sbfi.admin.ch/sbfi/en/home/services/publications/data-base-publications/intellectual-property.html target = “_blank”>Bechthold& de Rassenfosse (2019)</a> oder in einem kurzen Bericht von <a href = https://www.bertelsmann-stiftung.de/fileadmin/files/user_upload/BST_Weltklassepatente_2020_DT.pdf target = “_blank”>Bertelsmann (S. 68)</a> der kurz und verständlich das Pro und Contra der verschiedenen Optionen diskutiert.
+
+Die optimal Vorgehensweise bei der Patentzuordnung hängt hauptsächlich von der Fragestellung ab, auf die man eine Antwort finden möchte. In diesem Artikel möchten wir untersuchen, wie groß der Innovationsoutput der Schweiz ist. Dabei nutzen wir den gängigsten Ansatz der Patentzuordnung, d.h. wir betrachten die privaten Adressen der Erfinder und nehmen dann eine Anteilige Zuordnung zu den jeweiligen Ländern der Wohnsitze vor (vgl. Option zwei). Denken wir nun nochmal an die sehr hohe Zahl an Grenzgängern, die in die Schweiz, z.B. nach Genf oder Basel, pendeln. Wie wird ein Patent abgebildet, wenn alle Autoren eines in der Schweiz entwickelten Patents in den Nachbarländern wohnen und zu ihrem Arbeitsplatz in die Schweiz pendeln? In diesem Fall würde bei unserer Vorgehensweise die Patentzuordnung keinen Bezug zur Schweiz herstellen. D.h. diese Patente, bei denen die gesamte Forschung und Entwicklung in der Schweiz durchgeführt wurde, würde für den Schweizer Innovationsoutput nicht zählen, da der jeweilige Wohnsitz der Erfinder nicht in der Schweiz ist. Würde evtl. Option drei das Problem lösen, d.h. wenn der Unternehmenssitz, bei dem die Patententwickler arbeiten, ausschlaggebend für die Zuordnung wäre? Leider nein, denn Patente werden wie bereits erwähnt auch oft von ausländischen Tochtergesellschaften angemeldet, obwohl das Unternehmen in der Schweiz ansässig ist. Die folgende Abbildung zeigt ein Patent mit genau diesen Merkmalen.
+
+
+<br>
+<hr class="hr_red">
+<center>
+<a href="https://patentimages.storage.googleapis.com/d3/fc/90/f9374c9864e9b2/US7786128.pdf" target = "_blank">
+![](example_patent_crossbord.jpg){ width=80% }</a> 
+</center>
+<br>
+
+Alle Entwickler dieses Patents leben in Deutschland oder Frankreich und als Patentinhaber ist eine U.S.-Niederlassung des Schweizer Pharma-Riesen Hoffmann- La Roche angegeben. Mit den oben beschriebenen Ansätzen würde ein solches Patent folglich der Schweiz nicht zugeordnet werden können. Bei genauerer Betrachtung stellt man fest, dass die Wohnorte der Entwickler aber alle sehr nah an der Region Basel liegen (z.B. Grenzach-Wylen, Freiburg), wo sich der Hauptsitz von Hoffmann-La Roche sowie einige seiner wichtigsten Forschungseinrichtungen befinden. Auf deutscher Seite (z.B. in Freiburg oder Grenzach-Wylen) betreibt Hoffmann-La Roche jedoch keine Forschungseinrichtungen, dies geht aus öffentlich zugänglichen <a href = https://www.roche.com/de/careers/country/germany/de_service/de_locations.html target = “_blank”>Informationen des Unternehmens</a> hervor. Daher ist es sehr wahrscheinlich, dass dieses Patent tatsächlich von Grenzgängern aus Deutschland und Frankreich in Basel entwickelt und im Anschluss von einer U.S.-Niederlassung von Hoffmann-La Roche beim <a href = “https://www.uspto.gov/” target = “_blank”> Patentamt der Vereinigten Staaten (USPTO)</a> angemeldet wurde. Die eigentliche Innovationsarbeit hierfür fand aber in der Schweiz statt, weshalb das Patent ebenfalls der Schweiz zugerechnet werden müsste. In unserer hier vorgestellten  Forschungsarbeit machen wir es uns daher zur Aufgabe, Grenzgänger in den Patentdaten zu identifizieren. In der folgenden Box beschreiben wir, wie wir dabei vorgehen.
+
+<br>
+
+<div class="box_div" id="pat_method">	
+<p style="font-size:18px">**Suche nach grenzüberschreitenden pendelnden Erfindern in der Schweiz **</p>
+
+<details>
+  <summary>*Klicken Sie hier, um unser methodisches Vorgehen nachzulesen*</summary>
+
+Die Patentdaten, die wir für den ersten Schritt der Analyse verwenden, stammen vom U.S.-Patentamt <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. Sie decken den Zeitraum von 1990 bis 2015 ab und sind um Mehrfachanmeldungen korrigiert (für weitere Informationen über Mehrfachanmeldungen siehe z.B. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff und Hoisl, 2005</a>). Dieser Datensatz enthält sowohl Informationen über den Wohnsitz der Entwickler als auch über den Sitz der Unternehmen. Er enthält ebenfalls die geographischen Koordinaten der Adressen, sodass Distanzen messbar werden. Die Patente ordnen wir jeweils genau einem Jahr zu, dafür bestimmen wir den Zeitpunkt, zu dem eine Erfindung das erste Mal -egal wo auf der Welt- angemeldet wurde. Das Datum der Erstanmeldung kommt dem tatsächlichen Zeitpunkt der Erfindung am nächsten, daher wird es bei der Analyse von Patentdaten zur Messung von Innovationskraft häufig herangezogen (weitere Informationen dazu finden Sie z.B. bei der <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD,2008</a>). Zwischen der Erstanmeldung eines Patents und dessen Veröffentlichung verstreicht in der Regel einiges an Zeit. Daher beschränken wir uns bei unserer Analyse auf Patente, deren Erstanmeldung spätestens im Jahre 2015 liegt, da wir davon ausgehen, dass der Großteil dieser Patente bis heute auch veröffentlicht wurde, was bei später angemeldeten Patenten (z.B. aus 2018) teilweise noch nicht der Fall sein dürfte und dies somit zu Verzerrungen bei der Analyse führen könnte. Aus den beschriebenen Datensätzen entwickeln wir einen empirischen Ansatz, um Innovationen von Grenzgängern, die in der Schweiz arbeiten, zu identifizieren und zu quantifizieren.
+
+Ein Patent ist prinzipiell immer dann möglicherweise die Erfindung eines Grenzgängers, wenn der Erfinder nicht in der Schweiz wohnt, die Firma, die das Patent besitzt, jedoch in der Schweiz ansässig ist. Wenn mehrere Firmen aus verschiedenen Ländern an der Patententwicklung beteiligt waren, müssen wir die Erfinder je einer Firma zuordnen. Dazu weisen wir jedem Erfinder immer diejenige Firma zu, die am nächsten zu seinem Wohnort angesiedelt ist. Die dadurch identifizierten Erfinder sind nun allerdings keineswegs allesamt Pendler in die Schweiz. Bei dem oben gezeigten Beispielpatent hatte die Firma ihren Sitz in der Schweiz und mehrere der Erfinder lebten in Deutschland. Einer von ihnen lebte z.B. in Hamburg in Norddeutschland – es ist fast unmöglich, von dort aus in die Schweiz zur Arbeit zu pendeln.
+Um grenzüberschreitende Pendler zuverlässig zu identifizieren müssen wir unseren Analyse-Ansatz also verfeinern. Wir führen dazu eine Begrenzung der Entfernung zwischen dem Unternehmensstandort und dem Wohnort des Erfinders ein. Als Schwellenwert legen wir fest, dass die Distanz nicht größer als etwa 100 Kilometer sein darf – bei einer größeren Entfernung gehen wir davon aus, dass das Pendeln unmöglich ist. Zur Berechnung der Entfernung verwenden wir die Koordinaten der jeweiligen Adressen unter Berücksichtigung des Breiten- und Längengrades.
+Wir weisen einem Erfinder folglich immer genau dann den Status eines Grenzgängers zu, wenn 
+
+1. die Erfinder nicht in der Schweiz wohnen **und** 
+2. die Firma, die das Patent besitzt, in der Schweiz ansässig ist **und** 
+3. die Erfinder nicht zu weit vom Standort des Schweizer Unternehmens entfernt wohnen.
+
+Mit diesem Algorithmus würde ein Erfinder, der in Hamburg lebt und ein Patent für eine in Basel ansässige Firma anmeldet, nicht als Grenzgänger angesehen werden, ein in Lörrach wohnender Patentanmelder jedoch schon. Somit können wir Patente, die von Grenzgängern (mit-)entwickelt wurden, der Schweizer Innovationstätigkeit zurechnen, anders als es bisher die übliche Praxis ist (wo lediglich der Wohnort des Erfinders ausschlaggebend für die Zuordnung zu einem Land ist).
+
+Dennoch lassen sich duch den oben genannten Algorithmus noch nicht alle Grenzpendler identifizieren. Wenn eine Schweizer Firma ein Patent über eine ausländische Tochtergesellschaft anmeldet, könnte ein Erfinder fälschlicherweise nicht als Grenzgänger erkannt werden (siehe Beispielpatent zwei). Daher haben wir zunächst alle Unternehmen identifiziert, die eine Reihe an Patenten besitzen, die eindeutig der Schweiz zugeorndet werden können, da sowohl die Firma als auch die Erfinder in der Schweiz ansässig sind. Aus dieser Auflistung an Unternehmen haben wir abgeleitet, welche Firmen eine Forschungseinrichtung in der Schweiz haben. So konnten wir ausländische Tochtergesellschaften mit den Schweizer Forschungsstätten verknüpfen und die geographischen Koordinaten der Forschungsstätten (anstatt des ausländischen Unternehmenssitzes) für die weitere Analyse heranziehen.
+Somit weisen wir Erfindern auch dann den Status eines Grenzgängers zu, wenn
+
+1. die Erfinder nicht in der Schweiz wohnen **und** 
+2. die Tochtergesellschaft des Unternehmens, die das Patent anmeldet, nicht in der Schweiz oder in dem Land ansässig ist, aus dem der Erfinder stammt **und**
+3. das Unternehmen, das das Patent besitzt, einen Forschungsstandort in der Schweiz hat **und**
+4. die Erfinder nicht allzu weit vom Forschungsstandort des Unternehmens in der Schweiz entfernt wohnen. 
+
+Noch immer sind jedoch nicht alle Grenzgänger identifiziert. In unserer Analyse haben wir Patente des  <a href = “https://www.epo.org/index_de.html” target = “_blank”>Europäischen Patentamts (EPA)</a> bisher nicht berücksichtigt, was ein großes Manko sein könnte. Die Patentdaten des EPA werden durch die <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a> zur Verfügung gestellt. Unser bisher verwendeter Algorithmus lässt sich auf diese Patente jedoch nicht anwenden, da die EPA-Patentdaten keine Informationen über geographische Koordinaten beinhalten. Wir brauchen daher einen weiteren Ansatz, um auch die Erfinder von EPA-Patenten ggf. als Grenzgänger identifizieren zu können. Dabei gehen wir wie folgt vor: Zunächst sei angemerkt, dass wir nur diejenigen EPA-Patente von Schweizer Unternehmen analysieren, für die kein äquivaltentes USPTO-Patent vorliegt, da es sich hierbei um eine Mehrfachanmeldung handelt und die USPTO-Patente durch die oben beschriebene Analyse bereits untersucht wurden. Bei den EPA-Patenten prüfen wir anschließend wie gehabt, ob der Firmenstandort in der Schweiz liegt, wohingegen der Erfinder in einem anderen Land lebt. Anschließend müssen wir wiederum die Distanz zwischen dem Wohnort und dem Unternehmenssitz überprüfen. Anstelle von georaphischen Koordinaten betrachten wir bei den EPA-Patenten nun die *Regionen*, in denen der Wohnort bzw. der Unternehmenssitz liegt. Dabei gehen wir davon aus, dass das Pendeln zu einem Schweizer Arbeitsplatz nur für Erfinder möglich ist, die in einer ausländischen Region wohnen, die sehr nah an der Schweizer Grenze liegt. Folgende Regionen definieren wir als *sehr nah an der Schweizer Grenze liegend*: "Freiburg" und "Schwaben" für die Deutschen, "Elsass", "Rhône-Alpes", "Lothringen" und "Franche-Comté" für die Franzosen, "Lombardei" und "Piemont" für die Italiener und die Region "Vorarlberg" für die Österreicher. Erfinder, die außerhalb dieser Regionen leben, schließen wir als potentielle Grenzgänger aus. Darüber hinaus machen wir zusätzliche Einschränkungen bezüglich der Unternehmenssitze. Wir legen fest, dass Erfinder aus Deutschland nur in die Schweizer Regionen "Nordwestschweiz", "Zürich" oder "Ostschweiz" pendeln, französische Pendler nur in die "Nordwestschweiz" oder in die "Genferseeregion", Italiener nur ins "Tessin" und Österreicher nur in die "Ostschweiz".
+
+Zusammengefasst weisen wir den Erfindern von EPA-Patenten nur dann den Status eines Grenzgängers zu, wenn 
+
+1. die Erfinder nicht in der Schweiz, sondern in grenznahen Regionen leben **und** 
+2. die Firma, die das Patent besitzt, in der Schweiz ansässig ist **und** 
+3. das Unternehmen in einer Schweizer Region ansässig ist, die sich in der Nähe der ausländischen Region befindet, in welcher der Erfinder lebt. 
+
+Da diese Definitionen etwas enger gefasst sind, nehmen wir dabei in Kauf, ggf. einzelne Grenzgänger bei den EPA-Patenten zu übersehen. Alle identifizierten Grenzgänger sind aber mit sehr hoher Wahrscheinlichkeit tatsächlich grenzüberschreitende Pendler in die Schweiz – in der Analyse der EPA-Patente werden die Grenzgänger also eher unter- als überschätzt.
+Wie viele Patente werden den nun von Grenzgängern (mit-)entwickelt? Gibt es eine nennenswerte Anzahl an Patenten, die bisher der Schweiz nicht zugerechnet wurden, obwohl diese von Schweizer Unternehmen stamen? Unsere Ergebnisse für das USPTO und das EPA zusammengenommen zeigen, dass im Laufe der Zeit wahrscheinlich 21'799 Patente von Grenzgängern in der Schweiz (mit-)entwickelt wurden. Im nächsten Abschnitt gehen wir darauf ein, was dies für die Innovationstätigkeit der Schweiz bedeutet. 
+
+</details>
+</div>
+
+<br>
+
+### **Grenzgänger und Innovationen aus der Schweiz** 
+
+Mithilfe der oben beschriebenen Analyse können wir die Anzahl an Erfindungen ermitteln, die von grenzüberschreitenden Pendlern in die Schweiz erbracht wurden. Dabei verwenden wir für U.S.-amerikanische Patente die Patentdaten  des <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> und für europäische Patente die Patentdaten der  <a href=http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a>. 
+
+Welche Resultate erhalten wir durch unsere Analyse? Schauen wir uns zunächst die Anzahl an Erfindern an, die aus den Nachbarländern an einen Schweizer Arbeitsplatz pendeln. Die nachstehende Abbildung zeigt die absolute Zahl der grenzüberschreitend pendelnden Erfinder, differenziert nach Herkunftsland.
+
+
+<br>
+
+<br>
+
+<hr class="hr_red">
+##### ***Herkunftsländer der Grenzgänger***
+![](graph_crossborder_commuter_regio_de.png){ width=100% }
+
+<!-- # ```{r, echo = FALSE, fig.asp = 0.5} -->
+<!-- # #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------ -->
+<!-- # renderPlot({ -->
+<!-- #     -->
+<!-- # # define the data to plot -->
+<!-- # plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year) -->
+<!-- # # make the plot -->
+<!-- # ggplot(plot_data)+#, aes(label = `Country of origin`))+ -->
+<!-- # geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+ -->
+<!-- # scale_fill_brewer(palette = "RdBu", name = "",  -->
+<!-- #                   labels = c("Austria", "Germany", "France", "Italy")) + -->
+<!-- # labs(x = "Year", y = "Number of cross-border commuting inventors") + -->
+<!-- # theme(legend.position="bottom", -->
+<!-- #       panel.background = element_blank(), -->
+<!-- #       panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
+<!-- #       axis.title = element_text(face = "bold"), -->
+<!-- #       axis.line = element_line()) -->
+<!-- # }) -->
+<!-- # ``` -->
+<span style="font-size:0.8em">*Quelle: Eigene Berechnungen des CIEB basierend auf Daten des <a href="https://www.uspto.gov/" target ="blank">USPTO</a> und der <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. Die Daten für diese Grafik finden Sie auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+
+<br>
+
+Zu Beginn der 1990er Jahre gab es relativ wenige Erfinder, die über die Grenze in die Schweiz pendelten - die meisten von ihnen kamen aus Deutschland. Bis 2005 ist ihre Zahl jedoch auf insgesamt über 1000 Personen angestiegen, wobei diese Pendler aus allen vier Nachbarländern kommen. Dies deckt sich mit den Erkenntnissen von <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. Gemäss diesen Autoren nahm der Strom an Grenzgängern in die Schweiz nach den Liberalisierungen des Arbeitsmarkts zu Beginn des 21. Jahrhunderts stark zu. Dabei weisen die Autoren darauf hin, dass dieser zusätzliche Pendlerstrom in die Schweiz vor allem für Forschungs- und Entwicklungstätigkeit relevant gewesen sei – sie stützen sich dabei auf Umfrageergebnisse. In unserer Analyse untersuchen wir zwar keine kausalen Zusammenhänge zwischen der erwähnten Liberalisierung und der Forschungsaktivität der Schweiz. Dennoch scheint unsere Untersuchung zur Bedeutung von Grenzgängern bei Patenten von Schweizer Firmen diese Ergebnisse zu stützen. 
+
+Als ein sehr wichtiges Ergebnis unserer Arbeit betrachten wir außerdem, dass die Schweizer Innovationsleistung in den üblichen Berechnungen bisher vermutlich erheblich unterschätzt wurde, da Patente von grenzüberschreitenden Pendlern der Schweiz bisher nicht zugerechnet wurden. Das Ausmaß dieser Verzerrung ist in der nächsten Abbildung zu sehen. Betrachten wir zunächst die bunt gefärbten Bereiche. Sie zeigen die absolute Zahl der Patente, die von in der Schweiz wohnhaften Personen (blau) bzw. von Grenzgängern (rot) erfunden wurden. Die Zahl der Patente hat im Laufe der Zeit sowohl bei den in der Schweiz ansässigen Personen als auch bei den Grenzgängern zugenommen (für einen allgemeinen Überblick über die Patentanmeldungen in der Schweiz siehe  <a href = “https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y” target = “_blank”> Arvanitis et al., 2015</a>). Wie man sieht ist der Patent-Output der Schweiz deutlich höher, wenn man auch die grenzüberschreitend pendelnden Erfinder berücksichtigt. Die schwarze durchgezogene Linie gibt den Anteil der Patente an, die von Grenzgängern erfunden wurden (d.h. den Anteil des roten Bereichs). Diese Linie zeigt eindrücklich, wie wichtig die Grenzgänger für die Innovationskraft zu sein scheinen. Bereits 1990 waren rund 5% aller in der Schweiz entwickelten Patente Erfindungen von Grenzgängern. Dieser Anteil verdoppelte sich auf rund 10% im Jahr 2005 und ist seither aus diesem Niveau relativ stabil.
+
+
+<br>
+<hr class="hr_red">
+##### ***Patentanmeldungen von Schweizer Grenzgänger***
+![](graph_crossborder_commuter_de.png){ width=100% }
+
+
+<!-- # ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5} -->
+<!-- # #### CROSS-BORDER COMMUTERS IN SWITZERLAND: ------------------------------------------- -->
+<!-- # # load and prepare the data  -->
+<!-- # plot_data <- df_list[["CH_overall"]] %>% rename(`Swiss residents` = Swiss_based, Commuters = commuters) -->
+<!-- # plot_data <- plot_data %>% -->
+<!-- #   mutate(share = share -1) %>% -->
+<!-- #   filter(p_year <= max_year) %>% -->
+<!-- #   gather(key = Type, value = number, `Swiss residents`, Commuters) -->
+<!-- # plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number))) -->
+<!-- # plot_data <- plot_data %>% mutate(Share = paste0(round(100 * share, 1), "%")) -->
+<!-- # # define parameters to transform the data to get 2nd axis: -->
+<!-- # ylim_absolute <- c(0, 5000) -->
+<!-- # ylim_share <- c(0, 0.15) -->
+<!-- # b <- diff(ylim_absolute)/diff(ylim_share) -->
+<!-- # a <- b*(ylim_absolute[1] - ylim_share[1]) -->
+<!-- # renderPlot({ -->
+<!-- #     ggplot(plot_data)+ -->
+<!-- #     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+ -->
+<!-- #     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+ -->
+<!-- #     scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) + -->
+<!-- #     scale_y_continuous("Share of patents by cross-border commuters", -->
+<!-- #                        sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),  -->
+<!-- #                        labels = c("0%", "5%", "10%", "15%"))+ -->
+<!-- #     xlab("Year") + -->
+<!-- #     theme(legend.position="bottom", -->
+<!-- #           panel.background = element_blank(), -->
+<!-- #           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
+<!-- #           axis.title = element_text(face = "bold"), -->
+<!-- #           axis.line = element_line()) -->
+<!-- # }) -->
+<!-- # ``` -->
+<span style="font-size:0.8em">*Quelle: Eigene Berechnungen des CIEB basierend auf Daten des <a href="https://www.uspto.gov/" target ="blank">USPTO</a> und der <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. Die Daten für diese Grafik finden Sie auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+
+<br>
+
+Was lässt sich aus diesen Ergebnissen ableiten? Zunächst stellen wir fest, dass die schweizerische Innovationstätigkeit um rund 10% unterschätzt werden könnte, wenn die Arbeit der grenzüberschreitend pendelnden Erfinder nicht berücksichtigt wird. Außerdem erscheint es aufgrund der Ergebnisse unwahrscheinlich, dass Grenzgänger inländische Erfinder ersetzt haben, da der Anteil der Patente von Grenzgängern in den letzten 10 Jahren nicht weiter zugenommen hat.
+
+<div class=bloc_div>
+<blockquote>***Die Schweizer Innovationstätigkeit könnte um rund 10% unterschätzt werden, wenn die Arbeit der Grenzgänger nicht berücksichtigt wird.***</blockquote>
+</div>
+
+Stattdessen hat die Patent-Aktivität sowohl von in der Schweiz ansässigen Personen als auch von Grenzgängern rapide zugenommen, was darauf hindeutet, dass die Schweizer Wirtschaft erheblich von den Erfindern profitiert, die grenzüberschreitend pendeln. Dies steht wiederum im Einklang mit den Ergebnissen von <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler & Peri (2020)</a>. Mehr Erfinder, die grenzüberschreitend pendeln, gehen Hand in Hand mit mehr Patenten, die sowohl von in der Schweiz ansässigen Personen als auch von Pendlern angemeldet werden. Dies stützt erneut das Argument, dass die Schweizer Innovationskraft durch den zusätzlichen Pendlerstrom stark profitieren konnte.
+
+<br>
+
+Grenzpendler scheinen den Innovationsmotor der Schweizer Wirtschaft insgesamt anzutreiben, für einzelne Regionen und Branchen könnte dies jedoch in besonderem Maße zutreffen. In der untenstehenden Grafik können Sie dies nun selbstständig weiter untersuchen. Wählen Sie je nach Interesse eine Schweizer Region (gemäss <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>-Definition) oder ein Technologiefeld (gemäss <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf target = “_blank”>WIPO</a>-Definition) aus - die Grafik wird Ihnen die Patentzahlen und den Anteil der Grenzgänger-Patente für die von Ihnen gewählte Region oder das von Ihnen gewählte Technologiefeld anzeigen.
+
+<div class=bloc_div>
+<blockquote>***Grenzgänger scheinen den Innovationsmotor der Schweizer Wirtschaft deutlich anzutreiben.***</blockquote> 
+</div>
+
+Beachten Sie bitte bei der Grafik, dass im Gegensatz zur vorherigen Darstellung die Zahlen und Anteile nicht jährlich, sondern über 3-Jahres-Perioden bis zum Jahr 2011 berechnet werden. Wir wählen diesen größeren Zeitraum, da die Anzahl der Patente in einem einzigen Jahr für einige Industriezweige recht niedrig sein kann und die Anteile der Grenzgänger daher bei jährlicher Auszählung stark schwanken würden. Die Verwendung von 3-Jahres-Perioden gleicht solche Schwankungen aus. Ferner sei erwähnt, dass das Pendeln asu dem Ausland vor den Liberalisierungen zu Beginn des 21. Jahrhunderts auf grenznahe Regionen beschränkt war. Dennoch gibt es einige Grenzgängerinnen und Grenzgänger, die in Nicht-Grenzgebieten der Zentralschweiz (Kantone Luzern, Uri, Schwyz, Zug, Nidwalden und Obwalden) wohnhaft sind. Die wahrscheinlichsten Gründe dafür sind, dass diese Erfinder entweder keine Grenzgänger im juristischen Sinne waren (z.B. weil sie zwar eine ausländische Adresse hatten, die sie auf der Patentdokumentation angaben, aber eigentlich in der Schweiz wohnhaft waren) oder das Patent zwar von einem Firmensitz in der Zentralschweiz angemeldet wurde, obwohl die eigentliche Forschung in einem Labor in der Grenzregion durchgeführt wurde.
+
+
+<br>
+<hr class="hr_red">
+
+##### ***Schweizer Grenzgänger nach Regionen und Branchen***
+<iframe width="100%" height=560 frameBorder="0" src='https://cieb.shinyapps.io/cross_border_plot/'>
+  <p>Your browser does not support iframes</p>
+</iframe>
+
+<!-- # ```{r, echo = FALSE, message = FALSE, fig.height = 3} -->
+<!-- # #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES -------------------------------- -->
+<!-- # # (1) apply the custom reshape_fun()-function to both data-sets and combine technology field names -->
+<!-- # plot_df <- lapply(c("CH_region", -->
+<!-- #                     "CH_Techfields"), function(x) reshape_fun(dataset = x)) -->
+<!-- # names(plot_df) <- c("CH_region", "CH_Techfields") -->
+<!-- # # (2) specify picker_input() selection options -->
+<!-- # REGIONS <- as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat)))) -->
+<!-- # names(REGIONS) <- REGIONS -->
+<!-- # tech_field_name <- paste(plot_df$CH_Techfields$tech_field, -->
+<!-- #                          plot_df$CH_Techfields$tech_name) -->
+<!-- # tech_field_name <- unique(tech_field_name) -->
+<!-- # TECHFIELDS <- as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field)))) -->
+<!-- # names(TECHFIELDS) <- tech_field_name -->
+<!-- # # (2) choose between region or industry and define the data ------------------------------ -->
+<!-- # radioButtons(inputId = "region_or_industry", -->
+<!-- #              label = NULL, choiceNames = c("Region", "Technology Field"), -->
+<!-- #              choiceValues = c("CH_region", "CH_Techfields"), selected = "CH_region", -->
+<!-- #              inline = TRUE) -->
+<!-- # conditionalPanel(condition = "input.region_or_industry == 'CH_region'", -->
+<!-- #                  pickerInput( -->
+<!-- #                    inputId = "OBS_reg", -->
+<!-- #                    label = "Choose a region", selected = "Northwestern Switzerland", -->
+<!-- #                    choices = REGIONS, -->
+<!-- #                    multiple = FALSE)) -->
+<!-- # conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'", -->
+<!-- #                  pickerInput( -->
+<!-- #                    inputId = "OBS_ind", -->
+<!-- #                    label = "Choose a technology field", selected = "16 Pharmaceuticals", -->
+<!-- #                    choices = TECHFIELDS, -->
+<!-- #                    multiple = FALSE)) -->
+<!-- # # (3) make the plot --------------------------------------------------------------------- -->
+<!-- # ## STATIC -->
+<!-- # renderPlot({ -->
+<!-- #   # specify data and parameters -->
+<!-- #   plot_data <- plot_df[[input$region_or_industry]] -->
+<!-- #   subsetter <- colnames(plot_data)[1] -->
+<!-- #   if(subsetter == "tech_field"){ -->
+<!-- #     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{ -->
+<!-- #     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg) -->
+<!-- #     } -->
+<!-- #   plot_data <- plot_data[keep_obs, ] -->
+<!-- #   plot_data <- filter(plot_data, p_year <= 2011) -->
+<!-- #    -->
+<!-- #   # define the plot parameters -->
+<!-- #   ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE)) -->
+<!-- #   ylim_share <- c(0, max(plot_data$share, na.rm = TRUE)) -->
+<!-- #   b <- diff(ylim_absolute)/diff(ylim_share) -->
+<!-- #   a <- b*(ylim_absolute[1] - ylim_share[1]) -->
+<!-- #   # make the plot -->
+<!-- #  ggplot(plot_data)+ -->
+<!-- #     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+ -->
+<!-- #     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+ -->
+<!-- #     # scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7, -->
+<!-- #                      # labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") + -->
+<!-- #      -->
+<!-- #     scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) + -->
+<!-- #     scale_y_continuous("Share of patents by cross-border commuters", -->
+<!-- #                      sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), -->
+<!-- #                      labels = scales::percent)+ -->
+<!-- #     xlab("Year") + -->
+<!-- #     theme(legend.position="bottom", -->
+<!-- #           panel.background = element_blank(), -->
+<!-- #           legend.title = element_blank(), -->
+<!-- #           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
+<!-- #           axis.title = element_text(face = "bold"), -->
+<!-- #           axis.line = element_line())  -->
+<!-- #   }) -->
+<!-- # ``` -->
+<span style="font-size:0.8em">*Quelle: Eigene Berechnungen des CIEB basierend auf Daten des <a href="https://www.uspto.gov/" target ="blank">USPTO</a> und der <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. Die Daten für diese Grafik finden Sie auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+
+<br>
+
+Der Anteil der Grenzgänger-Patente variiert von nur etwa 0,5-1% im Schweizer Mittelland bis zu einem Maximum von fast 30% in den Grenzregionen Nordwestschweiz und Tessin. Die selbe Streuung zeigt sich für die verschiedenen Technologiebereiche: "16 Pharmazeutische Erzeugnisse", der wichtigste Exportsektor der Schweizer Wirtschaft, hat den bei weitem höchsten Anteil an Grenzgänger-Patenten (bis über 30%). Auch in vielen anderen Bereichen der Chemie und Biologie sind die Grenzgänger-Anteile relativ hoch. Dies liegt vermutlich daran, dass die grenznahe Stadt Basel als wichtigster Standort der Schweiz im Pharma- und Chemie-Bereich gilt.
+
+Eine weitere interessante Beobachtung ist folgende: im Laufe der Zeit ist die Zahl von Grenzgänger-Patenten in boomenden Bereichen wie "4 Digitale Kommunikation", "6 Computertechnik", "24 Umwelttechnik" oder "13 Medizintechnik" ansteigend. In besonders dynamischen und aufstrebenden Technologiefeldern scheint es folglich besonders wichtig zu sein, Grenzgänger einstellen zu können. 
+
+
+<div class=bloc_div>
+<blockquote>***Offene Grenzen sind ein Schlüssel für hochwertige Schweizer Innovationen.***</blockquote>
+</div>
+
+Alle diese Ergebnisse deuten darauf hin, dass offene Grenzen ein Schlüssel für hochwertige Innovationen in der Schweiz sind. Ohne die Möglichkeit, grenzüberschreitend pendelnde Forscher und Entwickler zu rekrutieren, könnte der Patent-Output der Schweiz insgesamt deutlich geringer ausfallen. An dieser Stelle seien neben den Grenzgängern auch die vielen hochqualifizierten Einwanderer erwähnt, die in der Schweiz beschäftigt sind. Wenn die Schweizer Wirtschaft nicht mehr vom Wissen all dieser ausländischen Arbeitskräfte profitieren könnte, würde sich ihre Innovationskraft höchstwahrscheinlich deutlich verringern. Dies wäre auch deshalb besorgniserregend, da die Grenzgänger insbesondere in hochdynamischen und zukunftsträchtigenTechnologiefeldern wie Informatik, Biotechnologie, Pharmazie und Umwelttechnologie äußerst wichtig zu sein scheinen.   
+
+
+<br>
+
+**Falls Sie an einem Vergleich** der Schweizer Pharma mit anderen Ländern interessiert sind, dann könnte für Sie unsere Analyse <a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> Pharma Schweiz: Ein Treiber für Wachstum und Innovation</a> interessant sein.
+
+<br>
+
+**Diesen Artikel teilen**
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland" data-a2a-title="Analysis within Innoscape: Cross-border commuting and inventions Made in Switzerland">
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_xing"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_email"></a>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+<br>
+
+<span style="font-size:0.8em">*Dieser Artikel wurde mithilfe von <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> und<a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>geschrieben. Die Berechnungen zur Identifizierung von grenzüberschreitend pendelnden Patent-Entwicklern wurden im wissenschaftlichen Rechenzentrum <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> der Universität Basel durchgeführt. Die Daten und Algorithmen zur Reproduktion der in diesem Artikel vorgestellten Zahlen sind auf <a href=https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.* verfügbar. </span>
+
+<br>
+<br>
+<br>
+<br>
+
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-71167447-1');
+</script>
