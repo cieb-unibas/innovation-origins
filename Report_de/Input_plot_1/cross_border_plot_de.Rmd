@@ -35,6 +35,46 @@ csv_files <- list.files(pattern = ".csv")
 df_list <- lapply(csv_files, read.csv)
 names(df_list) <- gsub(pattern = ".csv", replacement = "", csv_files)
 
+# patent technology german language
+tech_oecd <- data.frame(tech_field = seq(1, 35, 1), 
+                        tech_name = c("Elektrische Maschinen, Apparate, Energie",
+                                      "Audiovisuelle Technik",
+                                      "Telekommunikation",
+                                      "Digitale Kommunikation",
+                                      "Grundlegende Kommunikationsprozesse",
+                                      "Computertechnik",
+                                      "IT-Methoden für das Management",
+                                      "Halbleiter",
+                                      "Optik",
+                                      "Messung",
+                                      "Analyse von biologischem Material",
+                                      "Kontrolle",
+                                      "Medizintechnik",
+                                      "Organische Feinchemie",
+                                      "Biotechnologie",
+                                      "Pharmazeutika",
+                                      "Makromolekulare Chemie, Polymere",
+                                      "Lebensmittelchemie",
+                                      "Chemie der Grundstoffe",
+                                      "Werkstoffe, Metallurgie",
+                                      "Oberflächentechnik, Beschichtung",
+                                      "Mikrostruktur- und Nanotechnologie",
+                                      "Chemische Verfahrenstechnik",
+                                      "Umwelttechnologie",
+                                      "Handhabung",
+                                      "Werkzeugmaschinen",
+                                      "Motoren, Pumpen, Turbinen",
+                                      "Textil- und Papiermaschinen",
+                                      "Andere Spezialmaschinen",
+                                      "Thermische Prozesse und Apparate",
+                                      "Mechanische Elemente",
+                                      "Verkehr",
+                                      "Möbel, Spiele",
+                                      "Andere Konsumgüter",
+                                      "Bauwesen"))
+
+
+
 max_year <- 2015 # do not use data after 2015 because data quality is poor
 ## LOAD HELPER-FUNCTION -------------------------------------------------------------
 source(file = "reshape_fun.R", local = knitr::knit_global()) 
@@ -47,6 +87,21 @@ source(file = "reshape_fun.R", local = knitr::knit_global())
 plot_df <- lapply(c("CH_region",
                     "CH_Techfields"), function(x) reshape_fun(dataset = x))
 names(plot_df) <- c("CH_region", "CH_Techfields")
+
+# change to german language
+plot_df$CH_region$regio_pat <- as.character(plot_df$CH_region$regio_pat)
+plot_df[[1]] <- mutate(plot_df[[1]], regio_pat = case_when(regio_pat == "Central Switzerland"  ~ "Zentral-Schweiz",
+                                                          regio_pat ==   "Eastern Switzerland" ~ "Ostschweiz",
+                                                          regio_pat == "Lake Geneva Region" ~ "Genferseeregion",
+                                                          regio_pat ==   "Northwestern Switzerland" ~ "Nordwestschweiz",
+                                                          regio_pat ==   "Ticino"  ~ "Tessin",
+                                                          regio_pat ==   "Zürich" ~ "Zürich",
+                                                             T ~ "Espace Mittelland"))
+
+plot_df$CH_Techfields <- dplyr::select(plot_df$CH_Techfields, -tech_name)
+plot_df$CH_Techfields <- left_join(plot_df$CH_Techfields, tech_oecd, by = "tech_field")
+
+
 # (2) specify picker_input() selection options
 REGIONS <- as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat))))
 names(REGIONS) <- REGIONS
@@ -63,13 +118,13 @@ radioButtons(inputId = "region_or_industry",
 conditionalPanel(condition = "input.region_or_industry == 'CH_region'",
                  pickerInput(
                    inputId = "OBS_reg",
-                   label = "Region wählen", selected = "Northwestern Switzerland",
+                   label = "Region wählen", selected = "Nordwestschweiz",
                    choices = REGIONS,
                    multiple = FALSE))
 conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'",
                  pickerInput(
                    inputId = "OBS_ind",
-                   label = "Technologie wählen", selected = "16 Pharmaceuticals",
+                   label = "Technologie wählen", selected = "16 Pharmazeutika",
                    choices = TECHFIELDS,
                    multiple = FALSE))
 # (3) make the plot ---------------------------------------------------------------------
@@ -97,7 +152,7 @@ renderPlot({
     # scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7,
                      # labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") +
     
-    scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) +
+    scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patente von Grenzgängern/innen", "Patente von Schweizer Einwohner/innen")) +
     scale_y_continuous("Anteil der Schweizer Patente von Grenzgängern/innen",
                      sec.axis = sec_axis(~ (. + a) * b, name = "Gesamte Anzahl Patente"),
                      labels = scales::percent)+

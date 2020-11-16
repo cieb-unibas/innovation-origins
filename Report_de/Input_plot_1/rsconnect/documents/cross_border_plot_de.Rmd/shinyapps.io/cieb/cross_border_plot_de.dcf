@@ -1,0 +1,12 @@
+name: cross_border_plot_de
+title: cross_border_plot_de
+username:
+account: cieb
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3240580
+bundleId: 3866014
+url: https://cieb.shinyapps.io/cross_border_plot_de/
+when: 1605517271.93109
+asMultiple: FALSE
+asStatic: FALSE
