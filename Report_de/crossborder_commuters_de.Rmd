@@ -95,7 +95,7 @@ Wir weisen einem Erfinder folglich immer genau dann den Status eines Grenzgänge
 
 Mit diesem Algorithmus würde ein Erfinder, der in Hamburg lebt und ein Patent für eine in Basel ansässige Firma anmeldet, nicht als Grenzgänger angesehen werden, ein in Lörrach wohnender Patentanmelder jedoch schon. Somit können wir Patente, die von Grenzgängern (mit-)entwickelt wurden, der Schweizer Innovationstätigkeit zurechnen, anders als es bisher die übliche Praxis ist (wo lediglich der Wohnort des Erfinders ausschlaggebend für die Zuordnung zu einem Land ist).
 
-Dennoch lassen sich duch den oben genannten Algorithmus noch nicht alle Grenzpendler identifizieren. Wenn eine Schweizer Firma ein Patent über eine ausländische Tochtergesellschaft anmeldet, könnte ein Erfinder fälschlicherweise nicht als Grenzgänger erkannt werden (siehe Beispielpatent zwei). Daher haben wir zunächst alle Unternehmen identifiziert, die eine Reihe an Patenten besitzen, die eindeutig der Schweiz zugeorndet werden können, da sowohl die Firma als auch die Erfinder in der Schweiz ansässig sind. Aus dieser Auflistung an Unternehmen haben wir abgeleitet, welche Firmen eine Forschungseinrichtung in der Schweiz haben. So konnten wir ausländische Tochtergesellschaften mit den Schweizer Forschungsstätten verknüpfen und die geographischen Koordinaten der Forschungsstätten (anstatt des ausländischen Unternehmenssitzes) für die weitere Analyse heranziehen.
+Dennoch lassen sich duch den oben genannten Algorithmus noch nicht alle Grenzgänger identifizieren. Wenn eine Schweizer Firma ein Patent über eine ausländische Tochtergesellschaft anmeldet, könnte ein Erfinder fälschlicherweise nicht als Grenzgänger erkannt werden (siehe Beispielpatent zwei). Daher haben wir zunächst alle Unternehmen identifiziert, die eine Reihe an Patenten besitzen, die eindeutig der Schweiz zugeorndet werden können, da sowohl die Firma als auch die Erfinder in der Schweiz ansässig sind. Aus dieser Auflistung an Unternehmen haben wir abgeleitet, welche Firmen eine Forschungseinrichtung in der Schweiz haben. So konnten wir ausländische Tochtergesellschaften mit den Schweizer Forschungsstätten verknüpfen und die geographischen Koordinaten der Forschungsstätten (anstatt des ausländischen Unternehmenssitzes) für die weitere Analyse heranziehen.
 Somit weisen wir Erfindern auch dann den Status eines Grenzgängers zu, wenn
 
 1. die Erfinder nicht in der Schweiz wohnen **und** 
@@ -164,7 +164,7 @@ Als ein sehr wichtiges Ergebnis unserer Arbeit betrachten wir außerdem, dass di
 
 <br>
 <hr class="hr_red">
-##### ***Patentanmeldungen von Schweizer Grenzgänger***
+##### ***Patentanmeldungen von Schweizer Grenzgängern***
 ![](graph_crossborder_commuter_de.png){ width=100% }
 
 
@@ -213,10 +213,10 @@ Stattdessen hat die Patent-Aktivität sowohl von in der Schweiz ansässigen Pers
 
 <br>
 
-Grenzpendler scheinen den Innovationsmotor der Schweizer Wirtschaft insgesamt anzutreiben, für einzelne Regionen und Branchen könnte dies jedoch in besonderem Maße zutreffen. In der untenstehenden Grafik können Sie dies nun selbstständig weiter untersuchen. Wählen Sie je nach Interesse eine Schweizer Region (gemäss <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>-Definition) oder ein Technologiefeld (gemäss <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf target = “_blank”>WIPO</a>-Definition) aus - die Grafik wird Ihnen die Patentzahlen und den Anteil der Grenzgänger-Patente für die von Ihnen gewählte Region oder das von Ihnen gewählte Technologiefeld anzeigen.
+Grenzgänger scheinen den Innovationsmotor der Schweizer Wirtschaft insgesamt anzutreiben, für einzelne Regionen und Branchen könnte dies jedoch in besonderem Maße zutreffen. In der untenstehenden Grafik können Sie dies nun selbstständig weiter untersuchen. Wählen Sie je nach Interesse eine Schweizer Region (gemäss <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>-Definition) oder ein Technologiefeld (gemäss <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf target = “_blank”>WIPO</a>-Definition) aus - die Grafik wird Ihnen die Patentzahlen und den Anteil der Grenzgänger-Patente für die von Ihnen gewählte Region oder das von Ihnen gewählte Technologiefeld anzeigen.
 
 <div class=bloc_div>
-<blockquote>***Grenzgänger scheinen den Innovationsmotor der Schweizer Wirtschaft deutlich anzutreiben.***</blockquote> 
+<blockquote>***Grenzgänger scheinen den Innovationsmotor der Schweizer Wirtschaft insgesamt anzutreiben.***</blockquote> 
 </div>
 
 Beachten Sie bitte bei der Grafik, dass im Gegensatz zur vorherigen Darstellung die Zahlen und Anteile nicht jährlich, sondern über 3-Jahres-Perioden bis zum Jahr 2011 berechnet werden. Wir wählen diesen größeren Zeitraum, da die Anzahl der Patente in einem einzigen Jahr für einige Industriezweige recht niedrig sein kann und die Anteile der Grenzgänger daher bei jährlicher Auszählung stark schwanken würden. Die Verwendung von 3-Jahres-Perioden gleicht solche Schwankungen aus. Ferner sei erwähnt, dass das Pendeln asu dem Ausland vor den Liberalisierungen zu Beginn des 21. Jahrhunderts auf grenznahe Regionen beschränkt war. Dennoch gibt es einige Grenzgängerinnen und Grenzgänger, die in Nicht-Grenzgebieten der Zentralschweiz (Kantone Luzern, Uri, Schwyz, Zug, Nidwalden und Obwalden) wohnhaft sind. Die wahrscheinlichsten Gründe dafür sind, dass diese Erfinder entweder keine Grenzgänger im juristischen Sinne waren (z.B. weil sie zwar eine ausländische Adresse hatten, die sie auf der Patentdokumentation angaben, aber eigentlich in der Schweiz wohnhaft waren) oder das Patent zwar von einem Firmensitz in der Zentralschweiz angemeldet wurde, obwohl die eigentliche Forschung in einem Labor in der Grenzregion durchgeführt wurde.
