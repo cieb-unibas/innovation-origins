@@ -14,7 +14,7 @@ output:
 
 <div class="container-fluid main-container">
 
-## **Bedeutung von Grenzgängern für Innovationen “Made in Switzerland”**
+## **Grenzgänger und Innovationen “Made in Switzerland”**
 
 <br>
 
@@ -78,7 +78,7 @@ Alle Entwickler dieses Patents leben in Deutschland oder Frankreich und als Pate
 <br>
 
 <div class="box_div" id="pat_method">	
-<p style="font-size:18px">**Suche nach grenzüberschreitenden pendelnden Erfindern in der Schweiz **</p>
+<p style="font-size:18px">**Bestimmung von Schweizer Grenzgängern in den Patentdaten**</p>
 
 <details>
   <summary>*Klicken Sie hier, um unser methodisches Vorgehen nachzulesen*</summary>
@@ -322,7 +322,7 @@ Alle diese Ergebnisse deuten darauf hin, dass offene Grenzen ein Schlüssel für
 <br>
 
 **Diesen Artikel teilen**
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland" data-a2a-title="Analysis within Innoscape: Cross-border commuting and inventions Made in Switzerland">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://innoscape.ch/de/publikationen/grenzgaenger_innovationen_schweiz" data-a2a-title="Analyse im Rahmen von Innoscape: Grenzgänger und Innovationen “Made in Switzerland”>
 <a class="a2a_button_twitter"></a>
 <a class="a2a_button_linkedin"></a>
 <a class="a2a_button_xing"></a>
