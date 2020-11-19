@@ -43,13 +43,10 @@
 
 
 
-<!-- ```{r setup, include=FALSE} -->
-<!-- knitr::opts_chunk$set(echo = TRUE) -->
-<!-- ``` -->
 <p><link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet"> <link rel="stylesheet" href="style.css" type="text/css" /></p>
 <div class="container-fluid main-container">
 
-<!-- <a href="http://cieb.unibas.ch/" target = "_blank">![Foo](cieb.png){ width=30% }</a> -->
+
 <div id="cross-border-commuting-and-inventions-made-in-switzerland" class="section level2">
 <h2><strong>Cross-border commuting and inventions ‘Made in Switzerland’</strong></h2>
 <p><br></p>
@@ -128,72 +125,21 @@ Combined, these definitions suggest that our approach to identifying cross-borde
 <p>We can now investigate the number of inventions by cross-border commuters in Switzerland. For this analysis, we use patent data from the <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> for U.S. patents and from the <a href= http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a> for European patents.</p>
 <p>Let us start by focusing on the number of inventors who commute to a Swiss workplace from neighboring countries. The figure below shows the absolute number of cross-border commuting inventors differentiated by country of origin.</p>
 <p><br></p>
-<p><br></p>
 <hr class="hr_red">
 <div id="origin-of-cross-border-commuters" class="section level5">
 <h5><strong><em>Origin of cross-border commuters</em></strong></h5>
-<p><img src="graph_crossborder_commuter_regio_en.png" style="width:100.0%" /></p>
-<!-- # ```{r, echo = FALSE, fig.asp = 0.5} -->
-<!-- # #### ORIGIN OF CROSS-BORDER COMMUTERS: ------------------------------------------------------------ -->
-<!-- # renderPlot({ -->
-<!-- #     -->
-<!-- # # define the data to plot -->
-<!-- # plot_data <- df_list[["neighboring_ctry"]] %>% filter(p_year <= max_year) -->
-<!-- # # make the plot -->
-<!-- # ggplot(plot_data)+#, aes(label = `Country of origin`))+ -->
-<!-- # geom_area(aes(x = p_year, y = count, fill = ctry_inv), alpha = 0.8)+ -->
-<!-- # scale_fill_brewer(palette = "RdBu", name = "",  -->
-<!-- #                   labels = c("Austria", "Germany", "France", "Italy")) + -->
-<!-- # labs(x = "Year", y = "Number of cross-border commuting inventors") + -->
-<!-- # theme(legend.position="bottom", -->
-<!-- #       panel.background = element_blank(), -->
-<!-- #       panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
-<!-- #       axis.title = element_text(face = "bold"), -->
-<!-- #       axis.line = element_line()) -->
-<!-- # }) -->
-<!-- # ``` -->
-<p><span style="font-size:0.8em"><em>Source: CIEBs’ own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
+<p><img src="graph_crossborder_commuter_regio_en.png" style="width:100.0%" /> <span style="font-size:0.8em"><em>Source: CIEBs’ own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
 <p><br></p>
 <p>At the beginning of the 1990s, there were relatively few cross-border commuting inventors – most of them commuted from Germany to Switzerland. However, until 2005 their number has increased to a combined total of over 1000 people for all neighboring countries. This fits nicely with the findings of <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler &amp; Peri (2020)</a>. According to these authors, the inflows of cross-border workers to Swiss border regions increased substantially following liberalizations at the beginning of the 21st century. Based on survey data, they point out that this additional inflow was especially relevant for research and development activities. Although it is important to note that we do not investigate any causal effects of the mentioned liberalizations, using patent data to identify cross-border commuting inventors seems to at least support this finding. Even more importantly, not considering all these cross-border commuting inventors and their corresponding patents could result in a substantial underreporting of Switzerland’s innovative output.</p>
-<p>The extent of this bias can be seen in the next plot. Focus on the colored areas first. They show the absolute number of patents invented by Swiss residents (blue) and cross-border commuters (red), respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview of the patenting in Switzerland see <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors. The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the red area). It is quite impressive. As early as 1990 around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.</p>
+<p>The extent of this bias can be seen in the next plot.</p>
 <br>
 <hr class="hr_red">
 </div>
 <div id="cross-border-commuters-in-switzerland" class="section level5">
 <h5><strong><em>Cross-border commuters in Switzerland</em></strong></h5>
-<p><img src="graph_crossborder_commuter_en.png" style="width:100.0%" /></p>
-<!-- # ```{r, echo = FALSE, warning = FALSE, fig.asp = 0.5} -->
-<!-- # #### CROSS-BORDER COMMUTERS IN SWITZERLAND: ------------------------------------------- -->
-<!-- # # load and prepare the data  -->
-<!-- # plot_data <- df_list[["CH_overall"]] %>% rename(`Swiss residents` = Swiss_based, Commuters = commuters) -->
-<!-- # plot_data <- plot_data %>% -->
-<!-- #   mutate(share = share -1) %>% -->
-<!-- #   filter(p_year <= max_year) %>% -->
-<!-- #   gather(key = Type, value = number, `Swiss residents`, Commuters) -->
-<!-- # plot_data <- plot_data %>% mutate(Status = paste0(Type, "\nCount: ", trunc(number))) -->
-<!-- # plot_data <- plot_data %>% mutate(Share = paste0(round(100 * share, 1), "%")) -->
-<!-- # # define parameters to transform the data to get 2nd axis: -->
-<!-- # ylim_absolute <- c(0, 5000) -->
-<!-- # ylim_share <- c(0, 0.15) -->
-<!-- # b <- diff(ylim_absolute)/diff(ylim_share) -->
-<!-- # a <- b*(ylim_absolute[1] - ylim_share[1]) -->
-<!-- # renderPlot({ -->
-<!-- #     ggplot(plot_data)+ -->
-<!-- #     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+ -->
-<!-- #     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+ -->
-<!-- #     scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) + -->
-<!-- #     scale_y_continuous("Share of patents by cross-border commuters", -->
-<!-- #                        sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"),  -->
-<!-- #                        labels = c("0%", "5%", "10%", "15%"))+ -->
-<!-- #     xlab("Year") + -->
-<!-- #     theme(legend.position="bottom", -->
-<!-- #           panel.background = element_blank(), -->
-<!-- #           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
-<!-- #           axis.title = element_text(face = "bold"), -->
-<!-- #           axis.line = element_line()) -->
-<!-- # }) -->
-<!-- # ``` -->
-<p><span style="font-size:0.8em"><em>Source: CIEBs’ own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
+<p><img src="graph_crossborder_commuter_en.png" style="width:100.0%" /> <span style="font-size:0.8em"><em>Source: CIEBs’ own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
+<p><br></p>
+<p>Focus on the colored areas first. They show the absolute number of patents invented by Swiss residents (blue) and cross-border commuters (red), respectively. Patents have increased over time for both Swiss residents and cross-border commuters alike (for a general overview of the patenting in Switzerland see <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/119256/eth-49547-01.pdf?sequence=1&isAllowed=y target = “_blank”> Arvanitis et al., 2015</a>). Also, we can immediately see that Switzerland’s patent output is clearly higher when also considering cross-border commuting inventors. The black solid line states the share of patents that were invented by cross-border commuters (i.e. the share of the red area). It is quite impressive. As early as 1990 around 5% of all patents developed in Switzerland were inventions by cross-border commuters. This share doubled to around 10% in 2005 and has remained relatively stable ever since.</p>
 <p><br></p>
 <p>What do these findings imply? First and foremost, it means that Swiss innovative activity could be underestimated by around 10% if the work of cross-border commuting inventors is not considered. Second, as the share of patents by cross-border commuters has not increased for the last 10 years, it seems unlikely that cross-border commuters have substituted domestic inventors.</p>
 <div class="bloc_div">
@@ -204,13 +150,7 @@ Combined, these definitions suggest that our approach to identifying cross-borde
 <p>Instead, patenting by both Swiss residents <em>and</em> cross-border commuters has grown rapidly, suggesting that the Swiss economy benefits substantially from cross-border commuting inventors. This is again consistent with the results of <a href = https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/432769/wp_486.pdf?sequence=1&isAllowed=y target = “_blank”>Beerli, Ruffner, Siegenthaler &amp; Peri (2020)</a>. Having more cross-border commuting inventors has gone hand in hand with more patents filed by <em>both</em> Swiss residents <em>and</em> commuters. This again supports the argument that Switzerland’s innovative output could indeed have greatly benefited from the additional inflow of cross-border commuting inventors.</p>
 <p><br></p>
 <p>Cross-border commuters seem to substantially fuel the innovative engine of the Swiss economy. But this could even be more apparent for some specific regions and industries. The graph below allows you to examine this further for yourself. You can choose a Swiss region (as defined by the <a href = http://www.oecd.org/cfe/regionaldevelopment/territorial-grid.pdf target = “_blank”>OECD</a>) or a technology field (as defined by the <a href = https://www.wipo.int/export/sites/www/ipstats/en/statistics/patents/pdf/wipo_ipc_technology.pdf  target = “_blank”>WIPO</a>) and the graph displays patent counts and the share of patents invented by cross-border commuters for your selected region or technology field.</p>
-<div class="bloc_div">
-<blockquote>
-<strong><em>Cross-border commuters seem to substantially fuel the innovative engine of the Swiss economy.</em></strong>
-</blockquote>
-</div>
-<p>Note that in contrast to the previous plot, the counts and shares are not calculated annually but over 3-year periods up to the year 2011. This is because the number of patents in a single year can be rather low for some industries and, as a result, the shares of cross-border commuters would fluctuate sharply. Using 3-year periods instead smooths out such fluctuations. Further, note that cross-border commuting was restricted from and to border regions before the liberalizations at the beginning of the 21st century. There are nonetheless some cross-border commuters registered in the non-border region of Central Switzerland (covering the cantons Luzern, Uri, Schwyz, Zug, Nidwalden and Obwalden). The most likely reasons for this are that these inventors were either not cross-border commuters in a legal sense (e.g. they were Swiss residents but also had a foreign address which they stated on the patent documentation) or the patent was only filed by a company headquarters in Central Switzerland, whereas the actual research was conducted in a lab in the border region.</p>
-<br>
+<p><br></p>
 <hr class="hr_red">
 </div>
 <div id="cross-border-commuters-in-swiss-regions-and-industries" class="section level5">
@@ -220,77 +160,15 @@ Combined, these definitions suggest that our approach to identifying cross-borde
 Your browser does not support iframes
 </p>
 </iframe>
-<!-- # ```{r, echo = FALSE, message = FALSE, fig.height = 3} -->
-<!-- # #### CROSS-BORDER COMMUTERS IN SWISS REGIONS & INDUSTRIES -------------------------------- -->
-<!-- # # (1) apply the custom reshape_fun()-function to both data-sets and combine technology field names -->
-<!-- # plot_df <- lapply(c("CH_region", -->
-<!-- #                     "CH_Techfields"), function(x) reshape_fun(dataset = x)) -->
-<!-- # names(plot_df) <- c("CH_region", "CH_Techfields") -->
-<!-- # # (2) specify picker_input() selection options -->
-<!-- # REGIONS <- as.list(as.character(unique(na.omit(plot_df$CH_region$regio_pat)))) -->
-<!-- # names(REGIONS) <- REGIONS -->
-<!-- # tech_field_name <- paste(plot_df$CH_Techfields$tech_field, -->
-<!-- #                          plot_df$CH_Techfields$tech_name) -->
-<!-- # tech_field_name <- unique(tech_field_name) -->
-<!-- # TECHFIELDS <- as.list(as.character(unique(na.omit(plot_df$CH_Techfields$tech_field)))) -->
-<!-- # names(TECHFIELDS) <- tech_field_name -->
-<!-- # # (2) choose between region or industry and define the data ------------------------------ -->
-<!-- # radioButtons(inputId = "region_or_industry", -->
-<!-- #              label = NULL, choiceNames = c("Region", "Technology Field"), -->
-<!-- #              choiceValues = c("CH_region", "CH_Techfields"), selected = "CH_region", -->
-<!-- #              inline = TRUE) -->
-<!-- # conditionalPanel(condition = "input.region_or_industry == 'CH_region'", -->
-<!-- #                  pickerInput( -->
-<!-- #                    inputId = "OBS_reg", -->
-<!-- #                    label = "Choose a region", selected = "Northwestern Switzerland", -->
-<!-- #                    choices = REGIONS, -->
-<!-- #                    multiple = FALSE)) -->
-<!-- # conditionalPanel(condition = "input.region_or_industry == 'CH_Techfields'", -->
-<!-- #                  pickerInput( -->
-<!-- #                    inputId = "OBS_ind", -->
-<!-- #                    label = "Choose a technology field", selected = "16 Pharmaceuticals", -->
-<!-- #                    choices = TECHFIELDS, -->
-<!-- #                    multiple = FALSE)) -->
-<!-- # # (3) make the plot --------------------------------------------------------------------- -->
-<!-- # ## STATIC -->
-<!-- # renderPlot({ -->
-<!-- #   # specify data and parameters -->
-<!-- #   plot_data <- plot_df[[input$region_or_industry]] -->
-<!-- #   subsetter <- colnames(plot_data)[1] -->
-<!-- #   if(subsetter == "tech_field"){ -->
-<!-- #     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_ind)}else{ -->
-<!-- #     keep_obs <- which(as.character(plot_data[, subsetter]) == input$OBS_reg) -->
-<!-- #     } -->
-<!-- #   plot_data <- plot_data[keep_obs, ] -->
-<!-- #   plot_data <- filter(plot_data, p_year <= 2011) -->
-<!-- #    -->
-<!-- #   # define the plot parameters -->
-<!-- #   ylim_absolute <- c(0, max(plot_data$number, na.rm = TRUE)) -->
-<!-- #   ylim_share <- c(0, max(plot_data$share, na.rm = TRUE)) -->
-<!-- #   b <- diff(ylim_absolute)/diff(ylim_share) -->
-<!-- #   a <- b*(ylim_absolute[1] - ylim_share[1]) -->
-<!-- #   # make the plot -->
-<!-- #  ggplot(plot_data)+ -->
-<!-- #     geom_area(aes(x = p_year, y = - a + number / b, fill = Type), alpha = 0.8)+ -->
-<!-- #     geom_line(aes(x = p_year, y = share), color = "black", size = 1)+ -->
-<!-- #     # scale_fill_viridis(discrete = TRUE, option = "inferno", begin = 0.3, end = 0.7, -->
-<!-- #                      # labels = c("Patents by cross-border commuters", "Patents by Swiss residents"), name = "") + -->
-<!-- #      -->
-<!-- #     scale_fill_manual(values = c("#D6604D", "#4393C3"), labels = c("Patents by cross-border commuters", "Patents by Swiss residents")) + -->
-<!-- #     scale_y_continuous("Share of patents by cross-border commuters", -->
-<!-- #                      sec.axis = sec_axis(~ (. + a) * b, name = "Total number of patents"), -->
-<!-- #                      labels = scales::percent)+ -->
-<!-- #     xlab("Year") + -->
-<!-- #     theme(legend.position="bottom", -->
-<!-- #           panel.background = element_blank(), -->
-<!-- #           legend.title = element_blank(), -->
-<!-- #           panel.grid.major.y = element_line(colour = "black", linetype = "dotted"), -->
-<!-- #           axis.title = element_text(face = "bold"), -->
-<!-- #           axis.line = element_line())  -->
-<!-- #   }) -->
-<!-- # ``` -->
 <p><span style="font-size:0.8em"><em>Source: CIEBs’ own estimations based on data from the <a href="https://www.uspto.gov/" target ="blank">USPTO</a> and the <a href="http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. The data used for this plot is available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
 <p><br></p>
+Note that in contrast to the previous plot, the counts and shares are not calculated annually but over 3-year periods up to the year 2011. This is because the number of patents in a single year can be rather low for some industries and, as a result, the shares of cross-border commuters would fluctuate sharply. Using 3-year periods instead smooths out such fluctuations. Further, note that cross-border commuting was restricted from and to border regions before the liberalizations at the beginning of the 21st century.
+<div class="bloc_div">
+<blockquote>
+<strong><em>Cross-border commuters seem to substantially fuel the innovative engine of the Swiss economy.</em></strong>
+</blockquote>
+</div>
+<p>There are nonetheless some cross-border commuters registered in the non-border region of Central Switzerland (covering the cantons Luzern, Uri, Schwyz, Zug, Nidwalden and Obwalden). The most likely reasons for this are that these inventors were either not cross-border commuters in a legal sense (e.g. they were Swiss residents but also had a foreign address which they stated on the patent documentation) or the patent was only filed by a company headquarters in Central Switzerland, whereas the actual research was conducted in a lab in the border region.</p>
 <p>The share of patents by cross-border commuters varies from only around 0.5-1% in Espace Mittelland to a maximum of nearly 30% in the border regions of Northwestern Switzerland and Ticino. The same is true for different technology fields. “16 Pharmaceuticals”, which is the most important export sector of the Swiss economy, has also by far the highest share of patents developed by cross-border commuting inventors (up to over 30%). Similarly, many other fields related to chemistry and biology also have relatively high shares. For both fields, this is most likely because Basel is the location of Switzerland’s most important pharmaceutical and chemistry cluster.</p>
 <p>Another interesting observation is the increasing number of patents by cross-border commuting inventors over time in booming fields such as “4 Digital communication”, “6 Computer technology”, “24 Environmental technology” or “13 Medical technology”. Thus, being able to recruit cross-border commuters is particularly important in several dynamic and emerging technology fields.</p>
 <div class="bloc_div">
