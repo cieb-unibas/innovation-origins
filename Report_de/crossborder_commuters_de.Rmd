@@ -77,14 +77,14 @@ Alle Entwickler dieses Patents leben in Deutschland oder Frankreich und als Pate
 <br>
 
 <div class="box_div" id="pat_method">	
-<p style="font-size:18px">**Erfassung von Schweizer Grenzgängern in den Patentdaten**</p>
+<p style="font-size:18px">**Erfassung von Grenzgängern in den Patentdaten**</p>
 
 <details>
   <summary>*Zur Erläuterung unseres methodischen Vorgehens, klicken Sie hier*</summary>
 
 Die Patentdaten, die wir für den ersten Schritt der Analyse verwenden, stammen vom U.S.-Patentamt <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a>. Sie decken den Zeitraum von 1990 bis 2015 ab und sind um Mehrfachanmeldungen korrigiert (für weitere Informationen über Mehrfachanmeldungen siehe z.B. <a href = https://www.oecd-ilibrary.org/science-and-technology/analysing-european-and-international-patent-citations_883002633010 target = “_blank”>Webb, Dernis, Harhoff und Hoisl, 2005</a>). Dieser Datensatz enthält sowohl Informationen über den Wohnsitz der Patententwickler als auch über den Sitz der Unternehmen. Er enthält ebenfalls die geographischen Koordinaten der Adressen, sodass Distanzen messbar werden. Jedes Patent ordnen wir genau dem Jahr zu, in dem die Erfindung das erste Mal in irgendeinem Land angemeldet wurde. Da das Datum der Erstanmeldung dem tatsächlichen Zeitpunkt der Erfindung am nächsten kommt, wird es bei der Analyse der Innovationskraft mittels Patentdaten häufig herangezogen (weitere Informationen dazu finden Sie z.B. unter <a href = http://www.oecd.org/science/inno/37569377.pdf target = “_blank”>OECD, 2008</a>). Zwischen der Erstanmeldung eines Patents und dessen Veröffentlichung verstreicht in der Regel einige Zeit. Daher beschränken wir uns bei unserer Analyse auf Patente, deren Erstanmeldung spätestens im Jahre 2015 liegt, da wir davon ausgehen, dass der Grossteil dieser Patente bis heute auch veröffentlicht wurde, was bei später angemeldeten Patenten (z.B. aus dem Jahr 2018) teilweise noch nicht der Fall sein dürfte und dies somit zu Verzerrungen bei der Analyse führen könnte. Aus den beschriebenen Datensätzen entwickeln wir einen empirischen Ansatz, um Innovationen von Grenzgängern, die in der Schweiz arbeiten, zu identifizieren und zu quantifizieren.
 
-Ein Patent ist immer dann möglicherweise die Erfindung eines Grenzgängers, wenn der Erfinder nicht in der Schweiz wohnt, die Firma, die das Patent anmeldet, jedoch in der Schweiz ansässig ist. Wenn mehrere Firmen aus verschiedenen Ländern an der Patententwicklung beteiligt waren, müssen wir jeden Erfinder je eine Firma zuordnen. Dazu weisen wir jedem Erfinder immer diejenige Firma zu, die am nächsten zu seinem Wohnort angesiedelt ist. Die dadurch identifizierten Erfinder sind nun allerdings keineswegs allesamt Schweizer Grenzgänger. Bei dem oben gezeigten Beispielpatent hatte die Firma ihren Sitz in der Schweiz und mehrere der Erfinder lebten in Deutschland. Einer von ihnen lebte z.B. in Hamburg, einer Stadt, die in Norddeutschland liegt. Von dort aus ist es fast unmöglich in die Schweiz zur Arbeit zu pendeln.
+Ein Patent ist immer dann möglicherweise die Erfindung eines Grenzgängers, wenn der Erfinder nicht in der Schweiz wohnt, die Firma, die das Patent anmeldet, jedoch in der Schweiz ansässig ist. Wenn mehrere Firmen aus verschiedenen Ländern an der Patententwicklung beteiligt waren, müssen wir jeden Erfinder je eine Firma zuordnen. Dazu weisen wir jedem Erfinder immer diejenige Firma zu, die am nächsten zu seinem Wohnort angesiedelt ist. Die dadurch identifizierten Erfinder sind nun allerdings keineswegs allesamt Grenzgänger in die Schweiz. Bei dem oben gezeigten Beispielpatent hatte die Firma ihren Sitz in der Schweiz und mehrere der Erfinder lebten in Deutschland. Einer von ihnen lebte z.B. in Hamburg, einer Stadt, die in Norddeutschland liegt. Von dort aus ist es fast unmöglich in die Schweiz zur Arbeit zu pendeln.
 Um Grenzgänger zuverlässig zu identifizieren müssen wir unseren Analyseansatz also verfeinern. Wir führen dazu eine maximale Entfernung zwischen dem Unternehmensstandort und dem Wohnort des Erfinders ein. Als Schwellenwert legen wir fest, dass die Distanz nicht grösser als etwa 100 Kilometer sein darf – bei einer grösseren Entfernung gehen wir davon aus, dass das Pendeln unmöglich ist. Zur Berechnung der Entfernung verwenden wir die Breiten- und Längengrade der jeweiligen Adressen.
 
 Wir weisen einem Erfinder folglich immer genau dann den Status eines Grenzgängers zu, wenn
@@ -114,7 +114,7 @@ Zusammengefasst weisen wir einem Erfinder eines EPA-Patents nur dann den Status 
 
 Da diese Definition etwas enger gefasst ist als zuvor bei den USPTO-Patenten, nehmen wir in Kauf, ggf. einzelne Grenzgänger bei den EPA-Patenten zu übersehen. Alle identifizierten Grenzgänger sind aber mit sehr hoher Wahrscheinlichkeit tatsächlich grenzüberschreitende Pendler in die Schweiz – in der Analyse der EPA-Patente werden die Grenzgänger also eher unter- als überschätzt.
 
-Wie viele Patente werden denn nun von Grenzgängern (mit-)entwickelt? Gibt es eine nennenswerte Anzahl an Patenten, die bisher der Schweiz nicht zugerechnet wurden, obwohl diese von Schweizer Unternehmen stammen? Unsere Ergebnisse für das USPTO und das EPA zusammengenommen zeigen, dass im Laufe der Zeit wahrscheinlich 21'799 Patente von Schweizer Grenzgängern (mit-)entwickelt wurden. Im nächsten Abschnitt gehen wir darauf ein, was dies für die Innovationstätigkeit der Schweiz bedeutet. 
+Wie viele Patente werden denn nun von Grenzgängern (mit-)entwickelt? Gibt es eine nennenswerte Anzahl an Patenten, die bisher der Schweiz nicht zugerechnet wurden, obwohl diese von Schweizer Unternehmen stammen? Unsere Ergebnisse für das USPTO und das EPA zusammengenommen zeigen, dass im Laufe der Zeit wahrscheinlich 21'799 Patente von Grenzgängern (mit-)entwickelt wurden. Im nächsten Abschnitt gehen wir darauf ein, was dies für die Innovationstätigkeit der Schweiz bedeutet. 
 
 </details>
 </div>
@@ -123,7 +123,7 @@ Wie viele Patente werden denn nun von Grenzgängern (mit-)entwickelt? Gibt es ei
 
 ### **Grenzgänger und Innovationen «Made in Switzerland»** 
 
-Mithilfe der oben beschriebenen Analyse können wir die Anzahl an Erfindungen ermitteln, die von Schweizer Grenzgängern stammen. Dabei verwenden wir für U.S.-amerikanische Patente die Patentdaten des <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> und für europäische Patente die Patentdaten der <a href=http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a>. 
+Mithilfe der oben beschriebenen Analyse können wir die Anzahl an Erfindungen ermitteln, die von Grenzgängern in die Schweiz stammen. Dabei verwenden wir für U.S.-amerikanische Patente die Patentdaten des <a href = https://www.uspto.gov/ target = “_blank”>USPTO</a> und für europäische Patente die Patentdaten der <a href=http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm target ="blank">OECD</a>. 
 
 Was zeigt nun unsere Analyse? Schauen wir uns zunächst die Anzahl an Erfindern an, die aus den Nachbarländern an einen Schweizer Arbeitsplatz pendeln. Die nachstehende Abbildung zeigt die absolute Zahl der grenzüberschreitend-pendelnden Erfinder, differenziert nach Herkunftsland.
 
@@ -146,7 +146,7 @@ Ein sehr wichtiges Ergebnis unserer Arbeit ist ausserdem, dass die Schweizer Inn
 <br>
 
 <hr class="hr_red">
-##### ***Patentanmeldungen von Schweizer Grenzgängern***
+##### ***Patentanmeldungen von Grenzgängern in die Schweiz***
 ![](graph_crossborder_commuter_de.png){ width=100% }
 <span style="font-size:0.8em">*Quelle: Eigene Berechnungen des CIEB basierend auf Daten des <a href="https://www.uspto.gov/" target ="blank">USPTO</a> und der <a href = "http://www.oecd.org/sti/inno/intellectual-property-statistics-and-analysis.htm" target ="blank">OECD</a>. Die Daten für diese Grafik finden Sie auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
 
