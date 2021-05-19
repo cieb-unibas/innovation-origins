@@ -29,6 +29,7 @@
 
 
 
+<link rel="stylesheet" href="https://innoscape.de/cross_border/style.css" type="text/css" />
 
 
 
@@ -43,14 +44,26 @@
 
 
 
-<p><link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet"> <link rel="stylesheet" href="style.css" type="text/css" /></p>
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-71167447-1', { 'anonymize_ip': true });
+</script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="style.css" type="text/css" />
 <div class="container-fluid main-container">
-
-
+</head>
 <div id="cross-border-commuting-and-inventions-made-in-switzerland" class="section level2">
 <h2><strong>Cross-border commuting and inventions ‘Made in Switzerland’</strong></h2>
 <p><br></p>
-<p><em>September 2020</em> by <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> and <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a></p>
+<p><em>September 2020</em> by <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/mn2018.jpg'><b>Matthias Niggli</b> is a project collaborator. He has a background in public policy from previous positions at the Swiss Federal Institute of Intellectual Property (IPI) and the Swiss State Secretariat for Economic Affairs (SECO). He has a special interest in experimenting with all kinds of machine-learning methods and is enthusiastic about discovering novel approaches to visualize data. <br> 
+<a href='mailto:matthias.niggli@unibas.ch'>matthias.niggli@unibas.ch</a>">Matthias Niggli</a>, <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/Christian Rutzer_small.jpg'> <b>Christian Rutzer</b> is the chief scientist and operational manager of the project. He holds a PhD in economics from the University of Basel in international trade and innovation. Christian likes to apply new methods from data science to analyze economic questions. <br> 
+<a href='mailto:christian.rutzer@unibas.ch'>christian.rutzer@unibas.ch</a>">Christian Rutzer</a> and <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/DF_picture.jpg'><b>Dragan Filimonovic</b> is a project collaborator. He holds a PhD in economics from the University of Basel. He is specialized in applying methods for causal inference to evaluate public policies. Dragan is passionate about working with big data and is always in pursuit of finding creative solutions to interesting economic riddles. <br> <a href='mailto:dragan.filimonovic@unibas.ch'>dragan.filimonovic@unibas.ch</a>">Dragan Filimonovic</a></p>
 <p><br></p>
 <p><img src="title_picture.jpg" style="width:100.0%" /></p>
 <p>Picture: <a href="https://www.flickr.com/photos/stormsworld/8456586910/in/photolist-JfMjzY-Jf3uBk-9HwYDV-ZiCo9F-2jagrVH-HMX3CB-szWiqL-PsKy3L-bRHW5-HbJ87t-mWUYYB-J6PXd-228e7G7-nX4vQD-GAoNUV-AnHZzL-QonY9T-TUXSe1-MynNKE-yoSd93-dwmhsa-WyYCTY-7oFhzy-easv3-4VR2iw-BG4XB8-UkSxzU-ZbG9qo-uYNiyQ-aq6HJV-2gTznUx-3dSjtL-P2g2FQ-8xkuwR-6nJEim-5bA2Ve-5bA2yK-7Xo2QH-8qknKq-5aLf3M-t8HmX-8upbZT-3avCQY-dThdEA-2gaaCH-C2ckEz-5aQ6UU-26Frxpu-bV9qz-57bbjv" target = "_blank">Barry Davis | Flickr</a></p>
@@ -187,20 +200,30 @@ Note that in contrast to the previous plot, the counts and shares are not calcul
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <p><br></p>
 <p><span style="font-size:0.8em"><em>This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.</em></span></p>
-<p><br> <br> <br> <br></p>
-</div>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-71167447-1');
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
 </script>
 </div>
 </div>
 </div>
 
+&nbsp;
+<hr />
+<p style="text-align: center;"><a href="https://cieb.unibas.ch" target=”_blank” style='color:black;'>Center for International Economics and Business | CIEB | University of Basel </a></p>
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://twitter.com/cieb_unibas/" class="fa fa-twitter" style='color:black;' target=”_blank”></a>
+    <a href="https://www.linkedin.com/company/68502309/admin/" class="fa fa-linkedin" style='color:black;' target=”_blank”></a>
+    <a href="https://github.com/cieb-unibas/" class="fa fa-github" style='color:black;' target=”_blank”></a>
+</p>
+
+&nbsp;
 
 
 <!-- code folding -->

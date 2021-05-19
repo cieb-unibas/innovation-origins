@@ -2,24 +2,40 @@
 title: ''
 output:
   html_document:
+    includes:
+     after_body: footer.html
     self_contained: false
     theme: null
     css: null
     highlight: null
     mathjax: null
 ---
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-71167447-1', { 'anonymize_ip': true });
+</script>
+
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="style.css" type="text/css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 <div class="container-fluid main-container">
+</head>
+
 
 ## **Grenzgänger und Innovationen “Made in Switzerland”**
 
 <br>
 
-*September 2020* verfasst von <a href="https://wwz.unibas.ch/de/personen/matthias-niggli/" target = "_blank">Matthias Niggli</a>, <a href="https://wwz.unibas.ch/de/personen/christian-rutzer/" target = "_blank">Christian Rutzer</a> und <a href="https://wwz.unibas.ch/de/personen/dragan-filimonovic/" target = "_blank">Dragan Filimonovic</a>
-
+*September 2020* verfasst von <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/mn2018.jpg'><b>Matthias Niggli</b> ist Projektmitarbeiter. Er hat einen Hintergrund in Public Policy aus früheren Positionen am Eidgenössischen Institut für Geistiges Eigentum (IGE) und am Staatssekretariat für Wirtschaft (SECO). Matthias hat ein besonderes Interesse am Experimentieren mit Methoden des Maschine-Learning und entdeckt gerne neue Ansätze zur Visualisierung von Daten. <br> 
+<a href='mailto:matthias.niggli@unibas.ch'>matthias.niggli@unibas.ch</a>">Matthias Niggli</a>, <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/Christian Rutzer_small.jpg'> <b>Christian Rutzer</b> ist leitender Wissenschaftler und operativer Leiter des Projektes. Er hat an der Universität Basel in Wirtschaftswissenschaften im Bereich internationaler Handel und Innovation promoviert. Christian wendet gerne neue Data-Science Methoden an, um ökonomische Fragen zu analysieren.<br> 
+<a href='mailto:christian.rutzer@unibas.ch'>christian.rutzer@unibas.ch</a>">Christian Rutzer</a> and <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/DF_picture.jpg'><b>Dragan Filimonovic</b> ist Projektmitarbeiter. Er hat an der Universität Basel in Wirtschaftswissenschaften promoviert. Sein Spezialgebiet ist die Anwendung von Methoden zur kausalen Inferenz zur Bewertung von wirtschaftspolitischen Massnahmen. Dragan arbeitet gerne mit grossen Datensätzen und ist immer auf der Suche nach kreativen Lösungen für interessante wirtschaftliche Rätsel.<br> <a href='mailto:dragan.filimonovic@unibas.ch'>dragan.filimonovic@unibas.ch</a>">Dragan Filimonovic</a> 
 
 <br>
 
@@ -212,19 +228,12 @@ Alle diese Ergebnisse deuten darauf hin, dass offene Grenzen ein Schlüssel für
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 
 <br>
+
 <span style="font-size:0.8em">*Dieser Artikel wurde mithilfe von <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> und <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a> geschrieben. Die Berechnungen zur Identifizierung von grenzüberschreitend pendelnden Patent-Entwicklern wurden im wissenschaftlichen Rechenzentrum <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> der Universität Basel durchgeführt. Die Daten und Algorithmen zur Reproduktion der in diesem Artikel vorgestellten Zahlen sind auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a> verfügbar.*</span>
-<br>
-<br>
-<br>
-<br>
 
-</div>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71167447-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-71167447-1');
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
 </script>
