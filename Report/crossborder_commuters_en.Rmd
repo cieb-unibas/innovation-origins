@@ -2,7 +2,7 @@
 output:
   html_document:
     includes:
-     after_body: footer.html
+       after_body: "https://innoscape.de/general_stuff/footer.html"
     title: 'crossborder commuter'
     self_contained: false
     theme: null

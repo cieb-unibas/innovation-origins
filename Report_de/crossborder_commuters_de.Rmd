@@ -3,7 +3,7 @@ title: ''
 output:
   html_document:
     includes:
-     after_body: footer.html
+       after_body: "https://innoscape.de/general_stuff/footer_deu.html"
     self_contained: false
     theme: null
     css: null
