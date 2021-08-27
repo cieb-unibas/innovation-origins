@@ -3,7 +3,7 @@ title: ''
 output:
   html_document:
     includes:
-       after_body: "https://innoscape.de/general_stuff/footer_deu.html"
+       after_body: "https://innoscape.de/general_stuff/footer_de.html"
     self_contained: false
     theme: null
     css: null
@@ -35,7 +35,7 @@ output:
 
 *September 2020* verfasst von <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/mn2018.jpg'><b>Matthias Niggli</b> ist Projektmitarbeiter. Er hat einen Hintergrund in Public Policy aus früheren Positionen am Eidgenössischen Institut für Geistiges Eigentum (IGE) und am Staatssekretariat für Wirtschaft (SECO). Matthias hat ein besonderes Interesse am Experimentieren mit Methoden des Maschine-Learning und entdeckt gerne neue Ansätze zur Visualisierung von Daten. <br> 
 <a href='mailto:matthias.niggli@unibas.ch'>matthias.niggli@unibas.ch</a>">Matthias Niggli</a>, <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/Christian Rutzer_small.jpg'> <b>Christian Rutzer</b> ist leitender Wissenschaftler und operativer Leiter des Projektes. Er hat an der Universität Basel in Wirtschaftswissenschaften im Bereich internationaler Handel und Innovation promoviert. Christian wendet gerne neue Data-Science Methoden an, um ökonomische Fragen zu analysieren.<br> 
-<a href='mailto:christian.rutzer@unibas.ch'>christian.rutzer@unibas.ch</a>">Christian Rutzer</a> and <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/DF_picture.jpg'><b>Dragan Filimonovic</b> ist Projektmitarbeiter. Er hat an der Universität Basel in Wirtschaftswissenschaften promoviert. Sein Spezialgebiet ist die Anwendung von Methoden zur kausalen Inferenz zur Bewertung von wirtschaftspolitischen Massnahmen. Dragan arbeitet gerne mit grossen Datensätzen und ist immer auf der Suche nach kreativen Lösungen für interessante wirtschaftliche Rätsel.<br> <a href='mailto:dragan.filimonovic@unibas.ch'>dragan.filimonovic@unibas.ch</a>">Dragan Filimonovic</a> 
+<a href='mailto:christian.rutzer@unibas.ch'>christian.rutzer@unibas.ch</a>">Christian Rutzer</a> und <a href="#" data-placement="bottom" data-toggle="tooltip"  data-html="true" title="<img src='https://innoscape.de/authors/DF_picture.jpg'><b>Dragan Filimonovic</b> ist Projektmitarbeiter. Er hat an der Universität Basel in Wirtschaftswissenschaften promoviert. Sein Spezialgebiet ist die Anwendung von Methoden zur kausalen Inferenz zur Bewertung von wirtschaftspolitischen Massnahmen. Dragan arbeitet gerne mit grossen Datensätzen und ist immer auf der Suche nach kreativen Lösungen für interessante wirtschaftliche Rätsel.<br> <a href='mailto:dragan.filimonovic@unibas.ch'>dragan.filimonovic@unibas.ch</a>">Dragan Filimonovic</a> 
 
 <br>
 
@@ -210,26 +210,15 @@ Eine weitere interessante Beobachtung ist folgende: im Laufe der Zeit steigt die
 
 Alle diese Ergebnisse deuten darauf hin, dass offene Grenzen ein Schlüssel für hochwertige Schweizer Innovationen sind. Ohne die Möglichkeit, grenzüberschreitend-pendelnde Forscher und Entwickler rekrutieren zu können, könnte der Patent-Output der Schweiz insgesamt deutlich geringer ausfallen. An dieser Stelle seien neben den Grenzgängern auch die vielen hochqualifizierten Einwanderer erwähnt, die in der Schweiz beschäftigt sind. Wenn die Schweizer Wirtschaft nicht mehr vom Wissen all dieser ausländischen Arbeitskräfte profitieren könnte, würde sich ihre Innovationskraft höchstwahrscheinlich deutlich verringern. Dies wäre auch deshalb besorgniserregend, da die Grenzgänger insbesondere in hochdynamischen und zukunftsträchtigen Technologiefeldern wie Informatik, Biotechnologie, Pharmazie und Umwelttechnologie äusserst wichtig zu sein scheinen.   
 
-
-<br>
-
-**Falls Sie an einem Vergleich** der Schweizer Pharma mit anderen Ländern interessiert sind, dann könnte für Sie unsere Analyse <a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> Pharma Schweiz: Ein Treiber für Wachstum und Innovation</a> (in englischer Sprache) interessant sein.
-
-<br>
-
-**Diesen Artikel teilen**
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://innoscape.ch/de/publikationen/grenzgaenger_innovationen_schweiz" data-a2a-title="Analyse im Rahmen von Innoscape: Grenzgänger und Innovationen “Made in Switzerland”">
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_linkedin"></a>
-<a class="a2a_button_xing"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_email"></a>
+<div>
+<iframe id="slider" width=100%" height="400" scrolling="no" frameBorder="0" style="overflow: hidden" src="https://innoscape.de/cross_border_de/teaser_de.html">
+</iframe>
 </div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
+
 
 <br>
-
-<span style="font-size:0.8em">*Dieser Artikel wurde mithilfe von <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> und <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a> geschrieben. Die Berechnungen zur Identifizierung von grenzüberschreitend pendelnden Patent-Entwicklern wurden im wissenschaftlichen Rechenzentrum <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> der Universität Basel durchgeführt. Die Daten und Algorithmen zur Reproduktion der in diesem Artikel vorgestellten Zahlen sind auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a> verfügbar.*</span>
+<br>
+<span style="font-size:0.8em">*Dieser Artikel wurde mithilfe von <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> und <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a> geschrieben. Die Berechnungen zur Identifizierung von grenzüberschreitend pendelnden Patent-Entwicklern wurden im wissenschaftlichen Rechenzentrum <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> der Universität Basel durchgeführt. Die Daten und Algorithmen zur Reproduktion der in diesem Artikel vorgestellten Zahlen sind auf <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a> verfügbar. Wir danken Klara Buchner für die exzellente Übersetzung des Beitrags vom Deutschen in das Englische.*</span>
 
 
 <script>

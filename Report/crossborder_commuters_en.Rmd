@@ -196,32 +196,23 @@ The share of patents by cross-border commuters varies from only around 0.5-1% in
 
 Another interesting observation is the increasing number of patents by cross-border commuting inventors over time in booming fields such as “4 Digital communication”, “6 Computer technology”, “24 Environmental technology” or “13 Medical technology”. Thus, being able to recruit cross-border commuters is particularly important in several dynamic and emerging technology fields.
 
+
 <div class=bloc_div>
 <blockquote>***Open borders are key for high-quality innovations in Switzerland.***</blockquote>
 </div>
 
 All of these findings indicate that open borders are key for high-quality innovations in Switzerland. Without having the possibility to recruit cross-border commuting researchers and developers, Switzerland’s overall patent output could be significantly lower. Besides cross-border workers, Switzerland also employs a high number of high-skilled immigrants. If the Swiss economy could no longer benefit from the knowledge of all of these foreign workers, its innovative capacity would most likely deteriorate severely. This would be particularly alarming as cross-border commuting inventors seem to be especially important in highly dynamic technology fields such as computer science, biotechnology, pharmaceuticals or environmental technologies.
 
-
-<br>
-
-**Interested in a comparison** of Swiss pharma with other countries? Then check out our analysis<a href = https://innoscape.ch/en/publications/the-pharmaceutical-industry-a-driver-of-innovation-and-growth-in-switzerland target = “_blank”> The pharmaceutical industry: a driver of innovation and growth in Switzerland</a>.
-
-<br>
-
-**Share this article**
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://innoscape.ch/en/publications/cross-border-commuting-and-inventions-made-in-switzerland" data-a2a-title="Analysis within Innoscape: Cross-border commuting and inventions Made in Switzerland">
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_linkedin"></a>
-<a class="a2a_button_xing"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_email"></a>
+<div>
+<iframe id="slider" width=100%" height="400" scrolling="no" frameBorder="0" style="overflow: hidden" src="https://innoscape.de/cross_border/teaser.html">
+</iframe>
 </div>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
+
 
 <br>
+<br>
 
-<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>.*</span>
+<span style="font-size:0.8em">*This report was written using <a href = https://rmarkdown.rstudio.com/ target = “_blank”>R Markdown</a> and <a href = https://shiny.rstudio.com/ target = “_blank”>R shiny</a>. Calculations to identify cross-border commuting patent inventors were performed at <a href = http://scicore.unibas.ch/ target = “_blank”> sciCORE </a> scientific computing center at the University of Basel. Data and code to reproduce the figures presented in this article are available on <a href= "https://github.com/cieb-unibas/innovation-origins" target="_blank">GitHub</a>. We thank Monty Sufrin for excellent proof-reading.*</span>
 
 <script>
 $(document).ready(function(){
